@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flytech - Drones Cargo & Agricoles | Valais</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <!-- [PLACEHOLDER] Logo tête d'aigle stylisée, lignes géométriques anguleuses -->
+                <svg width="40" height="40" viewBox="0 0 100 100" class="eagle-icon">
+                    <text y="80" font-size="90" font-weight="bold">𝗙</text>
+                </svg>
+                <span class="logo-text">Flytech</span>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-section="accueil">Accueil</button>
+                <button class="nav-btn" data-section="secteurs">Secteurs</button>
+                <button class="nav-btn" data-section="chantiers-actifs">Chantiers Actifs</button>
+                <button class="nav-btn" data-section="chantiers-attente">Chantiers en Attente</button>
+                <button class="nav-btn" data-section="maintenance">Maintenance</button>
+                <button class="nav-btn" data-section="administratif">Administratif</button>
+                <button class="nav-btn" data-section="qualifications">Qualifications</button>
+                <button class="nav-btn" data-section="contact">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- SECTION: ACCUEIL -->
+        <section id="accueil" class="section active">
+            <div class="hero">
+                <!-- [PLACEHOLDER] Image hero : drone en vol, survol de parcelles, montagne suisse en arrière-plan -->
+                <div class="hero-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
+                    [HERO IMAGE - Drone FlyCart en vol, Valais]
+                </div>
+                <div class="hero-content">
+                    <h1>Flytech</h1>
+                    <p class="hero-subtitle">Solutions de transport par drone cargo et agriculture de précision</p>
+                    <p class="hero-description">Basée en Valais, Flytech exploite les dernières technologies de drones autonomes pour des opérations de logistique de montagne et d'épandage agricole.</p>
+                </div>
+            </div>
+
+            <section class="two-column">
+                <div class="column fade-in">
+                    <div class="icon-box">📦</div>
+                    <h2>Drone Cargo</h2>
+                    <p>Transport de charges en zone montagne, ravitaillement de sites isolés, logistique dernière ligne.</p>
+                </div>
+                <div class="column fade-in">
+                    <div class="icon-box">🌾</div>
+                    <h2>Drone Agricole</h2>
+                    <p>Pulvérisation de précision, épandage, cartographie de parcelles pour une agriculture connectée.</p>
+                </div>
+            </section>
+        </section>
+
+        <!-- SECTION: SECTEURS D'ACTIVITÉ -->
+        <section id="secteurs" class="section">
+            <div class="container">
+                <h1>Secteurs d'Activité</h1>
+
+                <div class="sector-card fade-in">
+                    <div class="sector-hero" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
+                        [IMAGE] DJI FlyCart - Transport cargo
+                    </div>
+                    <div class="sector-content">
+                        <h2>Drone Cargo</h2>
+                        <p><strong>Matériel utilisé :</strong> DJI FlyCart, FlyCart 200 (en projet)</p>
+                        <h3>Cas d'usage</h3>
+                        <ul>
+                            <li>Transport de charges vers sites isolés (refuges, chalets, zones de montagne)</li>
+                            <li>Logistique dernière ligne en zone urbaine/périurbaine</li>
+                            <li>Ravitaillement d'opérations de chantier en altitude</li>
+                            <li>Évacuation sanitaire légère</li>
+                        </ul>
+                        <h3>Avantages</h3>
+                        <ul>
+                            <li>Accès rapide aux zones difficiles d'accès</li>
+                            <li>Réduction des émissions carbone vs hélicoptère</li>
+                            <li>Autonomie jusqu'à 55 min (FlyCart)</li>
+                            <li>Charge utile jusqu'à 55 kg (FlyCart)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sector-card fade-in">
+                    <div class="sector-hero" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
+                        [IMAGE] DJI Agras T50 - Agriculture de précision
+                    </div>
+                    <div class="sector-content">
+                        <h2>Drone Agricole</h2>
+                        <p><strong>Matériel utilisé :</strong> DJI Agras T50</p>
+                        <h3>Cas d'usage</h3>
+                        <ul>
+                            <li>Pulvérisation de précision (engrais, phytosanitaires)</li>
+                            <li>Épandage de produits biologiques</li>
+                            <li>Cartographie et imagerie multispectrale de parcelles</li>
+                            <li>Analyse d'index de végétation (NDVI)</li>
+                        </ul>
+                        <h3>Avantages</h3>
+                        <ul>
+                            <li>Réduction de 90% de la consommation d'eau vs pulvérisation traditionnelle</li>
+                            <li>Couverture homogène sans compactage du sol</li>
+                            <li>Réduction des coûts d'exploitation</li>
+                            <li>Capacité de réservoir : 55 L</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CHANTIERS EN COURS -->
+        <section id="chantiers-actifs" class="section">
+            <div class="container">
+                <h1>Chantiers en Cours</h1>
+                <div id="chantiers-actifs-list" class="chantiers-list">
+                    <!-- Chargé dynamiquement depuis data/chantiers.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CHANTIERS EN ATTENTE -->
+        <section id="chantiers-attente" class="section">
+            <div class="container">
+                <h1>Chantiers en Attente</h1>
+                <div id="chantiers-attente-list" class="chantiers-list">
+                    <!-- Chargé dynamiquement depuis data/chantiers.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MAINTENANCE -->
+        <section id="maintenance" class="section">
+            <div class="container">
+                <h1>Maintenance de la Flotte</h1>
+                <div id="maintenance-list" class="maintenance-dashboard">
+                    <!-- Chargé dynamiquement depuis data/maintenance.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ADMINISTRATIF -->
+        <section id="administratif" class="section">
+            <div class="container">
+                <h1>Dossier Administratif</h1>
+                <div class="admin-box fade-in">
+                    <h2>Autorisations Fédérales (OFAC)</h2>
+                    <div id="admin-ofac" class="admin-list">
+                        <!-- Chargé dynamiquement -->
+                    </div>
+                </div>
+                <div class="admin-box fade-in">
+                    <h2>Manuel d'Exploitation (MANEX)</h2>
+                    <div id="admin-manex" class="admin-list">
+                        <!-- Chargé dynamiquement -->
+                    </div>
+                </div>
+                <div class="admin-box fade-in">
+                    <h2>Autres Démarches Administratives</h2>
+                    <div id="admin-autres" class="admin-list">
+                        <!-- Chargé dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: QUALIFICATIONS PILOTES -->
+        <section id="qualifications" class="section">
+            <div class="container">
+                <h1>Qualifications de l'Équipe</h1>
+                <p class="section-intro">
+                    <em>⚠️ Les intitulés exacts des certifications doivent être vérifiés auprès de l'OFAC. Les espaces réservés ci-dessous doivent être complétés avec les vraies données.</em>
+                </p>
+                
+                <div class="qualifications-grid">
+                    <div class="qual-card fade-in">
+                        <h3>Catégories Scénario Spécifique (S)</h3>
+                        <ul>
+                            <li><strong>[S1]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>[S2]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>[S3]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>Module Théorie</strong> — <em>[À confirmer]</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="qual-card fade-in">
+                        <h3>Catégories Ouvertes (A)</h3>
+                        <ul>
+                            <li><strong>[A1]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>[A2]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>[A3]</strong> — <em>[À confirmer]</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="qual-card fade-in">
+                        <h3>Certifications Spécialisées</h3>
+                        <ul>
+                            <li><strong>[STS-01]</strong> — <em>[À confirmer]</em></li>
+                            <li><strong>[STS-02]</strong> — <em>[À confirmer]</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p><strong>Note :</strong> Veuillez vérifier les intitulés exacts auprès de l'OFAC et remplacer les espaces réservés par les vraies qualifications de votre équipe.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONTACT -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h1>Nous Contacter</h1>
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <h3>Coordonnées</h3>
+                        <p><strong>Flytech Sion</strong></p>
+                        <p>Valais, Suisse</p>
+                        <p>📧 <a href="mailto:info@flytech.ch">info@flytech.ch</a></p>
+                        <p>📱 <a href="tel:+41...">+41 ... ... .. ..</a></p>
+                    </div>
+                    <div class="contact-form fade-in">
+                        <h3>Nous Écrire</h3>
+                        <form id="contact-form">
+                            <input type="text" placeholder="Votre nom" required>
+                            <input type="email" placeholder="Votre email" required>
+                            <textarea placeholder="Votre message" rows="5" required></textarea>
+                            <button type="submit" class="btn-primary">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Flytech. Tous droits réservés. | Valais, Suisse</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
