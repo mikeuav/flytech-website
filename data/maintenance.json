@@ -1,0 +1,54 @@
+{
+  "flotte": [
+    {
+      "id": 1,
+      "nom": "DJI FlyCart #01",
+      "type": "Cargo",
+      "derniereRevision": "2025-01-20",
+      "prochaineEcheance": "2025-04-20",
+      "heuresVol": 185,
+      "batteries": "4/4 OK",
+      "statut": "OK"
+    },
+    {
+      "id": 2,
+      "nom": "DJI FlyCart #02",
+      "type": "Cargo",
+      "derniereRevision": "2024-12-10",
+      "prochaineEcheance": "2025-03-10",
+      "heuresVol": 156,
+      "batteries": "4/4 OK",
+      "statut": "OK"
+    },
+    {
+      "id": 3,
+      "nom": "DJI Agras T50 #01",
+      "type": "Agricole",
+      "derniereRevision": "2025-01-15",
+      "prochaineEcheance": "2025-04-15",
+      "heuresVol": 72,
+      "batteries": "3/4 OK",
+      "statut": "Warning"
+    },
+    {
+      "id": 4,
+      "nom": "DJI Agras T50 #02",
+      "type": "Agricole",
+      "derniereRevision": "2024-11-28",
+      "prochaineEcheance": "2025-02-28",
+      "heuresVol": 104,
+      "batteries": "2/4 OK",
+      "statut": "Alert"
+    },
+    {
+      "id": 5,
+      "nom": "Batteries Secours (FlyCart)",
+      "type": "Accessoire",
+      "derniereRevision": "2025-01-10",
+      "prochaineEcheance": "2025-07-10",
+      "heuresVol": "N/A",
+      "batteries": "8 unités",
+      "statut": "OK"
+    }
+  ]
+}
