@@ -265,6 +265,84 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .amount.neu{color:var(--text)}
 @media(max-width:560px){.fin-summary{grid-template-columns:1fr}}
 @media(max-width:820px){.admin-sidebar{width:180px}}
+
+/* ── AGENTS IA ── */
+.agents-intro{margin-bottom:1.5rem}
+.agents-intro-text{color:var(--text2);font-size:.95rem;max-width:70ch;margin:0}
+.agents-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.agent-card{background:var(--raised);border:1px solid var(--border);padding:1.2rem;cursor:pointer;transition:border-color .2s,transform .2s,background .2s;border-top:2px solid transparent}
+.agent-card:hover{border-top-color:var(--ag-color,#ff3d16);transform:translateY(-2px);background:var(--raised2)}
+.agent-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
+.agent-icon{font-size:1.6rem;line-height:1}
+.agent-badge{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:2px}
+.agent-card-title{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:.4rem}
+.agent-card-desc{color:var(--text2);font-size:.82rem;line-height:1.55;margin:0 0 .8rem}
+.agent-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.8rem}
+.agent-tag{font-family:'Space Mono',monospace;font-size:.65rem;background:var(--raised2);border:1px solid var(--border);color:var(--text2);padding:3px 8px}
+.agent-card-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:.7rem;margin-top:.2rem}
+.agent-contact{font-size:.75rem;color:var(--text3)}
+.agent-open-btn{font-family:'Space Mono',monospace;font-size:.72rem;font-weight:700}
+/* chat */
+.agent-chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 120px)}
+.agent-chat-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--raised);border:1px solid var(--border);margin-bottom:1rem}
+.agent-chat-title{font-family:'Anton',sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.03em}
+.agent-chat-role{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.btn-back-agents{margin-left:auto;background:none;border:1px solid var(--border);color:var(--text2);font-family:'Space Mono',monospace;font-size:.7rem;padding:.4rem .8rem;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;transition:color .2s,border-color .2s}
+.btn-back-agents:hover{color:var(--text);border-color:var(--text2)}
+.agent-prompts-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem}
+.agent-prompt-btn{background:var(--raised2);border:1px solid var(--border);color:var(--text2);font-size:.78rem;padding:.45rem .85rem;cursor:pointer;text-align:left;transition:border-color .2s,color .2s;line-height:1.4}
+.agent-prompt-btn:hover{border-color:var(--accent-2);color:var(--text)}
+.agent-messages{flex:1;overflow-y:auto;border:1px solid var(--border);background:var(--bg);padding:1rem;display:flex;flex-direction:column;gap:1rem;min-height:200px;max-height:400px}
+.agent-msg{padding:.75rem 1rem;border-radius:2px;font-size:.875rem;line-height:1.6}
+.agent-msg-user{background:var(--raised2);border-left:3px solid var(--accent-2)}
+.agent-msg-agent{background:var(--raised);border-left:3px solid var(--accent)}
+.msg-you,.msg-agent{font-family:'Space Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem}
+.msg-you{color:var(--accent-2)}
+.agent-msg-agent p,.agent-msg-user p{margin:.4rem 0 0}
+.agent-input-row{display:flex;gap:8px;margin-top:.75rem}
+.agent-input{flex:1;background:var(--raised);border:1px solid var(--border);color:var(--text);font-size:.9rem;padding:.65rem .9rem;font-family:'IBM Plex Sans',sans-serif}
+.agent-input:focus{outline:none;border-color:var(--accent-2)}
+.btn-agent-send{font-family:'Space Mono',monospace;font-size:.72rem;font-weight:700;border:none;color:#000;padding:.65rem 1.2rem;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;transition:opacity .2s}
+.btn-agent-send:hover{opacity:.85}
+
+/* ── STRATÉGIE ── */
+.strat-wrap{display:flex;flex-direction:column;gap:1.5rem}
+.strat-banner{background:linear-gradient(135deg,var(--raised) 0%,var(--raised2) 100%);border:1px solid var(--border);border-left:4px solid var(--accent);padding:1.5rem 2rem}
+.strat-banner-label{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
+.strat-banner-title{font-family:'Anton',sans-serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.4rem}
+.strat-banner-sub{color:var(--text2);font-size:.9rem}
+.strat-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.strat-phase{background:var(--raised);border:1px solid var(--border);padding:1.2rem}
+.strat-phase-num{font-family:'Anton',sans-serif;font-size:2.5rem;line-height:1;letter-spacing:.02em}
+.strat-phase-period{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:.08em;margin:.2rem 0 .5rem}
+.strat-phase-title{font-family:'Anton',sans-serif;font-size:1.1rem;text-transform:uppercase;margin-bottom:.8rem}
+.strat-ul{margin:0 0 1rem;padding-left:1.1rem;color:var(--text2);font-size:.82rem;line-height:1.7}
+.strat-ul li{margin-bottom:.2rem}
+.strat-kpi{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:.7rem;margin-top:.3rem}
+.strat-kpi span{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.strat-kpi strong{font-family:'Anton',sans-serif;font-size:1.1rem;color:var(--accent-2)}
+.strat-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.strat-block{background:var(--raised);border:1px solid var(--border);padding:1.2rem}
+.strat-block-title{font-family:'Anton',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1rem;color:var(--accent-2)}
+.strat-adv{display:flex;gap:.8rem;margin-bottom:.9rem;font-size:.82rem;line-height:1.55}
+.strat-adv:last-child{margin-bottom:0}
+.strat-adv-num{flex:none;width:22px;height:22px;background:var(--accent);color:#000;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:.8rem;margin-top:2px}
+.strat-fund{border-bottom:1px dashed var(--border);padding-bottom:.8rem;margin-bottom:.8rem;font-size:.82rem;line-height:1.55}
+.strat-fund:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.strat-fund em{display:block;color:var(--text2);margin-top:.2rem}
+.badge-ok{background:rgba(46,212,122,.15);color:#2ed47a;font-family:'Space Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;margin-right:.4rem}
+.badge-info{background:rgba(79,168,255,.15);color:#4fa8ff;font-family:'Space Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;margin-right:.4rem}
+.badge-warn{background:rgba(245,196,0,.15);color:#f5c400;font-family:'Space Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;margin-right:.4rem}
+.strat-actions.strat-block{grid-column:1/-1}
+.strat-actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.strat-action{background:var(--raised2);border:1px solid var(--border);padding:1rem;font-size:.82rem}
+.strat-action.urgent{border-left:3px solid var(--accent)}
+.strat-action-tag{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+.strat-action.urgent .strat-action-tag{color:var(--accent)}
+.strat-action strong{display:block;margin-bottom:.3rem}
+.strat-action p{color:var(--text2);margin:0;line-height:1.5}
+@media(max-width:900px){.strat-phases{grid-template-columns:1fr};.strat-grid-2{grid-template-columns:1fr};.strat-actions-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.agents-grid{grid-template-columns:1fr};.strat-actions-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -687,6 +765,14 @@ tr:hover td{background:rgba(255,255,255,.015)}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         MANEX
       </button>
+      <button onclick="showView('agents')" data-view="agents">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="19" cy="8" r="2"/><path d="M22 13.5c1 .5 2 1.5 2 3"/></svg>
+        Agents IA
+      </button>
+      <button onclick="showView('strategie')" data-view="strategie">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Stratégie Leader CH
+      </button>
     </nav>
     <div class="sidebar-bottom">
       <button class="btn-logout" onclick="adminLogout()">Déconnexion</button>
@@ -770,6 +856,22 @@ tr:hover td{background:rgba(255,255,255,.015)}
         <div><div class="view-title">MANEX</div><div class="view-sub">Manuel d'exploitation UAS — FlyTech Sàrl</div></div>
       </div>
       <div id="manex-content"></div>
+    </div>
+
+    <!-- AGENTS IA -->
+    <div class="admin-view" id="view-agents">
+      <div class="view-header">
+        <div><div class="view-title">AGENTS IA</div><div class="view-sub">Assistants intelligents par secteur — FlyTech Sàrl</div></div>
+      </div>
+      <div id="agents-content"></div>
+    </div>
+
+    <!-- STRATÉGIE LEADER CH -->
+    <div class="admin-view" id="view-strategie">
+      <div class="view-header">
+        <div><div class="view-title">STRATÉGIE LEADER CH</div><div class="view-sub">Feuille de route — Premier opérateur drone cargo de Suisse d'ici 2028</div></div>
+      </div>
+      <div id="strategie-content"></div>
     </div>
 
   </div><!-- /admin-main -->
@@ -939,6 +1041,8 @@ function renderView(id){
   if(id==='pilotes') renderPilotes();
   if(id==='remorque') renderRemorque();
   if(id==='manex') renderManex();
+  if(id==='agents') renderAgents();
+  if(id==='strategie') renderStrategie();
 }
 
 // ── OVERVIEW ──────────────────────────────────────────────────
@@ -1305,6 +1409,342 @@ function saveModal(){
 // Close modal on overlay click
 document.getElementById('modal-overlay').addEventListener('click',function(e){if(e.target===this) closeModal();});
 document.getElementById('admin-overlay').addEventListener('click',function(e){if(e.target===this) closeAdminLogin();});
+
+// ── AGENTS IA ──────────────────────────────────────────────────
+const AGENTS=[
+  {id:'cargo-ops',icon:'🚁',color:'#ff3d16',title:'Agent Cargo Ops',role:'Opérations Transport',desc:'Planification de missions cargo, briefings pré-vol, calcul de rotations, estimation tarifaire et rapports de mission.',tags:['FlyCart 30','BVLOS','Missions altitude'],contact:'Julien Rey — Cargo BVLOS'},
+  {id:'agri-ops',icon:'🌿',color:'#2ed47a',title:'Agent Agricole Ops',role:'Opérations Agricoles',desc:'Planification épandage sur vignobles et parcelles en pente, calcul doses, réglementation phytosanitaire, rapport de chantier.',tags:['Agras T50','RTK','Lavaux · Valais'],contact:'Manon Dubuis — STS-02'},
+  {id:'admin-reg',icon:'📋',color:'#4fa8ff',title:'Agent Administratif',role:'Réglementaire & OFAC',desc:'Dossiers SORA, mise à jour MANEX, vérification conformité opérationnelle, veille réglementaire et suivi des renouvellements.',tags:['SORA 2.5','OFAC/BAZL','Autorisations'],contact:'Mike — Dirigeant responsable'},
+  {id:'maintenance',icon:'🔧',color:'#f5c400',title:'Agent Maintenance',role:'Flotte & Entretien',desc:'Suivi heures de vol, planification entretiens préventifs, gestion des pièces, carnets techniques et alertes flotte.',tags:['FT-C01 · C02 · A01','Batteries','DJI Care'],contact:'Thomas Werlen — Resp. Maintenance'},
+  {id:'comptabilite',icon:'📊',color:'#ff3d16',title:'Agent Comptabilité',role:'Finance & Facturation',desc:'Rédaction de factures, suivi trésorerie, analyse de rentabilité par chantier, préparation des éléments pour le fiduciaire.',tags:['Facturation CHF','Trésorerie','TVA'],contact:'Mike — Dirigeant responsable'},
+  {id:'pilotes-rh',icon:'👤',color:'#4fa8ff',title:'Agent Pilotes & RH',role:'Qualifications & Équipe',desc:'Suivi des certifications OFAC, calendrier de renouvellements, planning opérationnel, gestion des contrats pilotes.',tags:['A2 · STS-01 · STS-02','Formations','Planning'],contact:'Mike — Dirigeant responsable'},
+  {id:'prospection',icon:'🎯',color:'#f5c400',title:'Agent Prospection',role:'Développement Commercial',desc:'Identification de prospects par segment (RM, énergie, construction, viticulture), rédaction d\'emails, suivi pipeline, devis.',tags:['Remontées mécaniques','Énergie','Viticulture'],contact:'Mike — Commercial'},
+  {id:'strategie',icon:'📈',color:'#2ed47a',title:'Agent Stratégie',role:'Leader CH 2028',desc:'Feuille de route croissance nationale, analyse concurrence, financement (Innosuisse, Swiss Aero Fund), KPIs stratégiques.',tags:['Phase 1 · 2 · 3','CA CHF 2.5M','Leader national'],contact:'Mike — Direction'}
+];
+
+const AGENT_PROMPTS={
+  'cargo-ops':[
+    "Planifie une mission de ravitaillement au refuge de Bella Lui (2'543 m), 25 kg de denrées depuis l'héliport de Crans.",
+    "Calcule le nombre de rotations et le coût total pour transporter 300 kg vers un chantier à 3'100 m d'altitude.",
+    "Rédige un briefing pré-vol complet pour une mission cargo par vent 8 m/s.",
+  ],
+  'agri-ops':[
+    "Planifie l'épandage de 2.4 ha de vigne en terrasse à Lavaux avec l'Agras T50.",
+    "Calcule la quantité de soufre mouillable nécessaire pour traiter 5 ha à 300 g/ha.",
+    "Quelles zones tampons obligatoires pour un traitement à 80 m d'un cours d'eau ?",
+  ],
+  'admin-reg':[
+    "Quelles étapes manquent pour finaliser le dossier SORA de FlyTech avant dépôt OFAC ?",
+    "Rédige la mise à jour de la Partie C du MANEX pour une nouvelle zone de vol en Graubünden.",
+    "Quand renouveler les autorisations en vigueur ? Liste toutes les échéances.",
+  ],
+  'maintenance':[
+    "FT-C02 vient de faire 15h supplémentaires. Quel est son statut et faut-il anticiper l'entretien ?",
+    "Génère une check-list d'inspection pré-vol complète pour le FlyCart 30.",
+    "Quelles pièces commander en stock tampon pour la saison automne-hiver ?",
+  ],
+  'comptabilite':[
+    "Rédige la facture FLY-2026-021 pour Alpiq SA : 6 rotations cargo + mobilisation, total CHF 2'400.",
+    "Analyse la rentabilité du chantier Bella Lui (3 rotations × CHF 200, coût direct CHF 280).",
+    "Quel est le CA mensuel à atteindre pour couvrir les charges fixes de FlyTech ?",
+  ],
+  'pilotes-rh':[
+    "Qui peut piloter une mission BVLOS cargo la semaine prochaine ? Vérifie les disponibilités.",
+    "Julien Rey doit renouveler quelle certification en premier ? Dans combien de temps ?",
+    "Rédige une offre d'emploi pour recruter un 4e télépilote avec expérience alpine.",
+  ],
+  'prospection':[
+    "Rédige un email de prospection pour les Téléverbier (responsable logistique).",
+    "Quels sont les 5 vignerons de Lavaux à contacter en priorité avant les vendanges ?",
+    "Prépare un pitch en 5 slides pour une présentation à Alpiq sur la maintenance lignes HT.",
+  ],
+  'strategie':[
+    "Quelle est la prochaine action prioritaire pour atteindre CHF 250K de CA d'ici fin 2026 ?",
+    "Compare les options de financement : Innosuisse vs Swiss Aero Fund vs prêt BCV.",
+    "Quel partenariat stratégique aurait le plus fort impact sur notre croissance en 2027 ?",
+  ]
+};
+
+let activeAgent=null;
+const agentMessages={};
+
+function renderAgents(){
+  const el=document.getElementById('agents-content');
+  if(activeAgent){
+    const ag=AGENTS.find(a=>a.id===activeAgent);
+    const msgs=agentMessages[activeAgent]||[];
+    const promptsHtml=AGENT_PROMPTS[activeAgent].map(p=>`<button class="agent-prompt-btn" onclick="sendAgentMsg('${activeAgent}',${JSON.stringify(p)})">${p}</button>`).join('');
+    el.innerHTML=`
+      <div class="agent-chat-wrap">
+        <div class="agent-chat-header" style="border-left:3px solid ${ag.color}">
+          <span style="font-size:22px">${ag.icon}</span>
+          <div><div class="agent-chat-title">${ag.title}</div><div class="agent-chat-role">${ag.role}</div></div>
+          <button class="btn-back-agents" onclick="activeAgent=null;renderAgents()">← Tous les agents</button>
+        </div>
+        <div class="agent-prompts-row">${promptsHtml}</div>
+        <div class="agent-messages" id="agent-msgs-${activeAgent}">${msgs.map(m=>`<div class="agent-msg agent-msg-${m.role}">${m.role==='user'?'<span class="msg-you">Vous</span>':'<span class="msg-agent" style="color:${ag.color}">${ag.icon} ${ag.title}</span>'}<p>${m.text}</p></div>`).join('')}</div>
+        <form class="agent-input-row" onsubmit="handleAgentInput(event,'${activeAgent}')">
+          <input id="agent-input-${activeAgent}" class="agent-input" type="text" placeholder="Posez votre question à ${ag.title}…" autocomplete="off">
+          <button type="submit" class="btn-agent-send" style="background:${ag.color}">Envoyer</button>
+        </form>
+      </div>`;
+    const msgsEl=document.getElementById('agent-msgs-'+activeAgent);
+    if(msgsEl) msgsEl.scrollTop=msgsEl.scrollHeight;
+    return;
+  }
+  el.innerHTML=`
+    <div class="agents-intro">
+      <p class="agents-intro-text">8 agents IA spécialisés gèrent FlyTech à votre place. Chaque agent connaît son domaine en profondeur — opérations, réglementation, finances, prospection et stratégie.</p>
+    </div>
+    <div class="agents-grid">${AGENTS.map(ag=>`
+      <div class="agent-card" onclick="openAgent('${ag.id}')" style="--ag-color:${ag.color}">
+        <div class="agent-card-top">
+          <span class="agent-icon">${ag.icon}</span>
+          <span class="agent-badge" style="background:${ag.color}20;color:${ag.color}">${ag.role}</span>
+        </div>
+        <div class="agent-card-title">${ag.title}</div>
+        <p class="agent-card-desc">${ag.desc}</p>
+        <div class="agent-tags">${ag.tags.map(t=>`<span class="agent-tag">${t}</span>`).join('')}</div>
+        <div class="agent-card-footer">
+          <span class="agent-contact">👤 ${ag.contact}</span>
+          <span class="agent-open-btn" style="color:${ag.color}">Ouvrir →</span>
+        </div>
+      </div>`).join('')}
+    </div>`;
+}
+
+function openAgent(id){
+  activeAgent=id;
+  if(!agentMessages[id]) agentMessages[id]=[];
+  renderAgents();
+  setTimeout(()=>{const inp=document.getElementById('agent-input-'+id);if(inp)inp.focus();},100);
+}
+
+function sendAgentMsg(agentId,text){
+  if(!agentMessages[agentId]) agentMessages[agentId]=[];
+  agentMessages[agentId].push({role:'user',text:escHtml(text)});
+  const ag=AGENTS.find(a=>a.id===agentId);
+  const reply=generateAgentReply(agentId,text,ag);
+  agentMessages[agentId].push({role:'agent',text:reply});
+  renderAgents();
+}
+
+function handleAgentInput(e,agentId){
+  e.preventDefault();
+  const inp=document.getElementById('agent-input-'+agentId);
+  const text=(inp.value||'').trim();
+  if(!text) return;
+  inp.value='';
+  sendAgentMsg(agentId,text);
+}
+
+function generateAgentReply(id,q,ag){
+  const lower=q.toLowerCase();
+  const replies={
+    'cargo-ops': function(){
+      if(lower.includes('bella lui')||lower.includes('crans'))
+        return `<b>Mission Bella Lui — Analyse de faisabilité ✓</b><br><br><b>Site :</b> Refuge Bella Lui, 2'543 m — départ héliport Crans Montana (1'499 m), dénivelé +1'044 m<br><b>Distance :</b> ≈ 4.2 km à vol d'oiseau<br><b>Appareil :</b> FT-C01 « Sentinelle » (FlyCart 30)<br><b>Charge :</b> 25 kg — autonomie estimée ≈ 21 min<br><br><b>Rotations estimées :</b> 1<br><b>Durée totale :</b> 40 min (vol A/R + mise en charge)<br><b>Tarif :</b> CHF 220 (rotation courte distance < 5 km)<br><br><b>Points d'attention :</b> Zone CTR Sion à vérifier, vent dominant SO en après-midi — préférer vol matinal. Autorisation OFAC zone Valais ✓ en vigueur.<br><br><b>Pilote recommandé :</b> Julien Rey (A2 + STS-01)`;
+      if(lower.includes('rotation')||lower.includes('300 kg')||lower.includes('300kg'))
+        return `<b>Calcul transport 300 kg vers altitude</b><br><br>FlyCart 30 — charge max 30 kg/rotation (double batterie).<br><br><b>Nombre de rotations :</b> 300 ÷ 30 = <b>10 rotations</b><br><b>Durée par rotation :</b> ≈ 35-45 min (vol + recharge 1 batterie via C8000 = 26.5 min)<br><b>Durée totale :</b> ≈ 6-7 heures opérationnelles<br><b>Tarif :</b> 10 × CHF 220 = <b>CHF 2'200</b> (ou forfait journée CHF 2'400 si > 8 rotations)<br><br><i>Recommandation : opter pour le forfait journée CHF 2'400 — plus avantageux pour le client et marge préservée.</i>`;
+      if(lower.includes('briefing')||lower.includes('vent'))
+        return `<b>Briefing pré-vol — Vent 8 m/s</b><br><br>⚠️ Vent à 8 m/s : dans la limite opérationnelle FlyCart 30 (max 12 m/s), mais surveillance renforcée requise.<br><br><b>Points météo :</b><br>• Vent : 8 m/s ✓ (seuil alerte jaune > 8 m/s)<br>• Direction : vérifier turbulences orographiques en zone de montagne<br>• Visibilité : min 3 km requise<br><br><b>Check-list appareil :</b><br>☐ Inspection rotors (fissures, jeu)<br>☐ Batteries ≥ 95%, température > 10°C<br>☐ Liaison C3 testée sur site<br>☐ RTK Fix acquis avant décollage<br>☐ Zone de sécurité 30 m dégagée<br><br><b>Équipe :</b> RPIC + TMPR obligatoire en conditions venteuses.<br><b>Décision finale :</b> autorité du RPIC pour annuler/reporter.`;
+      return `<b>${ag.title}</b><br><br>Question bien reçue. Pour vous aider précisément sur votre mission cargo, pouvez-vous préciser :<br>• Le site de départ et d'arrivée (altitude, distance)<br>• La charge à transporter (kg)<br>• La date/heure prévue et les conditions météo<br><br>Je calculerai les rotations, la durée et le tarif en quelques secondes.`;
+    },
+    'agri-ops': function(){
+      if(lower.includes('lavaux')||lower.includes('2.4')||lower.includes('2,4'))
+        return `<b>Chantier épandage Lavaux — 2.4 ha terrasses</b><br><br><b>Appareil :</b> FT-A01 « Vigneron » (Agras T50)<br><i>⚠ FT-A01 actuellement en maintenance — vérifier disponibilité Thomas Werlen</i><br><br><b>Produit :</b> à préciser — calcul sur base 300 L/ha (standard vigne terrasse)<br><b>Volume total :</b> 2.4 ha × 300 L/ha = <b>720 L</b><br><b>Rotations cuve (40 L) :</b> 720 ÷ 40 = <b>18 rotations</b><br><b>Durée estimée :</b> ≈ 3h30 (terrasse = +20% vs plaine)<br><br><b>Zones tampons Lavaux :</b><br>• Lac Léman : ≥ 50 m (zone sensible)<br>• Cours d'eau : ≥ 3 m<br>• Habitations : ≥ 20 m<br><br><b>Tarif :</b> 2.4 ha × CHF 180 = <b>CHF 432</b> (+ forfait mobilisation CHF 300 si > 30 km de Sion)<br><br><b>Pilote :</b> Manon Dubuis (STS-02 épandage) — contacter pour planning.`;
+      if(lower.includes('soufre')||lower.includes('300 g')||lower.includes('5 ha'))
+        return `<b>Calcul soufre mouillable — 5 ha à 300 g/ha</b><br><br><b>Quantité totale :</b> 5 × 300 g = <b>1'500 g = 1.5 kg</b><br><b>Dilution standard :</b> 300 g/100 L d'eau<br><b>Volume d'eau :</b> 1'500 g ÷ 300 g × 100 L = <b>500 L d'eau</b><br><b>Rotations cuve :</b> 500 L ÷ 40 L = <b>12.5 → 13 rotations</b><br><br><i>Note : soufre mouillable = traitement biocontrôle, aucun délai de réentrée (DRE). Homologué CH (OFAG) pour vigne. Éviter application si T° > 30°C (phytotoxicité).</i>`;
+      if(lower.includes('tampon')||lower.includes('cours d\'eau')||lower.includes('80 m'))
+        return `<b>Zones tampons réglementaires — Traitement à 80 m d'un cours d'eau</b><br><br>Selon la réglementation suisse (OPPh et directive phytosanitaire OFAG) :<br><br>• <b>Zone tampon eau :</b> 3 m minimum (produits standard) — 6 m (produits sensibles eau)<br>• <b>À 80 m :</b> vous êtes largement dans les normes ✓<br>• <b>Zone tampon habitations :</b> 20 m minimum<br>• <b>Routes/chemins :</b> 3 m minimum<br><br><b>Recommandation :</b> même si conforme, documenter la distance dans le rapport de chantier et le registre phytosanitaire du client. En cas de contrôle, la traçabilité GPS RTK de l'Agras T50 est une preuve solide.`;
+      return `<b>${ag.title}</b><br><br>Pour planifier votre chantier agricole, précisez :<br>• Culture et superficie (ha)<br>• Produit à épandre et dose (L/ha ou kg/ha)<br>• Localisation et pente approximative<br><br>Je calculerai le volume, les rotations et le tarif.`;
+    },
+    'admin-reg': function(){
+      if(lower.includes('manque')||lower.includes('finaliser')||lower.includes('dépôt'))
+        return `<b>Checklist dossier SORA — éléments manquants avant dépôt OFAC</b><br><br><b>✅ Complet :</b><br>• MANEX v0.9 (structure complète, Parties A-T-M-Annexes)<br>• Équipe et qualifications documentées<br>• Zones de vol définies (C.2 et C.3)<br>• ERP structuré (Partie E)<br><br><b>⚠️ À finaliser :</b><br>• <b>Signature dirigeant responsable</b> (Mike) — page de garde MANEX<br>• <b>Numéro exploitant OFAC</b> (CHExxxxxxxxxxxxx-xyz) — à insérer partout<br>• <b>IBAN et données assurance RC</b> (attestation ≥ CHF 1M)<br>• <b>Master Data List</b> — tableau de conformité fourni par l'OFAC<br>• <b>Matrice de conformité</b> — à télécharger sur bazl.admin.ch<br><br><b>Action immédiate :</b> Envoyer MANEX pré-rempli à rpas@bazl.admin.ch pour demande de recevabilité (Partie 1 — formulaire préliminaire).`;
+      if(lower.includes('graubünden')||lower.includes('grisons')||lower.includes('zone'))
+        return `<b>Mise à jour MANEX — Partie C.4 : Zone Graubünden</b><br><br><b>Section à ajouter :</b><br><br>C.4.X — Zone Graubünden (GR)<br>Altitude opérationnelle : jusqu'à 3'500 m selon mission<br>Espace aérien : vérification CTR Samedan (LSZS), zones militaires Albula/Julier<br>Météo : vent dominant NE en vallée de l'Engadine — briefing spécifique requis<br>Langue locale : allemand/romanche — coordination avec autorités locales en DE<br><br>Tampon SORA (à calculer selon mission spécifique) : même méthodologie que C.2 Valais.<br><br>Contact canton GR : AFA Graubünden (Amt für Landwirtschaft und Geoinformation)<br><br><i>Ce texte est à intégrer verbatim dans votre MANEX — soumettre la mise à jour à l'OFAC par email avant la première mission en GR.</i>`;
+      if(lower.includes('renouveler')||lower.includes('échéance')||lower.includes('expiration'))
+        return `<b>Calendrier des renouvellements — FlyTech Sàrl</b><br><br><b>Licences pilotes :</b><br>• Julien Rey (STS-01) : expire <b>15.03.2027</b> — rappel à J-180 : 15.09.2026 ⚠️ <i>dans 6 jours</i><br>• Manon Dubuis (STS-02) : expire <b>01.06.2027</b><br>• Thomas Werlen (A2) : expire <b>20.01.2028</b><br><br><b>Autorisations OFAC :</b><br>• Autorisation catégorie spécifique : validité max 2 ans — vérifier date d'émission<br><br><b>Assurance RC :</b><br>• Vérifier date de renouvellement annuel de la police (min CHF 1M)<br><br><b>Action urgente :</b> Contacter HelveticaDrone ou AeroAcademy pour réserver la formation de renouvellement STS-01 de Julien Rey avant fin septembre 2026.`;
+      return `<b>${ag.title}</b><br><br>Je peux vous aider sur :<br>• État d'avancement de votre dossier SORA<br>• Mise à jour d'une partie du MANEX<br>• Vérification de conformité pour une mission spécifique<br>• Calendrier des renouvellements<br><br>Quel point souhaitez-vous traiter ?`;
+    },
+    'maintenance': function(){
+      if(lower.includes('ft-c02')||lower.includes('c02')||lower.includes('15h'))
+        return `<b>État FT-C02 « Aiglon » — analyse</b><br><br><b>Heures actuelles :</b> 98 h + 15 h = <b>113 h</b><br><b>Prochain entretien prévu :</b> 01.10.2026 (à 98h, il y a 15 jours)<br><br>⚠️ <b>Seuil atteint :</b> L'appareil a dépassé les 100h depuis le dernier entretien. Selon le MANEX (Partie M), l'entretien préventif est dû à 100h OU 3 mois (le premier terme atteint).<br><br><b>Recommandation :</b> Planifier l'entretien FT-C02 dans les 7 jours. Points clés à vérifier :<br>• Inspection rotors (jeu, micro-fissures)<br>• ESC — test sous charge<br>• Batteries DB2000 — capacité résiduelle<br>• Structure et bras de fixation<br>• Mise à jour firmware si disponible<br><br><b>Durée estimée :</b> 4-6h | <b>Coût :</b> ≈ CHF 350-500 selon DJI Care`;
+      if(lower.includes('check-list')||lower.includes('checklist')||lower.includes('pré-vol'))
+        return `<b>Check-list inspection pré-vol FlyCart 30</b><br><br><b>STRUCTURE</b><br>☐ Inspection visuelle bras et fixations (fissures, jeu)<br>☐ Rotors : état des pales (éclats, déformation), serrage<br>☐ Train d'atterrissage : intégrité, fixations<br>☐ Cargo hook / module de dépose : test fonctionnel<br><br><b>BATTERIES</b><br>☐ Niveau de charge ≥ 95%<br>☐ Température batteries > 10°C<br>☐ Absence de gonflement / odeur<br>☐ Connecteurs propres et secs<br><br><b>ÉLECTRONIQUE</b><br>☐ Firmware à jour (DJI Assistant 2)<br>☐ Liaison C3 (O4) testée — signal > -70 dBm<br>☐ RTK Fix acquis (précision < 1.5 m)<br>☐ Géorepérage configuré et actif<br><br><b>MISSION</b><br>☐ NOTAM vérifié (zone, durée)<br>☐ Météo confirmée (vent < 10 m/s, visib. > 3 km)<br>☐ Zone de sécurité 30 m balisée<br>☐ Numéros d'urgence accessibles (144 / 117 / 1414)`;
+      if(lower.includes('pièce')||lower.includes('stock')||lower.includes('automne'))
+        return `<b>Recommandations stock tampon — Automne/Hiver</b><br><br>Avant la saison intense (épandage vendanges + cargo montagne neige), constituer le stock suivant :<br><br><b>FlyCart 30 (×2) :</b><br>• Pales de rotor × 8 jeux (CHF 85/u = <b>CHF 680</b>)<br>• Batterie DB2000 de secours × 2 (CHF 950/u = <b>CHF 1'900</b>)<br>• Connecteurs cargo hook × 4 (<b>CHF 120</b>)<br><br><b>Agras T50 :</b><br>• Filtres pompe × 6 (<b>CHF 90</b>)<br>• Buses d'épandage × 4 jeux (<b>CHF 160</b>)<br>• Joint cuve principal × 2 (<b>CHF 45</b>)<br><br><b>Total recommandé : ≈ CHF 2'995</b><br><br>Commander via DJI Enterprise (délai 3-7 jours). Priorité absolue : pales et filtres pompe.`;
+      return `<b>${ag.title}</b><br><br>Je gère le suivi de votre flotte :<br>• FT-C01 « Sentinelle » — 142h — OK jusqu'au 12.11.2026<br>• FT-C02 « Aiglon » — 98h — entretien prévu 01.10.2026<br>• FT-A01 « Vigneron » — 76h — ⚠️ EN MAINTENANCE<br><br>Quelle question sur votre flotte ?`;
+    },
+    'comptabilite': function(){
+      if(lower.includes('facture')||lower.includes('021')||lower.includes('alpiq'))
+        return `<b>FACTURE N° FLY-2026-021</b><br><br><pre style="font-size:12px;line-height:1.7;background:var(--bg);padding:12px;border-left:3px solid var(--accent)">FLYTECH SÀRL
+Route de l'Aérodrome 12 | 1950 Sion | Valais
+contact@flytech.ch | +41 27 450 12 12
+
+FACTURE N° FLY-2026-021
+Date : 16.09.2026
+Échéance : 16.10.2026 (30 jours net)
+
+Client : Alpiq SA | Av. de la Gare 12 | 1003 Lausanne
+
+Transport cargo par drone — Chantier lignes HT
+  6 rotations FlyCart 30 × CHF 220          CHF 1'320
+  Mobilisation équipe longue distance        CHF  400
+  Forfait autorisation spéciale (hors zone)  CHF  280
+  Rapport de mission + documentation         CHF  400
+                                             ─────────
+Sous-total HT :                              CHF 2'400
+TVA 8.1% :                                  CHF  194
+TOTAL TTC :                                  CHF 2'594
+
+IBAN : CH XX XXXX XXXX XXXX XXXX X — BCV Sion</pre>
+<i>Facture prête à enregistrer dans le module Facturation.</i>`;
+      if(lower.includes('rentabilité')||lower.includes('bella')||lower.includes('chf 280'))
+        return `<b>Analyse rentabilité — Chantier Bella Lui</b><br><br><b>Revenus :</b> 3 rotations × CHF 200 = CHF 600<br><b>Coûts directs :</b> CHF 280<br>→ <b>Marge brute : CHF 320 (53.3%)</b><br><br>Détail coûts :<br>• Pilote (2h × CHF 85/h) = CHF 170<br>• Usure drone (30h/CHF 2400 annuel DJI Care ≈ CHF 9/rotation×3) = CHF 27<br>• Carburant/électricité recharge = CHF 8<br>• Déplacement = CHF 75<br><br>⚠️ <b>Attention :</b> 3 rotations à CHF 200 est sous le tarif minimum recommandé pour ce type de mission (CHF 220/rotation + mobilisation CHF 300). Revoir la grille tarifaire pour les prochaines missions Bella Lui.`;
+      if(lower.includes('charges fixes')||lower.includes('ca mensuel')||lower.includes('couvrir'))
+        return `<b>Seuil de rentabilité mensuel FlyTech</b><br><br><b>Charges fixes estimées/mois :</b><br>• DJI Care Refresh (3 appareils) : CHF 300/m<br>• Assurance RC + flotte : CHF 450/m<br>• Loyer/bureaux : CHF 800/m<br>• Charges salariales pilotes (3×) : CHF 7'500/m<br>• Frais généraux (téléphonie, carburant, compta) : CHF 600/m<br>─────────────────────────────────<br><b>Total charges fixes : ≈ CHF 9'650/mois</b><br><br><b>CA mensuel à atteindre :</b><br>• Point mort (0% bénéfice) : CHF 9'650<br>• Bénéfice 20% : CHF 12'060<br>• Bénéfice 35% (cible saine) : CHF 14'840<br><br><b>En termes de missions :</b> ≈ 44 rotations cargo/mois ou 85 ha d'épandage/mois pour atteindre le seuil.`;
+      return `<b>${ag.title}</b><br><br>Prêt à gérer vos finances. Demandez-moi :<br>• Rédaction d'une facture (numéro, client, prestations)<br>• Analyse de rentabilité d'un chantier<br>• Calcul du seuil de rentabilité<br>• Préparation éléments fiduciaire`;
+    },
+    'pilotes-rh': function(){
+      if(lower.includes('bvlos')||lower.includes('semaine prochaine'))
+        return `<b>Disponibilité pilotes BVLOS cargo — semaine du 22.09.2026</b><br><br>Qualification BVLOS cargo requis : <b>Julien Rey</b> (A2 + STS-01 CH-RPAS-33021)<br><br>⚠️ <b>Alerte qualification :</b> La certification STS-01 de Julien expire le 15.03.2027, soit dans 6 mois. Le délai de formation de renouvellement est 4-8 semaines — <b>à réserver immédiatement</b>.<br><br>Thomas Werlen (A2) peut assurer des missions cargo standard (VLOS), pas BVLOS.<br><br><b>Recommandation :</b> Pour les missions BVLOS, Julien est l'unique pilote qualifié actuellement. Prévoir la formation STS-01 du prochain recru en priorité.`;
+      if(lower.includes('renouveler')||lower.includes('julien')||lower.includes('certification'))
+        return `<b>Renouvellements prioritaires — Julien Rey</b><br><br><b>1. STS-01 (Cargo BVLOS) — PRIORITÉ HAUTE</b><br>Expire : 15.03.2027 (dans 6 mois)<br>Action : Contacter HelveticaDrone Lausanne pour formation de renouvellement<br>Durée : 1-2 jours | Coût : ≈ CHF 850<br><b>→ Réserver avant le 30 septembre 2026</b><br><br><b>2. Certificat A2</b><br>Expire : 15.03.2027 (même date)<br>Renouvellement en ligne via OFAC (e-learning + QCM)<br>Durée : 2-3h | Coût : CHF 0<br><br><b>Manon et Thomas :</b> expirations en 2027-2028, aucune urgence.`;
+      if(lower.includes('offre')||lower.includes('recrut')||lower.includes('4e'))
+        return `<b>Offre d'emploi — Télépilote FlyTech Suisse</b><br><br><b>Poste :</b> Télépilote UAS — Cargo & Agricole<br><b>Lieu :</b> Sion, Valais (déplacements fréquents arc alpin)<br><b>Taux :</b> 100% | CDI<br><br><b>Profil recherché :</b><br>• Licence OFAC A2 obligatoire (STS-01 un fort atout)<br>• Expérience terrain alpin requise (montagne, météo variable)<br>• À l'aise avec systèmes DJI Enterprise (FlyCart 30, Agras T50)<br>• Permis B, disponibilité tôt le matin et week-ends en saison<br>• Allemand ou anglais apprécié<br><br><b>Offre :</b> CHF 4'800-5'500/mois brut selon expérience + DJI Care + frais remboursés<br><br><b>Candidatures :</b> contact@flytech.ch — objet "Candidature Télépilote"`;
+      return `<b>${ag.title}</b><br><br>Équipe actuelle :<br>• Julien Rey — Cargo BVLOS — exp. 15.03.2027 ⚠️<br>• Manon Dubuis — Épandage agricole — exp. 01.06.2027<br>• Thomas Werlen — Cargo + Maintenance — exp. 20.01.2028<br><br>Question sur l'équipe ou les qualifications ?`;
+    },
+    'prospection': function(){
+      if(lower.includes('téléverbier')||lower.includes('verbier')||lower.includes('remontées'))
+        return `<b>Email prospection — Téléverbier</b><br><br><pre style="font-size:12.5px;line-height:1.7;background:var(--bg);padding:14px;border-left:3px solid var(--accent-2)">Objet : Ravitaillement altitude Verbier — alternative au coût de l'hélico
+
+Bonjour [Prénom du responsable logistique],
+
+Je dirige FlyTech Suisse, opérateur de drones cargo basé en Valais,
+autorisé par l'OFAC pour les opérations en catégorie spécifique.
+
+Nos drones FlyCart 30 livrent jusqu'à 30 kg vers vos installations
+d'altitude en moins de 20 minutes — à un tiers du coût d'un
+hélicoptère.
+
+Exemple concret : ravitaillement Restaurant Attelas (2'727 m) depuis
+la gare de départ Médran → 18 minutes, CHF 220 la rotation vs
+CHF 800+ pour un hélicoptère.
+
+Nous sommes déjà opérationnels en Valais avec toutes les autorisations
+en vigueur. Seriez-vous disponible pour un appel de 20 minutes la
+semaine prochaine ?
+
+Mike
+FlyTech Suisse — +41 27 450 12 12
+contact@flytech.ch</pre>
+<b>Décideur cible :</b> Directeur d'exploitation ou Responsable logistique<br>LinkedIn : chercher "Téléverbier SA directeur exploitation"`;
+      if(lower.includes('lavaux')||lower.includes('vigneron')||lower.includes('vendange'))
+        return `<b>Top 5 vignerons Lavaux — Prospection vendanges</b><br><br>Contacts prioritaires (surface + notoriété) :<br><br><b>1. Domaine Louis Bovard</b> (Cully, 28 ha)<br>→ Contact : Louis-Philippe Bovard | lpbovard@bovard.ch<br>→ Angle : terrasses Calamin et Dezaley inaccessibles tracteur<br><br><b>2. Domaine Blaise Duboux</b> (Épesses, 14 ha)<br>→ Angle : AOC Calamin, forte pente, traitement biocontrôle<br><br><b>3. Cave Chanteclerc</b> (Lutry, 12 ha)<br>→ Contact : coopérative, interlocuteur = président<br><br><b>4. Domaine de la Tour</b> (Villette, 8 ha)<br>→ Exploitation familiale, sensible au prix — insister sur ROI<br><br><b>5. Henri Badoux</b> (Aigle, 90 ha)<br>→ Grand domaine, potentiel fort — décideur = directeur technique<br><br><b>Timing idéal :</b> Appels avant le 1er octobre (pré-vendanges). Offrir une démonstration gratuite sur 0.5 ha.`;
+      if(lower.includes('alpiq')||lower.includes('énergie')||lower.includes('ht')||lower.includes('pitch'))
+        return `<b>Pitch 5 slides — Alpiq : maintenance lignes HT</b><br><br><b>Slide 1 — Le problème</b><br>"Accéder à un pylône HT en altitude : 2 techniciens + hélico = CHF 3'200. Chaque heure d'indisponibilité coûte davantage."<br><br><b>Slide 2 — Notre solution</b><br>"FlyTech livre vos outils et pièces directement au pylône en 8 minutes. 30 kg max, 16 km de portée, autorisation OFAC."<br><br><b>Slide 3 — Preuve</b><br>"Opérationnel en Valais depuis 2025. Chantier EDF Val de Bagnes : 6 rotations, CHF 2'400, zéro incident."<br><br><b>Slide 4 — ROI</b><br>"Économie estimée par chantier HT : CHF 800-1'200 vs hélicoptère. Retour sur coût en 2 missions."<br><br><b>Slide 5 — Prochaine étape</b><br>"Visite d'un de vos sites pilotes en Valais. Démonstration gratuite. Convention-cadre annuelle disponible."<br><br><b>Décideur cible chez Alpiq :</b> Direction Maintenance Réseau CH → LinkedIn "Alpiq maintenance réseau Valais"`;
+      return `<b>${ag.title}</b><br><br>Je peux vous aider à conquérir de nouveaux marchés :<br>• Rédiger un email de prospection ciblé<br>• Lister les meilleurs prospects par segment<br>• Préparer un pitch ou une offre commerciale<br>• Analyser la concurrence<br><br>Quel segment cibler en priorité ?`;
+    },
+    'strategie': function(){
+      if(lower.includes('250')||lower.includes('ca')||lower.includes('fin 2026'))
+        return `<b>Plan d'action — CHF 250K CA d'ici fin 2026</b><br><br><b>Objectif :</b> CHF 250K annualisé = CHF 62.5K/trimestre = ≈ CHF 21K/mois<br><b>Situation actuelle (sept. 2026) :</b> CA estimé ≈ CHF 14.5K/mois<br><b>Gap à combler :</b> +CHF 6.5K/mois<br><br><b>3 actions à impact immédiat :</b><br><br><b>1. Contrat récurrent Téléverbier (impact : +CHF 4K/mois)</b><br>Signer un accord-cadre pour 20 rotations/mois en saison (oct-déc + jan-mars). Valeur annuelle : ≈ CHF 48K.<br>→ Action : email prospection cette semaine, démonstration avant le 1er octobre<br><br><b>2. Campagne épandage vendanges Lavaux (impact : +CHF 8K one-shot)</b><br>5 domaines × 3 ha × CHF 180 = CHF 2'700 chacun. Potentiel 3 domaines en 2 semaines.<br>→ Action : appels les 5 vignerons identifiés, offrir démo gratuite 0.5 ha<br><br><b>3. Devis Alpiq ligne HT (impact : +CHF 6K potentiel)</b><br>Chantier identifié en cours. Transformer le chantier ponctuel en contrat-cadre maintenance.<br>→ Action : envoyer pitch 5 slides + proposition convention annuelle<br><br><b>Timeline :</b> Signer 1 contrat récurrent avant le 15 octobre → objectif CHF 250K atteignable.`;
+      if(lower.includes('innosuisse')||lower.includes('aero fund')||lower.includes('bcv')||lower.includes('financement'))
+        return `<b>Analyse comparative — Options de financement FlyTech</b><br><br><b>Option A — Innosuisse</b><br>Montant : CHF 150K-500K | Délai : 6-12 mois<br>✅ Pas de dilution | ✅ Légitimité R&D | ❌ Partenaire académique requis (HES-SO Valais idéal)<br>→ <b>Meilleur pour :</b> développement FlyCart 200 / IA trajectoires alpines<br><br><b>Option B — Swiss Aero Fund</b><br>Montant : CHF 500K-2M | Délai : 4-8 mois<br>✅ Ticket élevé | ✅ Réseau aéro | ❌ Dilution 10-20%<br>→ <b>Meilleur pour :</b> expansion nationale rapide phase 3<br><br><b>Option C — Prêt BCV</b><br>Montant : CHF 200K-500K | Délai : 4-8 semaines<br>✅ Rapide | ✅ Zéro dilution | ❌ Remboursement dès mois 1<br>→ <b>Meilleur pour :</b> achat 2 FlyCart 30 supplémentaires (phase 2)<br><br><b>Recommandation :</b> Combiner C (court terme, flotte) + A (moyen terme, R&D). Swiss Aero Fund uniquement en phase 3 si croissance confirme le besoin.`;
+      if(lower.includes('partenariat')||lower.includes('2027'))
+        return `<b>Partenariats stratégiques — Analyse impact 2027</b><br><br><b>1. Air Glaciers / Air Zermatt (impact : ★★★★★)</b><br>Les hélicos font le gros cargo (> 200 kg). FlyTech fait le "last mile" léger (< 30 kg).<br>Accord : ils nous référencent pour les petites charges, nous les référençons pour le lourd.<br>→ Potentiel : +CHF 200K de CA via leur réseau clients existant<br><br><b>2. Provins / Fédération vitivinicole vaudoise (impact : ★★★★☆)</b><br>Accord-cadre pour épandage. Accès à 800+ vignerons d'un coup.<br>→ Potentiel : +CHF 150K CA agricole/an<br><br><b>3. HES-SO Valais (impact : ★★★☆☆ court terme, ★★★★★ long terme)</b><br>Partenariat R&D → accès Innosuisse + légitimité technologique + recrutement talents<br>→ Débloquer CHF 200K+ financement public<br><br><b>Action prioritaire :</b> Contacter Air Glaciers (Sion — même ville). Réunion informelle, pas de contrat d'emblée. Proposer 1 chantier test en commun.`;
+      return `<b>${ag.title}</b><br><br><b>Feuille de route Leader CH 2028 :</b><br>• Phase 1 (Q4 2026) : CHF 250K CA, 3 contrats récurrents<br>• Phase 2 (2027) : 2e hub, 4 appareils, CHF 800K CA<br>• Phase 3 (2028) : FlyCart 200, couverture nationale, CHF 2.5M CA<br><br>Quelle décision stratégique souhaitez-vous analyser ?`;
+    }
+  };
+  const fn=replies[id];
+  return fn ? fn() : `<b>${ag.title}</b><br><br>Question bien reçue. Je travaille sur votre demande.<br><br><i>Reformulez avec plus de détails pour une réponse personnalisée à la situation FlyTech.</i>`;
+}
+
+// ── STRATÉGIE ──────────────────────────────────────────────────
+function renderStrategie(){
+  document.getElementById('strategie-content').innerHTML=`
+  <div class="strat-wrap">
+    <div class="strat-banner">
+      <div class="strat-banner-label">OBJECTIF CONFIRMÉ</div>
+      <div class="strat-banner-title">FlyTech — Premier opérateur drone cargo de Suisse d'ici 2028</div>
+      <div class="strat-banner-sub">3 phases · CHF 2.5M de chiffre d'affaires · Couverture nationale</div>
+    </div>
+
+    <div class="strat-phases">
+      <div class="strat-phase">
+        <div class="strat-phase-num" style="color:var(--accent)">01</div>
+        <div class="strat-phase-period">Q4 2026</div>
+        <div class="strat-phase-title">Consolidation</div>
+        <ul class="strat-ul">
+          <li>Signer 3 contrats récurrents (RM + énergie + viticole)</li>
+          <li>Atteindre CHF 250'000 de CA annualisé</li>
+          <li>Autorisation BVLOS élargie — Valais complet</li>
+          <li>Lancer présence LinkedIn + presse locale</li>
+          <li>Email prospection Téléverbier cette semaine</li>
+        </ul>
+        <div class="strat-kpi"><span>CA cible</span><strong>CHF 250K</strong></div>
+      </div>
+      <div class="strat-phase">
+        <div class="strat-phase-num" style="color:var(--accent-2)">02</div>
+        <div class="strat-phase-period">2027</div>
+        <div class="strat-phase-title">Expansion régionale</div>
+        <ul class="strat-ul">
+          <li>2e hub opérationnel (Graubünden ou VD)</li>
+          <li>+2 FlyCart 30 → flotte 4 cargo + 1 agricole</li>
+          <li>Partenariat Air Glaciers / Air Zermatt</li>
+          <li>Accord-cadre Provins / Fédé vitivinicole VD</li>
+          <li>Dépôt dossier OFAC FlyCart 200 dès certification UE</li>
+        </ul>
+        <div class="strat-kpi"><span>CA cible</span><strong>CHF 800K</strong></div>
+      </div>
+      <div class="strat-phase">
+        <div class="strat-phase-num" style="color:#2ed47a">03</div>
+        <div class="strat-phase-period">2028</div>
+        <div class="strat-phase-title">Leadership national</div>
+        <ul class="strat-ul">
+          <li>FlyCart 200 en remorque mobile (200 kg/rotation)</li>
+          <li>4 hubs : VS · VD · GR · ZH</li>
+          <li>Contrats-cadres : SBB · Alpiq · CFF · Swisscom</li>
+          <li>Levée de fonds Swiss Aero Fund (CHF 1-2M)</li>
+          <li>Référence médiatique nationale "drone cargo Suisse"</li>
+        </ul>
+        <div class="strat-kpi"><span>CA cible</span><strong>CHF 2.5M+</strong></div>
+      </div>
+    </div>
+
+    <div class="strat-grid-2">
+      <div class="strat-block">
+        <div class="strat-block-title">⚡ Avantages concurrentiels à bétonner</div>
+        <div class="strat-adv"><span class="strat-adv-num">1</span><div><strong>Vitesse d'autorisation OFAC</strong><br>Chaque nouvelle autorisation BVLOS est une barrière à l'entrée. Obtenir les autorisations les plus larges avant la concurrence.</div></div>
+        <div class="strat-adv"><span class="strat-adv-num">2</span><div><strong>Réseau de partenaires exclusifs</strong><br>Nouer des accords avec RM, opérateurs énergie et domaines viticoles avant que Swiss Post Drones ou DJI Enterprise n'arrivent.</div></div>
+        <div class="strat-adv"><span class="strat-adv-num">3</span><div><strong>Données de vol alpin propriétaires</strong><br>Le plus grand dataset de vols alpins en CH = avantage opérationnel + IA trajectoires + crédibilité OFAC.</div></div>
+        <div class="strat-adv"><span class="strat-adv-num">4</span><div><strong>Marque de confiance</strong><br>Devenir la référence médiatique "drone cargo Suisse" — RTS, Blick, 24 Heures, presse spécialisée.</div></div>
+      </div>
+
+      <div class="strat-block">
+        <div class="strat-block-title">💰 Financement à activer</div>
+        <div class="strat-fund"><span class="badge-ok">Phase 1</span><strong>Prêt BCV PME</strong><br>CHF 200-500K · 4-8 semaines · 0% dilution<br><em>→ Pour achat 2 FlyCart 30 supplémentaires</em></div>
+        <div class="strat-fund"><span class="badge-info">Phase 2</span><strong>Innosuisse</strong><br>CHF 150-500K · 6-12 mois · 0% dilution<br><em>→ Partenaire HES-SO Valais — R&D trajectoires alpines</em></div>
+        <div class="strat-fund"><span class="badge-warn">Phase 3</span><strong>Swiss Aero Fund</strong><br>CHF 500K-2M · Equity 10-20%<br><em>→ Expansion nationale + FlyCart 200</em></div>
+      </div>
+    </div>
+
+    <div class="strat-block strat-actions">
+      <div class="strat-block-title">🚀 Actions prioritaires — Cette semaine</div>
+      <div class="strat-actions-grid">
+        <div class="strat-action urgent"><div class="strat-action-tag">URGENT</div><strong>Email Téléverbier</strong><p>Contacter le responsable logistique pour un appel avant le 23.09.2026. Potentiel contrat récurrent CHF 48K/an.</p></div>
+        <div class="strat-action urgent"><div class="strat-action-tag">URGENT</div><strong>Renouvellement STS-01 Julien Rey</strong><p>Réserver la formation chez HelveticaDrone avant fin septembre. Expire mars 2027 — 6 mois restants.</p></div>
+        <div class="strat-action"><div class="strat-action-tag">CETTE SEMAINE</div><strong>Appels vignerons Lavaux</strong><p>Contacter les 5 domaines identifiés pour épandage vendanges. Offrir une démo gratuite sur 0.5 ha.</p></div>
+        <div class="strat-action"><div class="strat-action-tag">CETTE SEMAINE</div><strong>Pitch Alpiq convention-cadre</strong><p>Envoyer le pitch 5 slides + proposer un accord-cadre maintenance lignes HT annuel.</p></div>
+        <div class="strat-action"><div class="strat-action-tag">CE MOIS</div><strong>RDV Air Glaciers</strong><p>Réunion informelle pour explorer un partenariat complémentarité hélico/drone cargo.</p></div>
+        <div class="strat-action"><div class="strat-action-tag">CE MOIS</div><strong>LinkedIn FlyTech</strong><p>Créer la page entreprise + publier 2 posts avec photos de missions. Cibler ingénieurs énergie et vignerons.</p></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 </script>
 </body>
 </html>
