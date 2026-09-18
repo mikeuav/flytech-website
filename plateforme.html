@@ -268,6 +268,50 @@
     .check-box.checked{background:var(--green-bg);border-color:rgba(26,154,90,.4);color:var(--green-2)}
     textarea.form-input{resize:vertical;min-height:60px;font-family:var(--f-body)}
 
+    /* ── Calendrier ─────────────────────────────────────── */
+    .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .cal-month{font-family:var(--f-head);font-size:16px}
+    .cal-nav{display:flex;gap:6px}
+    .cal-nav-btn{background:var(--bg-3);border:1px solid var(--border);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:var(--text-2)}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+    .cal-dow{font-size:10px;font-family:var(--f-mono);color:var(--text-3);text-align:center;padding:6px 2px;letter-spacing:.04em;text-transform:uppercase}
+    .cal-cell{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;min-height:74px;padding:6px;cursor:pointer;transition:border-color .15s}
+    .cal-cell:hover{border-color:var(--border-2)}
+    .cal-cell.today{border-color:var(--orange);background:var(--orange-bg)}
+    .cal-cell.other-month{opacity:.35}
+    .cal-day-num{font-size:11px;font-family:var(--f-mono);color:var(--text-3);margin-bottom:4px}
+    .cal-cell.today .cal-day-num{color:var(--orange-2);font-weight:700}
+    .cal-evt{font-size:10px;padding:2px 5px;border-radius:3px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4}
+    .ce-orange{background:var(--orange-bg);color:var(--orange-2)}
+    .ce-green{background:var(--green-bg);color:var(--green-2)}
+    .ce-blue{background:var(--blue-bg);color:var(--blue-2)}
+    .ce-purple{background:var(--purple-bg);color:var(--purple-2)}
+    .ce-red{background:rgba(208,32,32,.1);color:var(--red-2)}
+
+    /* ── Facturation ────────────────────────────────────── */
+    .invoice-row{display:grid;grid-template-columns:90px 2fr 1fr 90px 100px 90px;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px}
+    .invoice-row:last-child{border-bottom:none}
+    .invoice-head{background:var(--bg-3);border-radius:6px 6px 0 0;font-size:10px;font-family:var(--f-mono);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+    .inv-num{font-family:var(--f-mono);color:var(--text-3);font-size:11px}
+    .inv-client{font-weight:600;color:var(--text)}
+    .inv-obj{font-size:11px;color:var(--text-2)}
+    .inv-amount{font-family:var(--f-mono);font-size:13px;font-weight:600}
+    .devis-builder{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:16px}
+    .devis-line{display:grid;grid-template-columns:2fr 80px 90px 28px;gap:8px;align-items:center;margin-bottom:8px}
+    .devis-total{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:12px;margin-top:12px}
+
+    /* ── Finance ────────────────────────────────────────── */
+    .fin-bar-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;align-items:flex-end;height:100px;margin:10px 0 6px}
+    .fin-bar{background:var(--bg-3);border-radius:3px 3px 0 0;position:relative;cursor:default;transition:background .15s}
+    .fin-bar:hover{background:var(--border-2)}
+    .fin-bar-fill{position:absolute;bottom:0;left:0;right:0;border-radius:3px 3px 0 0;transition:height .4s}
+    .fin-bar-label{font-size:9px;font-family:var(--f-mono);color:var(--text-3);text-align:center;margin-top:5px;letter-spacing:.02em}
+    .fin-bar-val{font-size:9px;font-family:var(--f-mono);color:var(--text-3);position:absolute;top:-15px;left:50%;transform:translateX(-50%);white-space:nowrap}
+    .client-bar{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px}
+    .client-bar-track{flex:1;height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+    .client-bar-fill{height:100%;border-radius:3px;background:var(--green-2)}
+    .client-bar-val{font-family:var(--f-mono);font-size:11px;color:var(--green-2);white-space:nowrap;min-width:70px;text-align:right}
+
     /* ── Responsive ─────────────────────────────────────── */
     @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
     @media(max-width:768px){
@@ -285,7 +329,7 @@
 <header class="topbar">
   <div class="topbar-left">
     <a href="index.html" class="logo">Fly<span>.</span>tech</a>
-    <span class="proto-badge">Prototype v0.2</span>
+    <span class="proto-badge">Prototype v0.3</span>
     <nav class="topbar-nav">
       <button class="tnav active" onclick="sv('accueil',this)">Accueil</button>
       <button class="tnav" onclick="sv('conformite',this)">Conformité</button>
@@ -320,7 +364,10 @@
     <div class="s-divider"></div>
     <div class="s-label">Marché & Missions</div>
     <button class="s-item" onclick="sv('missions',this)"><span>🚀</span> Mes missions</button>
+    <button class="s-item" onclick="sv('calendrier',this)"><span>📅</span> Calendrier</button>
     <button class="s-item" onclick="sv('clients',this)"><span>🤝</span> Clients / CRM</button>
+    <button class="s-item" onclick="sv('facturation',this)"><span>🧾</span> Facturation <span class="s-new">2</span></button>
+    <button class="s-item" onclick="sv('finance',this)"><span>📈</span> Finance</button>
     <button class="s-item" onclick="sv('marketplace',this)"><span>📦</span> Marketplace cargo <div class="s-dot"></div></button>
     <button class="s-item" onclick="sv('ao',this)"><span>📢</span> Appels d'offres <span class="s-new">3</span></button>
     <button class="s-item" onclick="sv('calc',this)"><span>🧮</span> Calculateur mission</button>
@@ -1124,6 +1171,237 @@
               <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="alert('Simulation : Rapport de mission PDF généré — Vol #342 — conforme OFAC art. 24 OACS. Archivé automatiquement.')">📄 Générer rapport PDF</button>
               <button class="btn btn-ghost" onclick="alert('Simulation : Rapport enregistré dans le carnet de vol.')">Sauvegarder</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CALENDRIER ══════════════════════════════ -->
+    <div class="view" id="v-calendrier">
+      <div class="page-head"><div class="page-title">Calendrier de missions</div><div class="page-sub">Planification opérationnelle · Septembre 2026</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">11</div><div class="stat-label">Missions ce mois</div><div class="stat-delta up">↑ +3 vs août</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 34 800</div><div class="stat-label">CA planifié sept.</div></div>
+        <div class="stat"><div class="stat-val">4</div><div class="stat-label">Appareils mobilisés</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">2</div><div class="stat-label">Jours à confirmer</div></div>
+      </div>
+      <div class="card">
+        <div class="cal-header">
+          <div class="cal-month">Septembre 2026</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="display:flex;gap:8px;font-size:11px;flex-wrap:wrap">
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--orange);margin-right:4px;vertical-align:middle"></span>Cargo</span>
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--green);margin-right:4px;vertical-align:middle"></span>Agri</span>
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--blue);margin-right:4px;vertical-align:middle"></span>Inspection</span>
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--purple);margin-right:4px;vertical-align:middle"></span>Médical</span>
+            </div>
+            <div class="cal-nav">
+              <div class="cal-nav-btn">‹</div>
+              <div class="cal-nav-btn">›</div>
+            </div>
+          </div>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-dow">lun</div><div class="cal-dow">mar</div><div class="cal-dow">mer</div><div class="cal-dow">jeu</div><div class="cal-dow">ven</div><div class="cal-dow">sam</div><div class="cal-dow">dim</div>
+          <!-- Semaine 1 (1–7 sept) -->
+          <div class="cal-cell"><div class="cal-day-num">1</div><div class="cal-evt ce-green">Agras T50 — Farinet</div></div>
+          <div class="cal-cell"><div class="cal-day-num">2</div></div>
+          <div class="cal-cell"><div class="cal-day-num">3</div><div class="cal-evt ce-blue">Inspection Alpiq</div></div>
+          <div class="cal-cell"><div class="cal-day-num">4</div><div class="cal-evt ce-purple">Corridor médical</div></div>
+          <div class="cal-cell"><div class="cal-day-num">5</div><div class="cal-evt ce-orange">Cargo Prafleuri</div></div>
+          <div class="cal-cell"><div class="cal-day-num">6</div></div>
+          <div class="cal-cell"><div class="cal-day-num">7</div></div>
+          <!-- Semaine 2 (8–14 sept) -->
+          <div class="cal-cell"><div class="cal-day-num">8</div><div class="cal-evt ce-green">NDVI Valais Fruits</div></div>
+          <div class="cal-cell"><div class="cal-day-num">9</div><div class="cal-evt ce-purple">Corridor médical</div></div>
+          <div class="cal-cell"><div class="cal-day-num">10</div></div>
+          <div class="cal-cell"><div class="cal-day-num">11</div><div class="cal-evt ce-orange">Cargo Mont-Fort</div></div>
+          <div class="cal-cell"><div class="cal-day-num">12</div><div class="cal-evt ce-blue">Inspection pylônes Brig</div></div>
+          <div class="cal-cell"><div class="cal-day-num">13</div></div>
+          <div class="cal-cell"><div class="cal-day-num">14</div></div>
+          <!-- Semaine 3 (15–21 sept) -->
+          <div class="cal-cell"><div class="cal-day-num">15</div><div class="cal-evt ce-green">Vignoble Gillioz</div></div>
+          <div class="cal-cell"><div class="cal-day-num">16</div><div class="cal-evt ce-purple">Corridor médical</div></div>
+          <div class="cal-cell"><div class="cal-day-num">17</div><div class="cal-evt ce-orange">Cargo Anniviers</div></div>
+          <div class="cal-cell today"><div class="cal-day-num">18</div><div class="cal-evt ce-blue">SORA Grande Dixence</div></div>
+          <div class="cal-cell"><div class="cal-day-num">19</div></div>
+          <div class="cal-cell"><div class="cal-day-num">20</div></div>
+          <div class="cal-cell"><div class="cal-day-num">21</div></div>
+          <!-- Semaine 4 (22–28 sept) -->
+          <div class="cal-cell"><div class="cal-day-num">22</div><div class="cal-evt ce-green">Bubo Sàrl — Leytron</div></div>
+          <div class="cal-cell"><div class="cal-day-num">23</div><div class="cal-evt ce-purple">Corridor médical</div></div>
+          <div class="cal-cell"><div class="cal-day-num">24</div></div>
+          <div class="cal-cell"><div class="cal-day-num">25</div><div class="cal-evt ce-red">⚠ Délai Armasuisse</div></div>
+          <div class="cal-cell"><div class="cal-day-num">26</div><div class="cal-evt ce-orange">Cargo Prafleuri ×2</div></div>
+          <div class="cal-cell"><div class="cal-day-num">27</div></div>
+          <div class="cal-cell"><div class="cal-day-num">28</div></div>
+          <!-- Semaine 5 (29–30 sept) -->
+          <div class="cal-cell"><div class="cal-day-num">29</div><div class="cal-evt ce-blue">Inspection Romande É.</div></div>
+          <div class="cal-cell"><div class="cal-day-num">30</div><div class="cal-evt ce-green">Agras — Farinet P2</div></div>
+          <div class="cal-cell other-month"><div class="cal-day-num">1</div></div>
+          <div class="cal-cell other-month"><div class="cal-day-num">2</div></div>
+          <div class="cal-cell other-month"><div class="cal-day-num">3</div></div>
+          <div class="cal-cell other-month"><div class="cal-day-num">4</div></div>
+          <div class="cal-cell other-month"><div class="cal-day-num">5</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ FACTURATION ══════════════════════════════ -->
+    <div class="view" id="v-facturation">
+      <div class="page-head"><div class="page-title">Facturation & Devis</div><div class="page-sub">Gestion commerciale · Génération PDF automatique · Conformité TVA suisse</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 28 400</div><div class="stat-label">Encaissé sept. 2026</div><div class="stat-delta up">↑ +18% vs août</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">CHF 11 200</div><div class="stat-label">En attente paiement</div><div class="stat-delta neutral">2 factures</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Devis en cours</div><div class="stat-delta neutral">Envoyés ce mois</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">94%</div><div class="stat-label">Taux d'acceptation</div><div class="stat-delta up">Devis → contrat</div></div>
+      </div>
+
+      <div class="alert alert-orange">
+        <div class="alert-icon">⏰</div>
+        <div class="alert-text"><span class="alert-title">2 factures en retard de paiement</span>FA-2026-018 (Alpiq, CHF 6 800 — 15j de retard) · FA-2026-021 (CAS Valais, CHF 4 400 — 8j). Relances automatiques envoyées.</div>
+      </div>
+
+      <div class="grid2" style="margin-bottom:14px">
+        <!-- Créer un devis -->
+        <div class="card">
+          <div class="card-title">Nouveau devis <button class="btn btn-primary btn-sm" style="margin-left:auto" onclick="alert('Simulation : Devis DV-2026-042 généré et envoyé au client.')">Générer PDF →</button></div>
+          <div class="form-group"><label class="form-label">Client</label><select class="form-select"><option>Domaine Farinet</option><option>CAS Valais</option><option>Alpiq SA</option><option>Romande Énergie</option><option>Hôpital du Valais</option><option>Bubo Sàrl (partenaire)</option><option>Nouveau client...</option></select></div>
+          <div class="form-group"><label class="form-label">Objet de la prestation</label><input class="form-input" type="text" placeholder="Ex: Pulvérisation phytosanitaire Saillon — 4 ha"></div>
+          <div class="devis-builder">
+            <div style="font-size:10px;font-family:var(--f-mono);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Lignes de devis</div>
+            <div class="devis-line">
+              <div><input class="form-input" style="font-size:12px" type="text" value="Vol opérationnel DJI Agras T50 — 4 ha" readonly></div>
+              <div><input class="form-input" style="font-size:12px;text-align:center" type="number" value="1"></div>
+              <div><input class="form-input" style="font-size:12px;font-family:var(--f-mono)" type="text" value="CHF 3 800"></div>
+              <div style="color:var(--text-3);cursor:pointer;text-align:center">✕</div>
+            </div>
+            <div class="devis-line">
+              <div><input class="form-input" style="font-size:12px" type="text" value="Préparation SORA + coordination OFAC" readonly></div>
+              <div><input class="form-input" style="font-size:12px;text-align:center" type="number" value="1"></div>
+              <div><input class="form-input" style="font-size:12px;font-family:var(--f-mono)" type="text" value="CHF 450"></div>
+              <div style="color:var(--text-3);cursor:pointer;text-align:center">✕</div>
+            </div>
+            <div class="devis-line">
+              <div><input class="form-input" style="font-size:12px" type="text" value="Rapport de mission + photos" readonly></div>
+              <div><input class="form-input" style="font-size:12px;text-align:center" type="number" value="1"></div>
+              <div><input class="form-input" style="font-size:12px;font-family:var(--f-mono)" type="text" value="CHF 120"></div>
+              <div style="color:var(--text-3);cursor:pointer;text-align:center">✕</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:6px">+ Ajouter une ligne</button>
+            <div class="devis-total">
+              <div class="row"><span class="row-label">Sous-total HT</span><span class="row-val">CHF 4 370.00</span></div>
+              <div class="row"><span class="row-label">TVA 8.1%</span><span class="row-val">CHF 354.00</span></div>
+              <div class="row" style="border-bottom:none"><span style="font-weight:600">Total TTC</span><span class="row-val" style="font-family:var(--f-head);font-size:15px;color:var(--green-2)">CHF 4 724.00</span></div>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:10px"><label class="form-label">Conditions de paiement</label><select class="form-select"><option>30 jours net</option><option>15 jours net</option><option>Paiement à réception</option><option>50% acompte + solde à réception</option></select></div>
+        </div>
+
+        <!-- Liste factures -->
+        <div class="card">
+          <div class="card-title">Factures récentes <button class="btn btn-ghost btn-sm" onclick="alert('Simulation : Export Excel du grand livre.')">Export →</button></div>
+          <div class="table-wrap">
+            <div class="invoice-row invoice-head"><span>N°</span><span>Client</span><span>Prestation</span><span>Montant</span><span>Échéance</span><span>Statut</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-026</span><div><div class="inv-client">Romande Énergie</div><div class="inv-obj">Inspection pylônes</div></div><span class="inv-obj">Entremont</span><span class="inv-amount">CHF 6 800</span><span style="font-size:11px;color:var(--text-3)">30.09.2026</span><span class="badge b-green">Payée</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-025</span><div><div class="inv-client">Domaine Farinet</div><div class="inv-obj">Pulvé. Saillon</div></div><span class="inv-obj">Saillon VS</span><span class="inv-amount">CHF 3 800</span><span style="font-size:11px;color:var(--text-3)">25.09.2026</span><span class="badge b-green">Payée</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-024</span><div><div class="inv-client">CAS Valais</div><div class="inv-obj">Cargo Prafleuri</div></div><span class="inv-obj">Val d'Hérens</span><span class="inv-amount">CHF 4 400</span><span style="font-size:11px;color:var(--orange-2)">10.09.2026</span><span class="badge b-orange">En retard</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-023</span><div><div class="inv-client">Hôpital du Valais</div><div class="inv-obj">Corridor médical</div></div><span class="inv-obj">Sion ↔ Sierre</span><span class="inv-amount">CHF 2 940</span><span style="font-size:11px;color:var(--text-3)">20.09.2026</span><span class="badge b-green">Payée</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-022</span><div><div class="inv-client">Alpiq SA</div><div class="inv-obj">Inspection Grande Dixence</div></div><span class="inv-obj">Dixence</span><span class="inv-amount">CHF 6 800</span><span style="font-size:11px;color:var(--red-2)">03.09.2026</span><span class="badge b-red">15j retard</span></div>
+            <div class="invoice-row"><span class="inv-num">FA-021</span><div><div class="inv-client">Valais Fruits</div><div class="inv-obj">NDVI — 18 ha</div></div><span class="inv-obj">Fully</span><span class="inv-amount">CHF 3 660</span><span style="font-size:11px;color:var(--text-3)">01.09.2026</span><span class="badge b-green">Payée</span></div>
+          </div>
+          <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+            <div class="card-title" style="margin-bottom:10px">Devis en attente <span class="badge b-gray">3</span></div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">DV-2026-041 — Bubo Sàrl (mission conjointe)</div><div class="row-label">Envoyé 16.09 · Appel d'offres IVVV</div></div><span style="font-family:var(--f-mono);font-size:12px;color:var(--text-2)">CHF 18 500</span></div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">DV-2026-040 — BKW Energie</div><div class="row-label">Envoyé 12.09 · Inspection annuelle pylônes</div></div><span style="font-family:var(--f-mono);font-size:12px;color:var(--text-2)">CHF 12 500</span></div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">DV-2026-039 — Commune d'Anniviers</div><div class="row-label">Envoyé 08.09 · Cargo haute saison</div></div><span style="font-family:var(--f-mono);font-size:12px;color:var(--text-2)">CHF 7 200</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ FINANCE ════════════════════════════════ -->
+    <div class="view" id="v-finance">
+      <div class="page-head"><div class="page-title">Finance & Trésorerie</div><div class="page-sub">Chiffre d'affaires · Projections · Répartition clients · Exercice 2026</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 187 400</div><div class="stat-label">CA 2026 cumulé (jan–sept)</div><div class="stat-delta up">↑ +42% vs 2025</div></div>
+        <div class="stat"><div class="stat-val">CHF 248 000</div><div class="stat-label">Projection CA annuel 2026</div><div class="stat-delta up">Objectif : CHF 250 000</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--blue-2)">38%</div><div class="stat-label">Marge brute estimée</div><div class="stat-delta neutral">Après charges directes</div></div>
+        <div class="stat"><div class="stat-val">CHF 28 400</div><div class="stat-label">CA septembre 2026</div><div class="stat-delta up">↑ +18% vs août</div></div>
+      </div>
+
+      <div class="grid2">
+        <!-- Graphique CA mensuel -->
+        <div class="card">
+          <div class="card-title">Chiffre d'affaires mensuel 2026 <span class="badge b-green">+42% vs 2025</span></div>
+          <div style="position:relative">
+            <div class="fin-bar-grid">
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:58%;background:var(--green-2)"></div><div class="fin-bar-val">14k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:52%;background:var(--green-2)"></div><div class="fin-bar-val">12k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:71%;background:var(--green-2)"></div><div class="fin-bar-val">18k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:79%;background:var(--green-2)"></div><div class="fin-bar-val">22k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:88%;background:var(--green-2)"></div><div class="fin-bar-val">26k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:75%;background:var(--green-2)"></div><div class="fin-bar-val">21k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:92%;background:var(--green-2)"></div><div class="fin-bar-val">24k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:87%;background:var(--green-2)"></div><div class="fin-bar-val">22k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:100%;background:var(--orange-2)"></div><div class="fin-bar-val" style="color:var(--orange-2)">28k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:88%;background:rgba(26,154,90,.3)"></div><div class="fin-bar-val" style="color:var(--text-3)">~24k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:80%;background:rgba(26,154,90,.3)"></div><div class="fin-bar-val" style="color:var(--text-3)">~20k</div></div>
+              <div class="fin-bar" style="height:100%"><div class="fin-bar-fill" style="height:65%;background:rgba(26,154,90,.3)"></div><div class="fin-bar-val" style="color:var(--text-3)">~17k</div></div>
+            </div>
+            <div class="fin-bar-grid" style="height:auto;margin:0;align-items:flex-start">
+              <div class="fin-bar-label">JAN</div><div class="fin-bar-label">FEV</div><div class="fin-bar-label">MAR</div><div class="fin-bar-label">AVR</div><div class="fin-bar-label">MAI</div><div class="fin-bar-label">JUN</div><div class="fin-bar-label">JUL</div><div class="fin-bar-label">AOÛ</div><div class="fin-bar-label" style="color:var(--orange-2)">SEP</div><div class="fin-bar-label">OCT</div><div class="fin-bar-label">NOV</div><div class="fin-bar-label">DEC</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;margin-top:8px;font-size:11px">
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--green-2);margin-right:4px;vertical-align:middle"></span>Réalisé</span>
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:var(--orange-2);margin-right:4px;vertical-align:middle"></span>Mois en cours</span>
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:rgba(26,154,90,.3);margin-right:4px;vertical-align:middle"></span>Projeté</span>
+          </div>
+        </div>
+
+        <!-- Répartition clients -->
+        <div class="card">
+          <div class="card-title">Répartition CA par client <span class="badge b-gray">2026 YTD</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Alpiq SA</span><div class="client-bar-track"><div class="client-bar-fill" style="width:26%;background:var(--blue-2)"></div></div><span class="client-bar-val" style="color:var(--blue-2)">CHF 48 600</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Hôpital du Valais</span><div class="client-bar-track"><div class="client-bar-fill" style="width:20%;background:var(--purple-2)"></div></div><span class="client-bar-val" style="color:var(--purple-2)">CHF 37 200</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Romande Énergie</span><div class="client-bar-track"><div class="client-bar-fill" style="width:16%;background:var(--green-2)"></div></div><span class="client-bar-val">CHF 29 800</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">CAS Valais</span><div class="client-bar-track"><div class="client-bar-fill" style="width:13%;background:var(--green-2)"></div></div><span class="client-bar-val">CHF 24 400</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Valais Fruits</span><div class="client-bar-track"><div class="client-bar-fill" style="width:11%;background:var(--green-2)"></div></div><span class="client-bar-val">CHF 20 600</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Dom. Farinet</span><div class="client-bar-track"><div class="client-bar-fill" style="width:8%;background:var(--green-2)"></div></div><span class="client-bar-val">CHF 15 000</span></div>
+          <div class="client-bar"><span style="min-width:110px;font-size:12px">Autres</span><div class="client-bar-track"><div class="client-bar-fill" style="width:6%;background:var(--text-3)"></div></div><span class="client-bar-val" style="color:var(--text-3)">CHF 11 800</span></div>
+
+          <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--border)">
+            <div class="card-title" style="font-size:12px;margin-bottom:8px">Projection Q4 2026</div>
+            <div class="row"><span class="row-label">Oct (pipeline confirmé)</span><span class="row-val" style="color:var(--text)">CHF 24 200</span></div>
+            <div class="row"><span class="row-label">Nov (pipeline estimé)</span><span class="row-val" style="color:var(--text-2)">CHF 19 800</span></div>
+            <div class="row"><span class="row-label">Déc (pipeline estimé)</span><span class="row-val" style="color:var(--text-2)">CHF 16 600</span></div>
+            <div class="row" style="border-bottom:none"><span style="font-weight:600">Total CA 2026 (proj.)</span><span class="row-val" style="color:var(--green-2);font-family:var(--f-head);font-size:14px">CHF 248 000</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:0">
+        <!-- Charges directes -->
+        <div class="card">
+          <div class="card-title">Structure de coûts — Opérations</div>
+          <div class="row"><span class="row-label">Amortissement flotte (4 drones)</span><span class="row-val">CHF 3 200/mois</span></div>
+          <div class="row"><span class="row-label">Batteries & consommables</span><span class="row-val">CHF 1 800/mois</span></div>
+          <div class="row"><span class="row-label">RC Pro Zurich Insurance</span><span class="row-val">CHF 420/mois</span></div>
+          <div class="row"><span class="row-label">Certifications & formations</span><span class="row-val">CHF 380/mois</span></div>
+          <div class="row"><span class="row-label">Carburant / transport opérations</span><span class="row-val">CHF 650/mois</span></div>
+          <div class="row"><span class="row-label">Logiciels & plateforme SaaS</span><span class="row-val">CHF 290/mois</span></div>
+          <div class="row" style="border-bottom:none"><span style="font-weight:600">Total charges directes</span><span class="row-val" style="color:var(--orange-2);font-weight:600">CHF 6 740/mois</span></div>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="card">
+          <div class="card-title">Objectifs stratégiques 2026–2028</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">2026 — CA CHF 248 000 ✅</div><div class="tl-meta">4 drones · 3 segments · Valais romand</div></div>
+            <div class="tl-item"><div class="tl-dot orange"></div><div class="tl-title">2027 — CA CHF 420 000</div><div class="tl-meta">+2 FlyCart · Expansion Vaud/Fribourg · Partenariat Bubo Sàrl actif</div></div>
+            <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-title">2027 — SaaS plateforme beta</div><div class="tl-meta">Ouverture à d'autres opérateurs STS · Abonnement CHF 199/mois</div></div>
+            <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-title">2028 — CA CHF 800 000</div><div class="tl-meta">Leader drone cargo Suisse romande · 8 appareils · SaaS 50 clients</div></div>
           </div>
         </div>
       </div>
