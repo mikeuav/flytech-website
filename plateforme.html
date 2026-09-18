@@ -10,192 +10,225 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23E85C0A'/><text y='24' x='4' font-size='22' font-family='sans-serif' font-weight='900' fill='white'>F</text></svg>">
   <style>
     :root {
-      --bg:      #09111A; --bg-2: #0E1B28; --bg-3: #152030; --bg-4: #1C2A3C;
-      --border:  #1E3048; --border-2: #283F56;
-      --text:    #E4EBF3; --text-2: #A0B4C4; --text-3: #5A7085;
-      --orange:  #E85C0A; --orange-2: #FF7020; --orange-bg: rgba(232,92,10,.12);
-      --blue:    #1E64F0; --blue-2: #5A8FFF; --blue-bg: rgba(30,100,240,.12);
-      --green:   #1A9A5A; --green-2: #4CC88A; --green-bg: rgba(26,154,90,.12);
-      --red:     #D02020; --red-2: #F07070;
-      --yellow:  #C8900A; --yellow-2: #F0B84A;
-      --purple:  #7C3AED; --purple-2: #A78BFA;
-      --f-head: 'Syne',sans-serif; --f-body:'Inter',sans-serif; --f-mono:'JetBrains Mono',monospace;
+      --bg:#09111A; --bg-2:#0E1B28; --bg-3:#152030; --bg-4:#1C2A3C;
+      --border:#1E3048; --border-2:#283F56;
+      --text:#E4EBF3; --text-2:#A0B4C4; --text-3:#5A7085;
+      --orange:#E85C0A; --orange-2:#FF7020; --orange-bg:rgba(232,92,10,.12);
+      --blue:#1E64F0; --blue-2:#5A8FFF; --blue-bg:rgba(30,100,240,.12);
+      --green:#1A9A5A; --green-2:#4CC88A; --green-bg:rgba(26,154,90,.12);
+      --red:#D02020; --red-2:#F07070;
+      --yellow:#C8900A; --yellow-2:#F0B84A;
+      --purple:#7C3AED; --purple-2:#A78BFA; --purple-bg:rgba(124,58,237,.12);
+      --f-head:'Syne',sans-serif; --f-body:'Inter',sans-serif; --f-mono:'JetBrains Mono',monospace;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--f-body); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.6;min-height:100vh}
 
     /* ── Topbar ──────────────────────────────────────────── */
-    .topbar {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(9,17,26,.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      height: 52px; padding: 0 20px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .topbar-left { display: flex; align-items: center; gap: 16px; }
-    .logo { font-family: var(--f-head); font-size: 18px; text-decoration: none; color: var(--text); }
-    .logo span { color: var(--orange); }
-    .proto-badge {
-      background: var(--orange-bg); color: var(--orange-2);
-      border: 1px solid rgba(232,92,10,.3);
-      font-size: 10px; font-family: var(--f-mono); letter-spacing: .08em;
-      padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
-    }
-    .topbar-nav { display: flex; gap: 4px; }
-    .tnav { padding: 5px 12px; border-radius: 6px; font-size: 13px; color: var(--text-2); cursor: pointer; border: none; background: transparent; transition: background .15s, color .15s; }
-    .tnav:hover { background: var(--bg-3); color: var(--text); }
-    .tnav.active { background: var(--bg-3); color: var(--text); }
-    .topbar-right { display: flex; align-items: center; gap: 10px; }
-    .user-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--bg-3); border: 1px solid var(--border);
-      border-radius: 20px; padding: 4px 12px 4px 6px;
-      font-size: 12px; color: var(--text-2);
-    }
-    .user-avatar { width: 22px; height: 22px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: font-size:10px; }
-    .sts-pill { background: var(--orange-bg); color: var(--orange-2); border: 1px solid rgba(232,92,10,.25); border-radius: 4px; font-size: 10px; font-family: var(--f-mono); padding: 2px 6px; }
+    .topbar{position:sticky;top:0;z-index:200;background:rgba(9,17,26,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+    .topbar-left{display:flex;align-items:center;gap:14px}
+    .logo{font-family:var(--f-head);font-size:18px;text-decoration:none;color:var(--text)}
+    .logo span{color:var(--orange)}
+    .proto-badge{background:var(--orange-bg);color:var(--orange-2);border:1px solid rgba(232,92,10,.3);font-size:10px;font-family:var(--f-mono);letter-spacing:.08em;padding:2px 8px;border-radius:4px;text-transform:uppercase}
+    .topbar-nav{display:flex;gap:2px}
+    .tnav{padding:5px 11px;border-radius:6px;font-size:12px;color:var(--text-2);cursor:pointer;border:none;background:transparent;transition:background .15s,color .15s}
+    .tnav:hover{background:var(--bg-3);color:var(--text)}
+    .tnav.active{background:var(--bg-3);color:var(--text)}
+    .topbar-right{display:flex;align-items:center;gap:10px}
+    .notif-btn{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;font-size:14px}
+    .notif-dot{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:var(--orange);border:2px solid var(--bg)}
+    .user-pill{display:flex;align-items:center;gap:8px;background:var(--bg-3);border:1px solid var(--border);border-radius:20px;padding:4px 12px 4px 6px;font-size:12px;color:var(--text-2)}
+    .sts-pill{background:var(--orange-bg);color:var(--orange-2);border:1px solid rgba(232,92,10,.25);border-radius:4px;font-size:10px;font-family:var(--f-mono);padding:2px 6px}
 
     /* ── Layout ─────────────────────────────────────────── */
-    .layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 52px); }
-    .sidebar { background: var(--bg-2); border-right: 1px solid var(--border); padding: 16px 8px; position: sticky; top: 52px; height: calc(100vh - 52px); overflow-y: auto; }
-    .s-label { font-size: 10px; font-family: var(--f-mono); color: var(--text-3); letter-spacing: .1em; text-transform: uppercase; padding: 0 8px 6px; margin-top: 12px; }
-    .s-item { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 7px; font-size: 13px; color: var(--text-2); cursor: pointer; border: none; background: transparent; width: 100%; text-align: left; transition: background .15s, color .15s; }
-    .s-item:hover { background: var(--bg-3); color: var(--text); }
-    .s-item.active { background: var(--bg-3); color: var(--text); }
-    .s-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-left: auto; animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
-    .s-divider { height: 1px; background: var(--border); margin: 8px 4px; }
+    .layout{display:grid;grid-template-columns:208px 1fr;min-height:calc(100vh - 52px)}
+    .sidebar{background:var(--bg-2);border-right:1px solid var(--border);padding:14px 8px;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
+    .s-label{font-size:10px;font-family:var(--f-mono);color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;padding:0 8px 6px;margin-top:10px}
+    .s-item{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:7px;font-size:13px;color:var(--text-2);cursor:pointer;border:none;background:transparent;width:100%;text-align:left;transition:background .15s,color .15s}
+    .s-item:hover{background:var(--bg-3);color:var(--text)}
+    .s-item.active{background:var(--bg-3);color:var(--text)}
+    .s-new{margin-left:auto;font-size:9px;font-family:var(--f-mono);background:var(--orange-bg);color:var(--orange-2);border:1px solid rgba(232,92,10,.3);border-radius:3px;padding:1px 5px}
+    .s-dot{width:6px;height:6px;border-radius:50%;background:var(--green);margin-left:auto;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .s-divider{height:1px;background:var(--border);margin:6px 4px}
 
     /* ── Main ──────────────────────────────────────────── */
-    .main { padding: 24px; overflow-y: auto; }
-    .view { display: none; }
-    .view.active { display: block; }
+    .main{padding:22px;overflow-y:auto}
+    .view{display:none}
+    .view.active{display:block}
+    .page-head{margin-bottom:20px}
+    .page-title{font-family:var(--f-head);font-size:20px;margin-bottom:3px}
+    .page-sub{font-size:12px;color:var(--text-3)}
 
-    /* ── Page header ───────────────────────────────────── */
-    .page-head { margin-bottom: 24px; }
-    .page-title { font-family: var(--f-head); font-size: 20px; margin-bottom: 4px; }
-    .page-sub { font-size: 13px; color: var(--text-3); }
+    /* ── Stats ─────────────────────────────────────────── */
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+    .stat{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .stat-val{font-family:var(--f-head);font-size:24px}
+    .stat-label{font-size:11px;color:var(--text-3);margin-top:1px}
+    .stat-delta{font-size:11px;margin-top:3px}
+    .up{color:var(--green-2)}.down{color:var(--red-2)}.neutral{color:var(--text-3)}
 
-    /* ── Stat row ──────────────────────────────────────── */
-    .stat-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
-    .stat { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-    .stat-val { font-family: var(--f-head); font-size: 26px; }
-    .stat-label { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-    .stat-delta { font-size: 11px; margin-top: 4px; }
-    .up { color: var(--green-2); } .down { color: var(--red-2); } .neutral { color: var(--text-3); }
-
-    /* ── Grid 2col ─────────────────────────────────────── */
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-    .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-    @media (max-width: 900px) { .grid2,.grid3 { grid-template-columns: 1fr; } }
-
-    /* ── Card ──────────────────────────────────────────── */
-    .card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
-    .card-title { font-size: 13px; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
-    .card-title .sub { font-size: 11px; color: var(--text-3); font-weight: 400; }
+    /* ── Cards ─────────────────────────────────────────── */
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+    .card{background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .card-title{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .card-title .sub{font-size:11px;color:var(--text-3);font-weight:400}
 
     /* ── Badge ─────────────────────────────────────────── */
-    .badge { display: inline-block; font-size: 10px; font-family: var(--f-mono); padding: 2px 7px; border-radius: 4px; }
-    .b-green  { background:var(--green-bg);  color:var(--green-2);  border:1px solid rgba(26,154,90,.3); }
-    .b-orange { background:var(--orange-bg); color:var(--orange-2); border:1px solid rgba(232,92,10,.3); }
-    .b-blue   { background:var(--blue-bg);   color:var(--blue-2);   border:1px solid rgba(30,100,240,.3); }
-    .b-red    { background:rgba(208,32,32,.12); color:var(--red-2);  border:1px solid rgba(208,32,32,.3); }
-    .b-gray   { background:var(--bg-3); color:var(--text-3); border:1px solid var(--border); }
-    .b-purple { background:rgba(124,58,237,.12); color:var(--purple-2); border:1px solid rgba(124,58,237,.3); }
+    .badge{display:inline-block;font-size:10px;font-family:var(--f-mono);padding:2px 7px;border-radius:4px;white-space:nowrap}
+    .b-green{background:var(--green-bg);color:var(--green-2);border:1px solid rgba(26,154,90,.3)}
+    .b-orange{background:var(--orange-bg);color:var(--orange-2);border:1px solid rgba(232,92,10,.3)}
+    .b-blue{background:var(--blue-bg);color:var(--blue-2);border:1px solid rgba(30,100,240,.3)}
+    .b-red{background:rgba(208,32,32,.12);color:var(--red-2);border:1px solid rgba(208,32,32,.3)}
+    .b-gray{background:var(--bg-3);color:var(--text-3);border:1px solid var(--border)}
+    .b-purple{background:var(--purple-bg);color:var(--purple-2);border:1px solid rgba(124,58,237,.3)}
+    .b-yellow{background:rgba(200,144,10,.12);color:var(--yellow-2);border:1px solid rgba(200,144,10,.3)}
 
-    /* ── List rows ─────────────────────────────────────── */
-    .row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-    .row:last-child { border-bottom: none; }
-    .row-label { color: var(--text-3); font-size: 12px; }
-    .row-val { font-family: var(--f-mono); font-size: 12px; }
+    /* ── Rows / list ────────────────────────────────────── */
+    .row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;gap:8px}
+    .row:last-child{border-bottom:none}
+    .row-label{color:var(--text-3);font-size:12px}
+    .row-val{font-family:var(--f-mono);font-size:12px;text-align:right}
 
-    /* ── Conformité items ──────────────────────────────── */
-    .conf-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
-    .conf-item:last-child { border-bottom: none; }
-    .conf-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
-    .ci-ok   { background: var(--green-bg); }
-    .ci-warn { background: var(--orange-bg); }
-    .ci-err  { background: rgba(208,32,32,.12); }
-    .conf-text { flex: 1; }
-    .conf-name { font-size: 13px; font-weight: 500; }
-    .conf-sub  { font-size: 11px; color: var(--text-3); }
-    .conf-action { font-size: 11px; color: var(--orange-2); cursor: pointer; white-space: nowrap; }
+    /* ── Conformité ─────────────────────────────────────── */
+    .conf-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}
+    .conf-item:last-child{border-bottom:none}
+    .conf-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+    .ci-ok{background:var(--green-bg)}.ci-warn{background:var(--orange-bg)}.ci-err{background:rgba(208,32,32,.12)}
+    .conf-text{flex:1}
+    .conf-name{font-size:13px;font-weight:500}
+    .conf-sub{font-size:11px;color:var(--text-3)}
+    .conf-action{font-size:11px;color:var(--orange-2);cursor:pointer;white-space:nowrap;flex-shrink:0}
 
-    /* ── Zone map ──────────────────────────────────────── */
-    .zone-map {
-      background: var(--bg-3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      height: 200px;
-      position: relative;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .zone-map svg { width: 100%; height: 100%; }
+    /* ── SORA steps ─────────────────────────────────────── */
+    .sora-step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+    .sora-step:last-child{border-bottom:none}
+    .step-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:var(--f-mono);flex-shrink:0}
+    .sn-done{background:var(--green-bg);color:var(--green-2);border:1px solid rgba(26,154,90,.3)}
+    .sn-active{background:var(--orange-bg);color:var(--orange-2);border:1px solid rgba(232,92,10,.3)}
+    .sn-todo{background:var(--bg-3);color:var(--text-3);border:1px solid var(--border)}
+    .step-body{flex:1}
+    .step-name{font-size:13px;font-weight:500}
+    .step-sub{font-size:11px;color:var(--text-3)}
 
-    /* ── Progress bar ──────────────────────────────────── */
-    .prog-wrap { margin: 8px 0; }
-    .prog-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-3); margin-bottom: 5px; }
-    .prog-bar { height: 5px; background: var(--bg-3); border-radius: 3px; overflow: hidden; }
-    .prog-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
-    .pf-green  { background: var(--green-2); }
-    .pf-orange { background: var(--orange-2); }
-    .pf-blue   { background: var(--blue-2); }
+    /* ── Marketplace ────────────────────────────────────── */
+    .mkt-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px;transition:border-color .2s}
+    .mkt-card:hover{border-color:var(--border-2)}
+    .mkt-icon{width:38px;height:38px;border-radius:8px;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+    .mkt-body{flex:1}
+    .mkt-title{font-size:13px;font-weight:600;margin-bottom:2px}
+    .mkt-meta{font-size:11px;color:var(--text-3);margin-bottom:6px}
+    .mkt-tags{display:flex;gap:5px;flex-wrap:wrap}
+    .mkt-price{text-align:right;flex-shrink:0}
+    .mkt-amount{font-family:var(--f-head);font-size:15px;color:var(--green-2)}
+    .mkt-unit{font-size:10px;color:var(--text-3)}
 
-    /* ── Marketplace cards ─────────────────────────────── */
-    .mkt-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 14px; }
-    .mkt-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-    .mkt-body { flex: 1; }
-    .mkt-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
-    .mkt-meta { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
-    .mkt-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .mkt-price { text-align: right; flex-shrink: 0; }
-    .mkt-amount { font-family: var(--f-head); font-size: 16px; color: var(--green-2); }
-    .mkt-unit { font-size: 10px; color: var(--text-3); }
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 7px; font-size: 12px; font-weight: 500; cursor: pointer; border: none; transition: opacity .15s; }
-    .btn:hover { opacity: .85; }
-    .btn-primary { background: var(--orange); color: white; }
-    .btn-ghost   { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
-    .btn-sm { padding: 4px 10px; font-size: 11px; }
+    /* ── Buttons ────────────────────────────────────────── */
+    .btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;border:none;transition:opacity .15s;text-decoration:none;font-family:var(--f-body)}
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--orange);color:white}
+    .btn-blue{background:var(--blue);color:white}
+    .btn-ghost{background:transparent;color:var(--text-2);border:1px solid var(--border)}
+    .btn-sm{padding:4px 10px;font-size:11px}
+    .btn-green{background:var(--green);color:white}
 
-    /* ── Alert banner ──────────────────────────────────── */
-    .alert { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
-    .alert-orange { background: var(--orange-bg); border: 1px solid rgba(232,92,10,.25); }
-    .alert-blue   { background: var(--blue-bg);   border: 1px solid rgba(30,100,240,.25); }
-    .alert-green  { background: var(--green-bg);  border: 1px solid rgba(26,154,90,.25); }
-    .alert-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-    .alert-text { color: var(--text-2); line-height: 1.5; }
-    .alert-title { font-weight: 600; color: var(--text); display: block; margin-bottom: 2px; }
+    /* ── Alert ──────────────────────────────────────────── */
+    .alert{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border-radius:8px;font-size:13px;margin-bottom:12px}
+    .alert-orange{background:var(--orange-bg);border:1px solid rgba(232,92,10,.25)}
+    .alert-blue{background:var(--blue-bg);border:1px solid rgba(30,100,240,.25)}
+    .alert-green{background:var(--green-bg);border:1px solid rgba(26,154,90,.25)}
+    .alert-red{background:rgba(208,32,32,.1);border:1px solid rgba(208,32,32,.25)}
+    .alert-icon{font-size:14px;flex-shrink:0;margin-top:2px}
+    .alert-text{color:var(--text-2);line-height:1.5;flex:1}
+    .alert-title{font-weight:600;color:var(--text);display:block;margin-bottom:2px}
 
-    /* ── SORA Steps ────────────────────────────────────── */
-    .sora-step { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-    .sora-step:last-child { border-bottom: none; }
-    .step-num { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--f-mono); flex-shrink: 0; }
-    .sn-done { background: var(--green-bg); color: var(--green-2); border: 1px solid rgba(26,154,90,.3); }
-    .sn-active { background: var(--orange-bg); color: var(--orange-2); border: 1px solid rgba(232,92,10,.3); }
-    .sn-todo { background: var(--bg-3); color: var(--text-3); border: 1px solid var(--border); }
-    .step-body { flex: 1; }
-    .step-name { font-size: 13px; font-weight: 500; }
-    .step-sub { font-size: 11px; color: var(--text-3); }
+    /* ── Progress ───────────────────────────────────────── */
+    .prog-wrap{margin:7px 0}
+    .prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--text-3);margin-bottom:4px}
+    .prog-bar{height:5px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+    .prog-fill{height:100%;border-radius:3px}
+    .pf-green{background:var(--green-2)}.pf-orange{background:var(--orange-2)}.pf-blue{background:var(--blue-2)}.pf-red{background:var(--red-2)}
 
-    /* ── Timeline ──────────────────────────────────────── */
-    .timeline { position: relative; padding-left: 20px; }
-    .timeline::before { content:''; position: absolute; left: 6px; top: 0; bottom: 0; width: 1px; background: var(--border); }
-    .tl-item { position: relative; padding: 0 0 16px 16px; }
-    .tl-dot { position: absolute; left: -14px; top: 4px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); }
-    .tl-dot.green  { border-color: var(--green-2); background: var(--green-2); }
-    .tl-dot.orange { border-color: var(--orange-2); background: var(--orange-2); }
-    .tl-dot.blue   { border-color: var(--blue-2); background: var(--bg); }
-    .tl-title { font-size: 13px; font-weight: 500; }
-    .tl-meta  { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+    /* ── Timeline ───────────────────────────────────────── */
+    .timeline{position:relative;padding-left:18px}
+    .timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:var(--border)}
+    .tl-item{position:relative;padding:0 0 14px 14px}
+    .tl-dot{position:absolute;left:-13px;top:4px;width:9px;height:9px;border-radius:50%;border:2px solid var(--border);background:var(--bg)}
+    .tl-dot.green{border-color:var(--green-2);background:var(--green-2)}
+    .tl-dot.orange{border-color:var(--orange-2);background:var(--orange-2)}
+    .tl-dot.blue{border-color:var(--blue-2);background:var(--bg)}
+    .tl-dot.red{border-color:var(--red-2);background:var(--red-2)}
+    .tl-title{font-size:13px;font-weight:500}
+    .tl-meta{font-size:11px;color:var(--text-3);margin-top:1px}
 
-    /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; height: auto; display: flex; flex-wrap: wrap; gap: 4px; padding: 8px; border-right: none; border-bottom: 1px solid var(--border); }
-      .s-label,.s-divider { display: none; }
-      .main { padding: 16px; }
-      .topbar-nav { display: none; }
+    /* ── Météo ──────────────────────────────────────────── */
+    .meteo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+    .meteo-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px}
+    .meteo-loc{font-size:11px;font-family:var(--f-mono);color:var(--text-3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+    .meteo-val{font-family:var(--f-head);font-size:22px;margin-bottom:2px}
+    .meteo-label{font-size:11px;color:var(--text-3)}
+    .meteo-rows{margin-top:10px}
+    .meteo-row{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)}
+    .meteo-row:last-child{border-bottom:none}
+    .meteo-row-label{color:var(--text-3)}
+    .wind-gauge{height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden;margin-top:3px}
+    .wind-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green-2),var(--yellow-2),var(--red-2))}
+    .go{color:var(--green-2)}.warn{color:var(--yellow-2)}.nogo{color:var(--red-2)}
+
+    /* ── Carnet de vol ──────────────────────────────────── */
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:12px}
+    th{text-align:left;font-size:10px;font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding:9px 12px;border-bottom:1px solid var(--border)}
+    td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:middle}
+    td:first-child{color:var(--text);font-weight:500}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,255,255,.015)}
+
+    /* ── Appels d'offres ────────────────────────────────── */
+    .ao-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;transition:border-color .2s}
+    .ao-card:hover{border-color:var(--border-2)}
+    .ao-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .ao-title{font-size:13px;font-weight:600;margin-bottom:3px}
+    .ao-meta{font-size:11px;color:var(--text-3)}
+    .ao-body{font-size:12px;color:var(--text-2);line-height:1.6;margin-bottom:10px}
+    .ao-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .ao-deadline{font-size:11px;font-family:var(--f-mono)}
+    .ao-deadline.urgent{color:var(--orange-2)}
+    .ao-deadline.soon{color:var(--yellow-2)}
+    .ao-deadline.normal{color:var(--text-3)}
+
+    /* ── Calculateur ────────────────────────────────────── */
+    .calc-result{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:12px}
+    .calc-result-title{font-size:11px;font-family:var(--f-mono);color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+    .calc-stat{text-align:center}
+    .calc-stat-val{font-family:var(--f-head);font-size:20px;margin-bottom:2px}
+    .calc-stat-label{font-size:10px;color:var(--text-3)}
+    .risk-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-top:10px;gap:2px}
+    .risk-seg{flex:1;border-radius:2px;opacity:.3;transition:opacity .3s}
+    .risk-seg.active{opacity:1}
+    .rs-1{background:var(--green-2)}.rs-2{background:var(--yellow-2)}.rs-3{background:var(--orange-2)}.rs-4{background:var(--red-2)}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--bg-3);outline:none;margin:8px 0}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--orange);cursor:pointer}
+    .form-input{width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:7px 10px;border-radius:6px;font-size:13px;font-family:var(--f-body);outline:none}
+    .form-input:focus{border-color:var(--orange)}
+    .form-select{width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:7px 10px;border-radius:6px;font-size:13px;font-family:var(--f-body);outline:none}
+    .form-label{font-size:11px;color:var(--text-3);margin-bottom:4px;display:block}
+    .form-group{margin-bottom:10px}
+
+    /* ── Zone map ───────────────────────────────────────── */
+    .zone-map{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;height:220px;position:relative;overflow:hidden}
+    .zone-map svg{width:100%;height:100%}
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:static;height:auto;display:flex;flex-wrap:wrap;gap:3px;padding:8px;border-right:none;border-bottom:1px solid var(--border)}
+      .s-label,.s-divider{display:none}
+      .main{padding:14px}
+      .topbar-nav{display:none}
     }
   </style>
 </head>
@@ -205,16 +238,21 @@
 <header class="topbar">
   <div class="topbar-left">
     <a href="index.html" class="logo">Fly<span>.</span>tech</a>
-    <span class="proto-badge">Prototype v0.1</span>
+    <span class="proto-badge">Prototype v0.2</span>
     <nav class="topbar-nav">
-      <button class="tnav active" onclick="switchView('accueil',this)">Accueil</button>
-      <button class="tnav" onclick="switchView('conformite',this)">Conformité</button>
-      <button class="tnav" onclick="switchView('sora',this)">SORA</button>
-      <button class="tnav" onclick="switchView('marketplace',this)">Marketplace</button>
-      <button class="tnav" onclick="switchView('veille',this)">Veille</button>
+      <button class="tnav active" onclick="sv('accueil',this)">Accueil</button>
+      <button class="tnav" onclick="sv('conformite',this)">Conformité</button>
+      <button class="tnav" onclick="sv('sora',this)">SORA</button>
+      <button class="tnav" onclick="sv('marketplace',this)">Marketplace</button>
+      <button class="tnav" onclick="sv('ao',this)">Appels d'offres</button>
+      <button class="tnav" onclick="sv('meteo',this)">Météo ops</button>
+      <button class="tnav" onclick="sv('carnet',this)">Carnet de vol</button>
+      <button class="tnav" onclick="sv('calc',this)">Calculateur</button>
+      <button class="tnav" onclick="sv('veille',this)">Veille</button>
     </nav>
   </div>
   <div class="topbar-right">
+    <div class="notif-btn" title="3 notifications">🔔<div class="notif-dot"></div></div>
     <div class="user-pill">
       <div style="width:22px;height:22px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white">M</div>
       Flytech Sàrl
@@ -223,345 +261,258 @@
   </div>
 </header>
 
-<!-- LAYOUT -->
 <div class="layout">
   <aside class="sidebar">
-    <div class="s-label">Navigation</div>
-    <button class="s-item active" onclick="switchView('accueil',this)"><span>🏠</span> Tableau de bord</button>
+    <div class="s-label">Tableau de bord</div>
+    <button class="s-item active" onclick="sv('accueil',this)"><span>🏠</span> Accueil</button>
     <div class="s-divider"></div>
-    <div class="s-label">Conformité</div>
-    <button class="s-item" onclick="switchView('conformite',this)"><span>✅</span> Conformité OFAC</button>
-    <button class="s-item" onclick="switchView('sora',this)"><span>📋</span> Générateur SORA</button>
-    <button class="s-item" onclick="switchView('airspace',this)"><span>🗺️</span> Espace aérien</button>
+    <div class="s-label">Conformité & Réglementation</div>
+    <button class="s-item" onclick="sv('conformite',this)"><span>✅</span> Conformité OFAC</button>
+    <button class="s-item" onclick="sv('sora',this)"><span>📋</span> Générateur SORA</button>
+    <button class="s-item" onclick="sv('airspace',this)"><span>🗺️</span> Espace aérien</button>
     <div class="s-divider"></div>
-    <div class="s-label">Marché</div>
-    <button class="s-item" onclick="switchView('marketplace',this)"><span>📦</span> Marketplace cargo <div class="dot"></div></button>
-    <button class="s-item" onclick="switchView('missions',this)"><span>🚀</span> Mes missions</button>
+    <div class="s-label">Marché & Missions</div>
+    <button class="s-item" onclick="sv('marketplace',this)"><span>📦</span> Marketplace cargo <div class="s-dot"></div></button>
+    <button class="s-item" onclick="sv('ao',this)"><span>📢</span> Appels d'offres <span class="s-new">3</span></button>
+    <button class="s-item" onclick="sv('calc',this)"><span>🧮</span> Calculateur mission</button>
+    <div class="s-divider"></div>
+    <div class="s-label">Opérations</div>
+    <button class="s-item" onclick="sv('meteo',this)"><span>🌤️</span> Météo opérationnelle</button>
+    <button class="s-item" onclick="sv('carnet',this)"><span>📊</span> Carnet de vol</button>
     <div class="s-divider"></div>
     <div class="s-label">Intelligence</div>
-    <button class="s-item" onclick="switchView('veille',this)"><span>📡</span> Veille réglementaire</button>
-    <button class="s-item" onclick="switchView('logs',this)"><span>📊</span> Logs de vol</button>
+    <button class="s-item" onclick="sv('veille',this)"><span>📡</span> Veille réglementaire</button>
   </aside>
 
   <main class="main">
 
-    <!-- ── ACCUEIL ──────────────────────────────────────── -->
+    <!-- ═══════════ ACCUEIL ═══════════════════════════════ -->
     <div class="view active" id="v-accueil">
       <div class="page-head">
         <div class="page-title">Bonjour, Flytech Sàrl 👋</div>
-        <div class="page-sub">Vendredi 18 septembre 2026 · Sion, Valais</div>
+        <div class="page-sub">Vendredi 18 septembre 2026 · Sion, Valais · Météo ops : ✅ Conditions favorables</div>
       </div>
 
       <div class="alert alert-orange">
         <div class="alert-icon">⚠️</div>
-        <div class="alert-text">
-          <span class="alert-title">Action requise — Autorisation Armasuisse</span>
-          Dossier inspection Alpiq (Grande Dixence) : coordination zone militaire à confirmer avant le 25 sept. Délai : 3 jours.
-        </div>
-        <button class="btn btn-ghost btn-sm" style="flex-shrink:0">Voir →</button>
+        <div class="alert-text"><span class="alert-title">Action requise — Coordination Armasuisse (3 jours)</span>Dossier inspection Alpiq / Grande Dixence : réponse attendue avant le 25 sept. Zone militaire LS-T08 adjacente à valider.</div>
+        <button class="btn btn-ghost btn-sm" style="flex-shrink:0" onclick="sv('sora',null)">Voir →</button>
       </div>
-
       <div class="alert alert-blue">
-        <div class="alert-icon">📡</div>
-        <div class="alert-text">
-          <span class="alert-title">Veille — Nouveau portail OFAC U-Space</span>
-          Skyguide ouvre les inscriptions opérateurs BVLOS pour mars 2027. Inscrivez-vous avant le 31 oct.
-        </div>
-        <button class="btn btn-ghost btn-sm" style="flex-shrink:0">Lire →</button>
+        <div class="alert-icon">📢</div>
+        <div class="alert-text"><span class="alert-title">Nouvel appel d'offres — Canton du Valais · 12 communes</span>Budget estimé CHF 180 000. Délai de dépôt : 31 oct. 2026. Votre profil STS-02 correspond.</div>
+        <button class="btn btn-ghost btn-sm" style="flex-shrink:0" onclick="sv('ao',null)">Voir →</button>
       </div>
 
       <div class="stat-row">
-        <div class="stat">
-          <div class="stat-val" style="color:var(--green-2)">94<span style="font-size:16px;color:var(--text-3)">%</span></div>
-          <div class="stat-label">Score conformité OFAC</div>
-          <div class="stat-delta up">↑ +2% ce mois</div>
-        </div>
-        <div class="stat">
-          <div class="stat-val">2</div>
-          <div class="stat-label">Missions actives</div>
-          <div class="stat-delta neutral">Vignoble + NDVI</div>
-        </div>
-        <div class="stat">
-          <div class="stat-val">4</div>
-          <div class="stat-label">Nouvelles demandes cargo</div>
-          <div class="stat-delta up">↑ depuis hier</div>
-        </div>
-        <div class="stat">
-          <div class="stat-val" style="color:var(--orange-2)">1</div>
-          <div class="stat-label">Document expirant</div>
-          <div class="stat-delta down">RC Pro — 30 jours</div>
-        </div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">94<span style="font-size:14px;color:var(--text-3)">%</span></div><div class="stat-label">Score conformité OFAC</div><div class="stat-delta up">↑ +2% ce mois</div></div>
+        <div class="stat"><div class="stat-val">2</div><div class="stat-label">Missions actives</div><div class="stat-delta neutral">Vignoble + NDVI</div></div>
+        <div class="stat"><div class="stat-val">4</div><div class="stat-label">Demandes cargo reçues</div><div class="stat-delta up">↑ depuis 24h</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--yellow-2)">3</div><div class="stat-label">Appels d'offres actifs</div><div class="stat-delta up">↑ 1 nouveau</div></div>
+        <div class="stat"><div class="stat-val">341</div><div class="stat-label">Vols enregistrés</div><div class="stat-delta neutral">Carnet à jour</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">1</div><div class="stat-label">Document expirant</div><div class="stat-delta down">RC Pro · 30j</div></div>
       </div>
 
       <div class="grid2">
         <div class="card">
-          <div class="card-title">Conformité OFAC <span class="sub badge b-green">94%</span></div>
-          <div class="conf-item">
-            <div class="conf-icon ci-ok">✓</div>
-            <div class="conf-text"><div class="conf-name">Enregistrement opérateur</div><div class="conf-sub">N° CH-2026-FT-0042 · Valide jusqu'au 01/2028</div></div>
-          </div>
-          <div class="conf-item">
-            <div class="conf-icon ci-ok">✓</div>
-            <div class="conf-text"><div class="conf-name">Certifications STS-01 / STS-02</div><div class="conf-sub">OFAC validé · Renouvellement 03/2028</div></div>
-          </div>
-          <div class="conf-item">
-            <div class="conf-icon ci-warn">⚠</div>
-            <div class="conf-text"><div class="conf-name">RC Professionnelle</div><div class="conf-sub">Expire le 18 oct. 2026 — 30 jours restants</div></div>
-            <div class="conf-action">Renouveler →</div>
-          </div>
-          <div class="conf-item">
-            <div class="conf-icon ci-ok">✓</div>
-            <div class="conf-text"><div class="conf-name">Manuel d'opérations (MON)</div><div class="conf-sub">Version 2.1 · Approuvé OFAC 06/2026</div></div>
-          </div>
+          <div class="card-title">Conformité OFAC <span class="badge b-green">94%</span></div>
+          <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Enregistrement opérateur</div><div class="conf-sub">N° CH-2026-FT-0042 · Valide jusqu'au 01/2028</div></div></div>
+          <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">STS-01 / STS-02 certifiés</div><div class="conf-sub">OFAC 03/2025 · Renouvellement 03/2028</div></div></div>
+          <div class="conf-item"><div class="conf-icon ci-warn">⚠</div><div class="conf-text"><div class="conf-name">RC Professionnelle</div><div class="conf-sub" style="color:var(--orange-2)">Expire 18.10.2026 — 30 jours restants</div></div><div class="conf-action">Renouveler →</div></div>
+          <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">MON version 2.1</div><div class="conf-sub">Approuvé OFAC 06/2026</div></div></div>
+          <div style="margin-top:10px"><button class="btn btn-ghost btn-sm" onclick="sv('conformite',null)">Voir toute la conformité →</button></div>
         </div>
 
         <div class="card">
           <div class="card-title">Prochaines échéances</div>
           <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-dot orange"></div>
-              <div class="tl-title">RC Pro — renouvellement</div>
-              <div class="tl-meta">18 octobre 2026 · 30 jours</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot orange"></div>
-              <div class="tl-title">Autorisation Armasuisse — Grande Dixence</div>
-              <div class="tl-meta">25 septembre 2026 · 7 jours</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot blue"></div>
-              <div class="tl-title">Inscription portail U-Space Skyguide</div>
-              <div class="tl-meta">31 octobre 2026</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot blue"></div>
-              <div class="tl-title">Appel d'offres Canton Valais — 12 communes</div>
-              <div class="tl-meta">31 octobre 2026 · Dossier à préparer</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">Renouvellement STS-01/02</div>
-              <div class="tl-meta">Mars 2028</div>
-            </div>
+            <div class="tl-item"><div class="tl-dot red"></div><div class="tl-title">Armasuisse — dossier Grande Dixence</div><div class="tl-meta">25 septembre 2026 · <strong style="color:var(--red-2)">7 jours</strong></div></div>
+            <div class="tl-item"><div class="tl-dot orange"></div><div class="tl-title">RC Pro — renouvellement</div><div class="tl-meta">18 octobre 2026 · 30 jours</div></div>
+            <div class="tl-item"><div class="tl-dot orange"></div><div class="tl-title">Appel d'offres Canton Valais</div><div class="tl-meta">31 octobre 2026 · Dossier à préparer</div></div>
+            <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-title">Inscription U-Space Skyguide</div><div class="tl-meta">31 octobre 2026</div></div>
+            <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-title">Session STS formation Aéroclub</div><div class="tl-meta">Novembre 2026 · Sion</div></div>
           </div>
         </div>
       </div>
 
-      <div class="grid2">
+      <div class="grid3">
         <div class="card">
-          <div class="card-title">Marketplace — Demandes récentes <span class="sub">4 nouvelles</span></div>
-          <div class="row"><div><div style="font-weight:500;font-size:13px">Livraison matériaux — Cabane Prafleuri</div><div class="row-label">CAS Valais · Cargo · 2 350m d'altitude</div></div><span class="badge b-orange">Urgent</span></div>
-          <div class="row"><div><div style="font-weight:500;font-size:13px">Pulvérisation vigne — Leytron</div><div class="row-label">Domaine Gillioz · Agricole · 3.8 ha</div></div><span class="badge b-green">Nouveau</span></div>
-          <div class="row"><div><div style="font-weight:500;font-size:13px">Inspection pylônes MT — Brig</div><div class="row-label">Romande Énergie · Inspection</div></div><span class="badge b-green">Nouveau</span></div>
-          <div class="row"><div><div style="font-weight:500;font-size:13px">Cartographie LIDAR — Anniviers</div><div class="row-label">Commune d'Anniviers · Topographie</div></div><span class="badge b-gray">Standard</span></div>
-          <div style="margin-top:12px"><button class="btn btn-ghost btn-sm" onclick="switchView('marketplace',document.querySelector('.tnav'))">Voir toutes les demandes →</button></div>
+          <div class="card-title">Météo ops — Maintenant</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="font-size:28px">🌤️</div>
+            <div><div style="font-family:var(--f-head);font-size:20px">12°C</div><div style="font-size:11px;color:var(--text-3)">Sion · Vent 14 kt W</div></div>
+          </div>
+          <div class="row"><span class="row-label">Visibilité</span><span class="row-val go">28 km ✓</span></div>
+          <div class="row"><span class="row-label">Plafond nuages</span><span class="row-val go">8 000 ft ✓</span></div>
+          <div class="row"><span class="row-label">Vent 2000m</span><span class="row-val warn">26 kt ⚠</span></div>
+          <div style="margin-top:10px"><span class="badge b-green">GO — Opérations VLOS</span></div>
+          <div style="margin-top:6px"><button class="btn btn-ghost btn-sm" onclick="sv('meteo',null)">Météo complète →</button></div>
         </div>
 
         <div class="card">
           <div class="card-title">Flotte — Statut</div>
-          <div class="prog-wrap">
-            <div class="prog-label"><span>DJI FlyCart 30 #01</span><span style="color:var(--green-2)">Opérationnel</span></div>
-            <div class="prog-bar"><div class="prog-fill pf-green" style="width:82%"></div></div>
-            <div style="font-size:10px;color:var(--text-3);margin-top:3px">185h vol · Prochaine révision : 20 avr.</div>
-          </div>
-          <div class="prog-wrap">
-            <div class="prog-label"><span>DJI FlyCart 30 #02</span><span style="color:var(--green-2)">Opérationnel</span></div>
-            <div class="prog-bar"><div class="prog-fill pf-green" style="width:68%"></div></div>
-            <div style="font-size:10px;color:var(--text-3);margin-top:3px">156h vol · Prochaine révision : 10 mars</div>
-          </div>
-          <div class="prog-wrap">
-            <div class="prog-label"><span>DJI Agras T50 #01</span><span style="color:var(--yellow-2)">Attention</span></div>
-            <div class="prog-bar"><div class="prog-fill pf-orange" style="width:45%"></div></div>
-            <div style="font-size:10px;color:var(--text-3);margin-top:3px">72h vol · 3/4 batteries OK</div>
-          </div>
-          <div class="prog-wrap">
-            <div class="prog-label"><span>DJI Agras T50 #02</span><span style="color:var(--red-2)">Révision requise</span></div>
-            <div class="prog-bar"><div class="prog-fill" style="width:28%;background:var(--red-2)"></div></div>
-            <div style="font-size:10px;color:var(--text-3);margin-top:3px">104h vol · 2/4 batteries OK · Échéance dépassée</div>
-          </div>
+          <div class="prog-wrap"><div class="prog-label"><span>DJI FlyCart #01</span><span class="go">OK</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:82%"></div></div></div>
+          <div class="prog-wrap"><div class="prog-label"><span>DJI FlyCart #02</span><span class="go">OK</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:68%"></div></div></div>
+          <div class="prog-wrap"><div class="prog-label"><span>DJI Agras T50 #01</span><span class="warn">Attention</span></div><div class="prog-bar"><div class="prog-fill pf-orange" style="width:45%"></div></div></div>
+          <div class="prog-wrap"><div class="prog-label"><span>DJI Agras T50 #02</span><span class="nogo">Révision</span></div><div class="prog-bar"><div class="prog-fill pf-red" style="width:22%"></div></div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Marketplace — Nouvelles demandes</div>
+          <div class="row"><div><div style="font-weight:500">Cabane Prafleuri — cargo</div><div class="row-label">CAS Valais · 2 624m</div></div><span class="badge b-orange">Urgent</span></div>
+          <div class="row"><div><div style="font-weight:500">Vignoble Gillioz — pulvéri.</div><div class="row-label">Leytron · 3.8 ha</div></div><span class="badge b-green">Nouveau</span></div>
+          <div class="row"><div><div style="font-weight:500">Inspection pylônes — Brig</div><div class="row-label">Romande Énergie</div></div><span class="badge b-green">Nouveau</span></div>
+          <div style="margin-top:10px"><button class="btn btn-ghost btn-sm" onclick="sv('marketplace',null)">Voir toutes →</button></div>
         </div>
       </div>
     </div>
 
-    <!-- ── CONFORMITÉ ───────────────────────────────────── -->
+    <!-- ═══════════ CONFORMITÉ ════════════════════════════ -->
     <div class="view" id="v-conformite">
-      <div class="page-head">
-        <div class="page-title">Conformité OFAC</div>
-        <div class="page-sub">Vérification automatique de vos obligations réglementaires</div>
-      </div>
+      <div class="page-head"><div class="page-title">Conformité OFAC</div><div class="page-sub">Vérification automatique · Mise à jour à chaque changement réglementaire</div></div>
       <div class="stat-row">
         <div class="stat"><div class="stat-val" style="color:var(--green-2)">94%</div><div class="stat-label">Score global</div></div>
         <div class="stat"><div class="stat-val" style="color:var(--green-2)">8</div><div class="stat-label">Conformes</div></div>
         <div class="stat"><div class="stat-val" style="color:var(--orange-2)">1</div><div class="stat-label">À renouveler</div></div>
         <div class="stat"><div class="stat-val" style="color:var(--red-2)">0</div><div class="stat-label">Bloquants</div></div>
       </div>
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-title">Vérification complète — Obligations opérateur drone Suisse</div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Enregistrement opérateur OFAC (art. 18 OACS)</div><div class="conf-sub">N° CH-2026-FT-0042 · Portail bazl.admin.ch · Valide jusqu'au 01/2028</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification pilote STS-01</div><div class="conf-sub">Opérations BVLOS en espace contrôlé · OFAC 03/2025 · Exp. 03/2028</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification pilote STS-02</div><div class="conf-sub">Opérations BVLOS zones peuplées · OFAC 03/2025 · Exp. 03/2028</div></div><span class="badge b-green">OK</span></div>
+      <div class="card">
+        <div class="card-title">Obligations opérateur drone — Suisse / EASA</div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Enregistrement opérateur OFAC (art. 18 OACS)</div><div class="conf-sub">N° CH-2026-FT-0042 · bazl.admin.ch · Valide 01/2028</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification pilote STS-01 — BVLOS espace contrôlé</div><div class="conf-sub">OFAC 03/2025 · Expiration 03/2028</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification pilote STS-02 — BVLOS zones peuplées</div><div class="conf-sub">OFAC 03/2025 · Expiration 03/2028</div></div><span class="badge b-green">OK</span></div>
         <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Manuel d'opérations (MON) approuvé</div><div class="conf-sub">Version 2.1 · Approuvé OFAC 06/2026 · Prochain audit 06/2027</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification appareils OFAG (traitements phytosanitaires)</div><div class="conf-sub">DJI Agras T50 · Liste OFAG 2026 · Produits autorisés à jour</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Assurance RC professionnelle (min. CHF 750 000)</div><div class="conf-sub">Zurich Insurance · Police n° ZI-2026-88432 · <strong style="color:var(--yellow-2)">Expire 18.10.2026</strong></div></div><span class="badge b-orange">⚠ 30j</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Signalisation appareil (marquage UAS-CH)</div><div class="conf-sub">Marquage conforme Règlement UE 2019/945 · Tous appareils</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Registre de vol (art. 24 OACS)</div><div class="conf-sub">Tenu à jour · 341 vols enregistrés · Dernier vol : 15.09.2026</div></div><span class="badge b-green">OK</span></div>
-        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Coordination Skyguide (opérations CTR)</div><div class="conf-sub">Autorisation CTR Sion active · Procédure coordination définie</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Certification appareils OFAG — traitements phytosanitaires</div><div class="conf-sub">DJI Agras T50 · Liste OFAG 2026 · Produits autorisés à jour</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-warn">⚠</div><div class="conf-text"><div class="conf-name">Assurance RC professionnelle (min. CHF 750 000)</div><div class="conf-sub">Zurich Insurance · Police ZI-2026-88432 · <strong style="color:var(--orange-2)">Expire 18.10.2026 — 30 jours</strong></div></div><div class="conf-action" onclick="alert('Simulation: Ouverture du portail de renouvellement Zurich Insurance...')">Renouveler →</div></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Signalisation appareils (marquage UAS-CH)</div><div class="conf-sub">Conforme Règlement UE 2019/945 · Tous appareils vérifiés</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Registre de vol numérique (art. 24 OACS)</div><div class="conf-sub">341 vols · Dernière entrée 15.09.2026 · Export PDF disponible</div></div><span class="badge b-green">OK</span></div>
+        <div class="conf-item"><div class="conf-icon ci-ok">✓</div><div class="conf-text"><div class="conf-name">Coordination Skyguide CTR Sion</div><div class="conf-sub">Autorisation CTR active · Procédure coordination définie et documentée</div></div><span class="badge b-green">OK</span></div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="card-title">Préparation U-Space 2027 <span class="badge b-blue">Nouveau</span></div>
+        <div class="conf-item"><div class="conf-icon ci-warn">⚠</div><div class="conf-text"><div class="conf-name">Inscription portail Skyguide BVLOS</div><div class="conf-sub">Ouverture mars 2027 · Inscription recommandée avant le 31 oct. 2026</div></div><div class="conf-action">S'inscrire →</div></div>
+        <div class="conf-item"><div class="conf-icon ci-warn">⚠</div><div class="conf-text"><div class="conf-name">Enregistrement nouveau portail OFAC STS</div><div class="conf-sub">Migration vers le nouveau portail U-Space prévue jan. 2027</div></div><div class="conf-action">Surveiller →</div></div>
       </div>
     </div>
 
-    <!-- ── SORA ─────────────────────────────────────────── -->
+    <!-- ═══════════ SORA ══════════════════════════════════ -->
     <div class="view" id="v-sora">
-      <div class="page-head">
-        <div class="page-title">Générateur SORA</div>
-        <div class="page-sub">Specific Operations Risk Assessment — Méthodologie JARUS · Conforme OFAC Suisse</div>
-      </div>
+      <div class="page-head"><div class="page-title">Générateur SORA</div><div class="page-sub">Specific Operations Risk Assessment — Méthodologie JARUS · Conforme OFAC Suisse</div></div>
       <div class="grid2">
         <div class="card">
           <div class="card-title">Nouveau dossier SORA</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div>
-              <div style="font-size:11px;color:var(--text-3);margin-bottom:5px">Type d'opération</div>
-              <select style="width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:8px 10px;border-radius:6px;font-size:13px;font-family:var(--f-body)">
-                <option>STS-01 — BVLOS espace contrôlé</option>
-                <option>STS-02 — BVLOS zones peuplées</option>
-                <option>PDRA-S01</option>
-                <option>Hors scénario standard</option>
-              </select>
-            </div>
-            <div>
-              <div style="font-size:11px;color:var(--text-3);margin-bottom:5px">Zone d'opération</div>
-              <input type="text" placeholder="Ex: Vignoble Farinet, Saillon VS" style="width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:8px 10px;border-radius:6px;font-size:13px;font-family:var(--f-body)">
-            </div>
-            <div class="grid2" style="margin:0;gap:8px">
-              <div>
-                <div style="font-size:11px;color:var(--text-3);margin-bottom:5px">Altitude max (m AGL)</div>
-                <input type="number" value="120" style="width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:8px 10px;border-radius:6px;font-size:13px;font-family:var(--f-mono)">
-              </div>
-              <div>
-                <div style="font-size:11px;color:var(--text-3);margin-bottom:5px">Appareil</div>
-                <select style="width:100%;background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);padding:8px 10px;border-radius:6px;font-size:13px;font-family:var(--f-body)">
-                  <option>DJI FlyCart 30 #01</option>
-                  <option>DJI FlyCart 30 #02</option>
-                  <option>DJI Agras T50 #01</option>
-                  <option>DJI Agras T50 #02</option>
-                </select>
-              </div>
-            </div>
-            <button class="btn btn-primary" style="margin-top:4px">⚡ Générer le dossier SORA →</button>
+          <div class="form-group"><label class="form-label">Type d'opération</label><select class="form-select"><option>STS-01 — BVLOS espace contrôlé</option><option>STS-02 — BVLOS zones peuplées</option><option>PDRA-S01</option><option>Hors scénario standard</option></select></div>
+          <div class="form-group"><label class="form-label">Zone d'opération</label><input class="form-input" type="text" placeholder="Ex: Vignoble Farinet, Saillon VS"></div>
+          <div class="grid2" style="margin:0 0 10px;gap:8px">
+            <div><label class="form-label">Altitude max (m AGL)</label><input class="form-input" type="number" value="120"></div>
+            <div><label class="form-label">Appareil</label><select class="form-select"><option>DJI FlyCart 30 #01</option><option>DJI FlyCart 30 #02</option><option>DJI Agras T50 #01</option><option>DJI Agras T50 #02</option></select></div>
           </div>
+          <div class="form-group"><label class="form-label">Environnement opérationnel</label><select class="form-select"><option>Rural / agricole (GRC 1-2)</option><option>Péri-urbain (GRC 3-4)</option><option>Urbain (GRC 5-6)</option><option>Montagne / altitude (GRC 2 atténué)</option></select></div>
+          <div class="form-group"><label class="form-label">Présence de zones militaires adjacentes</label><select class="form-select"><option>Non</option><option>Oui — coordination Armasuisse requise</option></select></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px" onclick="alert('Simulation : génération du dossier SORA en cours... Le PDF sera disponible dans 30 secondes.')">⚡ Générer le dossier SORA complet →</button>
         </div>
-        <div class="card">
-          <div class="card-title">Dossier en cours — Alpiq Grande Dixence <span class="badge b-orange">En cours</span></div>
-          <div class="sora-step"><div class="step-num sn-done">1</div><div class="step-body"><div class="step-name">Définition de l'opération</div><div class="step-sub">Type, zone, appareil, charge utile · Complété</div></div></div>
-          <div class="sora-step"><div class="step-num sn-done">2</div><div class="step-body"><div class="step-name">GRC — Ground Risk Class</div><div class="step-sub">Classe 3 · Zone semi-urbaine · Atténuations définies</div></div></div>
-          <div class="sora-step"><div class="step-num sn-done">3</div><div class="step-body"><div class="step-name">ARC — Air Risk Class</div><div class="step-sub">ARC-b · Espace aérien non contrôlé &lt;500m · Conforme</div></div></div>
-          <div class="sora-step"><div class="step-num sn-active">4</div><div class="step-body"><div class="step-name">Coordination Armasuisse</div><div class="step-sub" style="color:var(--orange-2)">Zone militaire adjacente — dossier soumis 01/09 · En attente</div></div></div>
-          <div class="sora-step"><div class="step-num sn-todo">5</div><div class="step-body"><div class="step-name">SAIL &amp; mesures d'atténuation</div><div class="step-sub">En attente validation étape 4</div></div></div>
-          <div class="sora-step"><div class="step-num sn-todo">6</div><div class="step-body"><div class="step-name">Soumission OFAC</div><div class="step-sub">Dossier PDF généré automatiquement</div></div></div>
-          <div style="margin-top:8px">
-            <div class="prog-wrap">
-              <div class="prog-label"><span>Avancement</span><span>67%</span></div>
-              <div class="prog-bar"><div class="prog-fill pf-orange" style="width:67%"></div></div>
-            </div>
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Dossier actif — Alpiq Grande Dixence <span class="badge b-orange">67%</span></div>
+            <div class="sora-step"><div class="step-num sn-done">1</div><div class="step-body"><div class="step-name">Définition de l'opération</div><div class="step-sub">Type cargo/inspection · Zone · Appareil · Complété</div></div></div>
+            <div class="sora-step"><div class="step-num sn-done">2</div><div class="step-body"><div class="step-name">GRC — Ground Risk Class</div><div class="step-sub">Classe 3 · Zone semi-urbaine · Atténuations M1-M2 définies</div></div></div>
+            <div class="sora-step"><div class="step-num sn-done">3</div><div class="step-body"><div class="step-name">ARC — Air Risk Class</div><div class="step-sub">ARC-b · &lt;500m · Espace non contrôlé · Conforme</div></div></div>
+            <div class="sora-step"><div class="step-num sn-active">4</div><div class="step-body"><div class="step-name">Coordination Armasuisse</div><div class="step-sub" style="color:var(--orange-2)">Zone LS-T08 adjacente · Dossier soumis 01/09 · En attente réponse</div></div></div>
+            <div class="sora-step"><div class="step-num sn-todo">5</div><div class="step-body"><div class="step-name">SAIL &amp; mesures d'atténuation OSO</div><div class="step-sub">En attente validation étape 4</div></div></div>
+            <div class="sora-step"><div class="step-num sn-todo">6</div><div class="step-body"><div class="step-name">Soumission OFAC + PDF signé</div><div class="step-sub">Généré automatiquement à la validation</div></div></div>
+            <div class="prog-wrap" style="margin-top:10px"><div class="prog-label"><span>Avancement global</span><span>67%</span></div><div class="prog-bar"><div class="prog-fill pf-orange" style="width:67%"></div></div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Dossiers récents</div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">Vignoble Farinet — Saillon</div><div class="row-label">STS-01 · Approuvé OFAC 08/2026</div></div><span class="badge b-green">Approuvé</span></div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">Mont-Fort cargo — FlyCart</div><div class="row-label">STS-02 · Autorisation OFAC en cours</div></div><span class="badge b-orange">En cours</span></div>
+            <div class="row"><div><div style="font-weight:500;font-size:12px">NDVI Valais Fruits — Fully</div><div class="row-label">STS-01 · Approuvé OFAC 07/2026</div></div><span class="badge b-green">Approuvé</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── ESPACE AÉRIEN ────────────────────────────────── -->
+    <!-- ═══════════ ESPACE AÉRIEN ═════════════════════════ -->
     <div class="view" id="v-airspace">
-      <div class="page-head">
-        <div class="page-title">Espace aérien</div>
-        <div class="page-sub">Zones OFAC en temps réel · Données swisstopo intégrées</div>
-      </div>
-      <div class="alert alert-blue">
-        <div class="alert-icon">ℹ️</div>
-        <div class="alert-text"><span class="alert-title">Carte interactive — Bientôt disponible</span>Intégration swisstopo + DRONIQ en cours. Affichera les zones CTR, TMA, zones restreintes militaires (Armasuisse) et corridors U-Space en temps réel.</div>
-      </div>
+      <div class="page-head"><div class="page-title">Espace aérien</div><div class="page-sub">Zones OFAC · Données swisstopo + DRONIQ · Temps réel</div></div>
+      <div class="alert alert-blue"><div class="alert-icon">ℹ️</div><div class="alert-text"><span class="alert-title">Carte interactive — Intégration swisstopo en cours</span>Affichera CTR, TMA, zones Armasuisse, corridors U-Space et NOTAMs en temps réel. Disponible bêta T1 2027.</div></div>
       <div class="card">
         <div class="card-title">Zones actives — Canton du Valais</div>
         <div class="zone-map">
-          <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-            <!-- Background -->
-            <rect width="600" height="200" fill="#09111A"/>
-            <!-- Grid -->
-            <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1E3048" stroke-width="0.5"/></pattern></defs>
-            <rect width="600" height="200" fill="url(#grid)"/>
-            <!-- Mountains outline -->
-            <polyline points="0,160 60,120 120,140 180,80 240,110 300,60 360,95 420,70 480,100 540,80 600,90" fill="none" stroke="#1E3048" stroke-width="1.5"/>
+          <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+            <rect width="600" height="220" fill="#09111A"/>
+            <defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1E3048" stroke-width=".5"/></pattern></defs>
+            <rect width="600" height="220" fill="url(#g)"/>
+            <polyline points="0,175 50,145 100,160 160,100 220,130 280,75 340,110 400,80 460,105 520,85 600,95" fill="rgba(30,100,240,0.05)" stroke="#1E3048" stroke-width="1.5"/>
             <!-- CTR Sion -->
-            <circle cx="220" cy="120" r="50" fill="rgba(30,100,240,0.08)" stroke="rgba(30,100,240,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <text x="220" y="118" text-anchor="middle" font-size="9" fill="rgba(90,143,255,0.8)" font-family="JetBrains Mono, monospace">CTR SION</text>
-            <text x="220" y="130" text-anchor="middle" font-size="8" fill="rgba(90,143,255,0.5)" font-family="JetBrains Mono, monospace">SFL 60 / GND</text>
-            <!-- Zone militaire -->
-            <rect x="350" y="50" width="80" height="60" rx="4" fill="rgba(208,32,32,0.08)" stroke="rgba(208,32,32,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
-            <text x="390" y="78" text-anchor="middle" font-size="9" fill="rgba(240,112,112,0.8)" font-family="JetBrains Mono, monospace">ZONE MIL</text>
-            <text x="390" y="90" text-anchor="middle" font-size="8" fill="rgba(240,112,112,0.5)" font-family="JetBrains Mono, monospace">Armasuisse</text>
-            <!-- Location markers -->
-            <circle cx="220" cy="122" r="4" fill="#1E64F0" opacity=".9"/>
-            <circle cx="300" cy="95" r="4" fill="#E85C0A" opacity=".9"/>
-            <circle cx="390" cy="75" r="4" fill="#D02020" opacity=".9"/>
-            <!-- Labels -->
-            <text x="225" y="138" font-size="8" fill="#A0B4C4" font-family="Inter, sans-serif">Sion</text>
-            <text x="305" y="112" font-size="8" fill="#A0B4C4" font-family="Inter, sans-serif">Visp</text>
+            <circle cx="225" cy="135" r="55" fill="rgba(30,100,240,0.07)" stroke="rgba(30,100,240,0.4)" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="225" y="132" text-anchor="middle" font-size="9" fill="rgba(90,143,255,0.9)" font-family="JetBrains Mono,monospace">CTR SION</text>
+            <text x="225" y="144" text-anchor="middle" font-size="8" fill="rgba(90,143,255,0.5)" font-family="JetBrains Mono,monospace">SFL 60 / GND</text>
+            <!-- Zone militaire Armasuisse -->
+            <rect x="355" y="55" width="85" height="65" rx="4" fill="rgba(208,32,32,0.08)" stroke="rgba(208,32,32,0.45)" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="397" y="85" text-anchor="middle" font-size="9" fill="rgba(240,112,112,0.9)" font-family="JetBrains Mono,monospace">LS-T08</text>
+            <text x="397" y="97" text-anchor="middle" font-size="8" fill="rgba(240,112,112,0.5)" font-family="JetBrains Mono,monospace">Armasuisse</text>
+            <!-- Mission active -->
+            <circle cx="390" cy="90" r="22" fill="rgba(232,92,10,0.08)" stroke="rgba(232,92,10,0.5)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <text x="390" y="110" text-anchor="middle" font-size="8" fill="rgba(255,112,32,0.8)" font-family="JetBrains Mono,monospace">Mission</text>
+            <!-- Markers -->
+            <circle cx="225" cy="135" r="4" fill="#1E64F0"/><text x="231" y="152" font-size="8" fill="#A0B4C4" font-family="Inter,sans-serif">Sion</text>
+            <circle cx="290" cy="100" r="4" fill="#E85C0A"/><text x="296" y="117" font-size="8" fill="#A0B4C4" font-family="Inter,sans-serif">Sierre</text>
+            <circle cx="460" cy="100" r="4" fill="#4CC88A"/><text x="466" y="117" font-size="8" fill="#A0B4C4" font-family="Inter,sans-serif">Visp</text>
+            <circle cx="390" cy="90" r="4" fill="#E85C0A" opacity=".9"/>
           </svg>
         </div>
-        <div style="display:flex;gap:16px;margin-top:12px;font-size:11px;flex-wrap:wrap">
-          <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue);margin-right:5px;vertical-align:middle"></span>CTR / TMA</span>
-          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--red);margin-right:5px;vertical-align:middle"></span>Zone militaire</span>
-          <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--orange);margin-right:5px;vertical-align:middle"></span>Mission active</span>
+        <div style="display:flex;gap:14px;margin-top:10px;font-size:11px;flex-wrap:wrap">
+          <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--blue);margin-right:4px;vertical-align:middle"></span>CTR / TMA</span>
+          <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--red);margin-right:4px;vertical-align:middle"></span>Zone Armasuisse</span>
+          <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--orange);margin-right:4px;vertical-align:middle"></span>Mission active</span>
+          <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green-2);margin-right:4px;vertical-align:middle"></span>Waypoint</span>
         </div>
       </div>
     </div>
 
-    <!-- ── MARKETPLACE ──────────────────────────────────── -->
+    <!-- ═══════════ MARKETPLACE ═══════════════════════════ -->
     <div class="view" id="v-marketplace">
-      <div class="page-head">
-        <div class="page-title">Marketplace Cargo Alpine</div>
-        <div class="page-sub">Demandes de missions qualifiées — opérateurs STS certifiés uniquement</div>
-      </div>
+      <div class="page-head"><div class="page-title">Marketplace Cargo Alpine</div><div class="page-sub">Demandes qualifiées · Opérateurs STS certifiés uniquement · Valais et Suisse romande</div></div>
       <div class="stat-row">
         <div class="stat"><div class="stat-val">12</div><div class="stat-label">Demandes actives</div><div class="stat-delta up">↑ 4 nouvelles</div></div>
-        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Correspondent STS-01/02</div><div class="stat-delta neutral">Votre profil</div></div>
-        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 2 400</div><div class="stat-label">Budget moyen / mission</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Correspond à votre profil</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 2 400</div><div class="stat-label">Budget moyen</div></div>
+        <div class="stat"><div class="stat-val">89%</div><div class="stat-label">Taux de réponse ops</div><div class="stat-delta up">Votre score</div></div>
       </div>
-
-      <div class="alert alert-green">
-        <div class="alert-icon">⭐</div>
-        <div class="alert-text"><span class="alert-title">3 missions correspondent à votre profil STS-02</span>Cargo haute altitude, inspection et pulvérisation en zone contrôlée. Uniquement visible aux pilotes STS certifiés.</div>
-      </div>
+      <div class="alert alert-green"><div class="alert-icon">⭐</div><div class="alert-text"><span class="alert-title">3 missions correspondent à votre profil STS-02</span>Visibles uniquement aux pilotes STS certifiés. Répondez dans les 24h pour maximiser vos chances.</div></div>
 
       <div class="mkt-card">
         <div class="mkt-icon">🏔️</div>
         <div class="mkt-body">
-          <div class="mkt-title">Ravitaillement Cabane Prafleuri — préparation hiver</div>
-          <div class="mkt-meta">CAS Valais · Cargo · Altitude 2 624m · Les Collons (VS)</div>
-          <div class="mkt-tags"><span class="badge b-orange">Urgent — avant 20 oct.</span><span class="badge b-blue">STS-02 requis</span><span class="badge b-gray">8 × 4 kg</span></div>
+          <div class="mkt-title">Ravitaillement Cabane Prafleuri — préparation saison ski</div>
+          <div class="mkt-meta">CAS Valais · Cargo · Les Collons → 2 624m d'altitude · Val d'Hérens</div>
+          <div class="mkt-tags"><span class="badge b-orange">Urgent — avant 20 oct.</span><span class="badge b-blue">STS-02 requis</span><span class="badge b-gray">8 × 4 kg</span><span class="badge b-gray">FlyCart</span></div>
         </div>
-        <div class="mkt-price"><div class="mkt-amount">CHF 2 800</div><div class="mkt-unit">forfait</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px">Postuler</button></div>
+        <div class="mkt-price"><div class="mkt-amount">CHF 2 800</div><div class="mkt-unit">forfait</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="alert('Simulation : Candidature envoyée à CAS Valais. Réponse sous 48h.')">Postuler</button></div>
       </div>
 
       <div class="mkt-card">
         <div class="mkt-icon">🌿</div>
         <div class="mkt-body">
           <div class="mkt-title">Pulvérisation phytosanitaire — Vignoble Gillioz, Leytron</div>
-          <div class="mkt-meta">Domaine Gillioz · Agricole · 3.8 ha · Terrasses pente forte</div>
-          <div class="mkt-tags"><span class="badge b-green">Nouveau</span><span class="badge b-blue">STS-01 requis</span><span class="badge b-gray">DJI Agras requis</span></div>
+          <div class="mkt-meta">Domaine Gillioz · Agricole · 3.8 ha · Terrasses forte pente · Cépages Chasselas & Pinot</div>
+          <div class="mkt-tags"><span class="badge b-green">Nouveau</span><span class="badge b-blue">STS-01 requis</span><span class="badge b-gray">DJI Agras requis</span><span class="badge b-gray">3 passages</span></div>
         </div>
-        <div class="mkt-price"><div class="mkt-amount">CHF 1 900</div><div class="mkt-unit">par passage</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px">Postuler</button></div>
+        <div class="mkt-price"><div class="mkt-amount">CHF 1 900</div><div class="mkt-unit">par passage</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="alert('Simulation : Candidature envoyée à Domaine Gillioz.')">Postuler</button></div>
       </div>
 
       <div class="mkt-card">
         <div class="mkt-icon">⚡</div>
         <div class="mkt-body">
-          <div class="mkt-title">Inspection lignes MT — Romande Énergie, Entremont</div>
-          <div class="mkt-meta">Romande Énergie SA · Inspection thermique · Corridor 1 200m → 2 100m</div>
-          <div class="mkt-tags"><span class="badge b-green">Nouveau</span><span class="badge b-blue">STS-02 requis</span><span class="badge b-purple">Caméra thermique</span></div>
+          <div class="mkt-title">Inspection thermique lignes MT — Romande Énergie, Entremont</div>
+          <div class="mkt-meta">Romande Énergie SA · Inspection · Corridor 1 200m → 2 100m · Zone BVLOS</div>
+          <div class="mkt-tags"><span class="badge b-green">Nouveau</span><span class="badge b-blue">STS-02 requis</span><span class="badge b-purple">Caméra thermique</span><span class="badge b-gray">2 journées</span></div>
         </div>
-        <div class="mkt-price"><div class="mkt-amount">CHF 3 400</div><div class="mkt-unit">journée</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px">Postuler</button></div>
+        <div class="mkt-price"><div class="mkt-amount">CHF 3 400</div><div class="mkt-unit">/ journée</div><br><button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="alert('Simulation : Candidature envoyée à Romande Énergie.')">Postuler</button></div>
       </div>
 
-      <div class="mkt-card" style="opacity:.5">
+      <div class="mkt-card" style="opacity:.55">
         <div class="mkt-icon">🗺️</div>
         <div class="mkt-body">
           <div class="mkt-title">Cartographie LIDAR — Commune d'Anniviers</div>
@@ -570,40 +521,261 @@
         </div>
         <div class="mkt-price"><div class="mkt-amount">CHF 900</div><div class="mkt-unit">demi-journée</div><br><button class="btn btn-ghost btn-sm" style="margin-top:8px">Voir</button></div>
       </div>
+
+      <div class="mkt-card" style="opacity:.55">
+        <div class="mkt-icon">🏗️</div>
+        <div class="mkt-body">
+          <div class="mkt-title">Livraison matériaux chantier — Verbier, altitude 2 100m</div>
+          <div class="mkt-meta">Zimmermann Constructions SA · Cargo · Chantier EWZ · Accès route fermée oct.</div>
+          <div class="mkt-tags"><span class="badge b-gray">Standard</span><span class="badge b-blue">STS-01</span><span class="badge b-gray">12 × 2.5 kg</span></div>
+        </div>
+        <div class="mkt-price"><div class="mkt-amount">CHF 1 600</div><div class="mkt-unit">forfait</div><br><button class="btn btn-ghost btn-sm" style="margin-top:8px">Voir</button></div>
+      </div>
     </div>
 
-    <!-- ── MISSIONS ─────────────────────────────────────── -->
-    <div class="view" id="v-missions">
-      <div class="page-head">
-        <div class="page-title">Mes missions</div>
-        <div class="page-sub">Suivi des opérations en cours et à venir</div>
+    <!-- ═══════════ APPELS D'OFFRES ═══════════════════════ -->
+    <div class="view" id="v-ao">
+      <div class="page-head"><div class="page-title">Appels d'offres publics</div><div class="page-sub">Marchés publics suisses · Drone cargo, inspection, agricole · Surveillance automatique simap.ch</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Appels actifs</div><div class="stat-delta up">↑ 1 nouveau</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">3</div><div class="stat-label">Correspondent STS-02</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--yellow-2)">CHF 180k</div><div class="stat-label">Budget le plus important</div></div>
+        <div class="stat"><div class="stat-val">43j</div><div class="stat-label">Délai moyen restant</div></div>
       </div>
       <div class="alert alert-orange">
-        <div class="alert-icon">📋</div>
-        <div class="alert-text"><span class="alert-title">Section en développement</span>Gestion complète du cycle de vie des missions : devis, planification vol, rapport post-mission, facturation. Disponible en bêta T1 2027.</div>
+        <div class="alert-icon">🔔</div>
+        <div class="alert-text"><span class="alert-title">Alerte automatique activée — simap.ch + vs.ch</span>Flytech surveille en continu les nouvelles publications de marchés publics "drone", "UAS", "RPAS", "livraison aérienne" sur les plateformes officielles suisses. Vous êtes notifié en temps réel.</div>
+      </div>
+
+      <div class="ao-card">
+        <div class="ao-header">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span class="badge b-orange">Urgent</span><span class="badge b-blue">STS-02 requis</span><span class="badge b-green">Nouveau</span></div>
+            <div class="ao-title">Prestations drone cargo et inspection — 12 communes isolées du Valais</div>
+            <div class="ao-meta">État du Valais / DGT — Service des routes · Publié le 20.08.2026 · simap.ch</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="alert('Simulation : Téléchargement du dossier d\'appel d\'offres Canton du Valais...')">Télécharger</button>
+        </div>
+        <div class="ao-body">Appel d'offres pour des prestations de drone cargo (livraison de matériaux, équipements de secours) et inspection d'infrastructures (ponts, lignes électriques) dans 12 communes de montagne du canton du Valais. Contrat cadre sur 3 ans. Certifications STS-01/02 exigées. Expérience zone alpine exigée. <strong style="color:var(--text)">Budget estimé : CHF 180 000 sur 3 ans.</strong></div>
+        <div class="ao-footer">
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge b-gray">Cargo</span><span class="badge b-gray">Inspection</span><span class="badge b-gray">Alpine</span><span class="badge b-gray">3 ans</span></div>
+          <div class="ao-deadline urgent">⏳ Délai dépôt : 31.10.2026 · 43 jours restants</div>
+        </div>
+      </div>
+
+      <div class="ao-card">
+        <div class="ao-header">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span class="badge b-blue">STS-01 requis</span><span class="badge b-purple">Thermique</span></div>
+            <div class="ao-title">Inspection viaducs et ponts alpins — CFF Infrastructure</div>
+            <div class="ao-meta">CFF Infrastructure SA · Publié le 10.09.2026 · simap.ch</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="alert('Simulation : Téléchargement dossier CFF...')">Télécharger</button>
+        </div>
+        <div class="ao-body">Prestations d'inspection par drone des viaducs et ouvrages d'art CFF dans les cantons du Valais, Vaud et Berne. Caméra thermique et RGB 4K requises. Certifications STS-01 obligatoires. Livraison de rapports d'inspection normés SIA 469. <strong style="color:var(--text)">Budget : CHF 95 000 / an sur 2 ans.</strong></div>
+        <div class="ao-footer">
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge b-gray">Inspection</span><span class="badge b-gray">CFF</span><span class="badge b-gray">Thermique</span></div>
+          <div class="ao-deadline soon">⏳ Délai : 15.11.2026 · 58 jours restants</div>
+        </div>
+      </div>
+
+      <div class="ao-card">
+        <div class="ao-header">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span class="badge b-green">Agricole</span><span class="badge b-blue">STS-01 requis</span></div>
+            <div class="ao-title">Traitements phytosanitaires par drone — Viticulture Valaisanne (3 ans)</div>
+            <div class="ao-meta">Interprofession de la Vigne et du Vin du Valais (IVVV) · Publié 01.09.2026</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="alert('Simulation : Téléchargement dossier IVVV...')">Télécharger</button>
+        </div>
+        <div class="ao-body">Convention-cadre pour traitements phytosanitaires par drone dans les vignobles AOC Valais (Chasselas, Pinot Noir, Cornalin). Priorité aux opérateurs domiciliés en Valais. Certification OFAG appareils exigée. Connaissance du terrain viticole en terrasses évaluée. <strong style="color:var(--text)">Budget : CHF 45 000 / saison.</strong></div>
+        <div class="ao-footer">
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge b-gray">Viticulture AOC</span><span class="badge b-gray">Valais</span><span class="badge b-gray">OFAG</span></div>
+          <div class="ao-deadline normal">⏳ Délai : 30.11.2026 · 73 jours restants</div>
+        </div>
       </div>
     </div>
 
-    <!-- ── VEILLE ───────────────────────────────────────── -->
+    <!-- ═══════════ MÉTÉO OPS ══════════════════════════════ -->
+    <div class="view" id="v-meteo">
+      <div class="page-head"><div class="page-title">Météo Opérationnelle</div><div class="page-sub">Conditions de vol · Valais alpine · Données MétéoSuisse · Mise à jour toutes les heures</div></div>
+
+      <div class="alert alert-green"><div class="alert-icon">✅</div><div class="alert-text"><span class="alert-title">Conditions favorables — Opérations VLOS autorisées</span>Vent sous les limites STS en vallée. Attention : rafales en altitude (>2000m) 26-32 kt. Éviter opérations BVLOS &gt;2000m auj.</div></div>
+
+      <div class="meteo-grid">
+        <div class="meteo-card">
+          <div class="meteo-loc">📍 Sion — 482m</div>
+          <div style="font-size:24px;margin-bottom:6px">🌤️</div>
+          <div class="meteo-val">12°C</div>
+          <div class="meteo-label">Partiellement nuageux</div>
+          <div class="meteo-rows">
+            <div class="meteo-row"><span class="meteo-row-label">Vent</span><span class="go">14 kt W</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Rafales</span><span class="warn">22 kt</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Visibilité</span><span class="go">28 km</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Plafond</span><span class="go">8 000 ft</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Précip.</span><span class="go">0 mm</span></div>
+          </div>
+          <div style="margin-top:8px"><span class="badge b-green">✓ GO — Opérations VLOS</span></div>
+          <div class="wind-gauge" style="margin-top:8px"><div class="wind-fill" style="width:35%"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-3);margin-top:2px"><span>Calme</span><span>Limite STS</span><span>Stop</span></div>
+        </div>
+
+        <div class="meteo-card">
+          <div class="meteo-loc">⛰️ 2000m — Altitude</div>
+          <div style="font-size:24px;margin-bottom:6px">🌬️</div>
+          <div class="meteo-val" style="color:var(--yellow-2)">4°C</div>
+          <div class="meteo-label">Vent fort</div>
+          <div class="meteo-rows">
+            <div class="meteo-row"><span class="meteo-row-label">Vent</span><span class="warn">26 kt W</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Rafales</span><span class="nogo">34 kt ⚠</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Visibilité</span><span class="go">15 km</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Givre</span><span class="warn">Faible</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Turbulences</span><span class="warn">Modérées</span></div>
+          </div>
+          <div style="margin-top:8px"><span class="badge b-yellow">⚠ ATTENTION — Vérifier avant BVLOS</span></div>
+          <div class="wind-gauge" style="margin-top:8px"><div class="wind-fill" style="width:62%"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-3);margin-top:2px"><span>Calme</span><span>Limite STS</span><span>Stop</span></div>
+        </div>
+
+        <div class="meteo-card">
+          <div class="meteo-loc">🏔️ 3000m — Haute altitude</div>
+          <div style="font-size:24px;margin-bottom:6px">❄️</div>
+          <div class="meteo-val" style="color:var(--red-2)">-2°C</div>
+          <div class="meteo-label">Conditions défavorables</div>
+          <div class="meteo-rows">
+            <div class="meteo-row"><span class="meteo-row-label">Vent</span><span class="nogo">38 kt NW</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Rafales</span><span class="nogo">52 kt ⛔</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Givre</span><span class="nogo">Modéré-Fort</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Turbulences</span><span class="nogo">Fortes</span></div>
+            <div class="meteo-row"><span class="meteo-row-label">Visibilité</span><span class="warn">4 km</span></div>
+          </div>
+          <div style="margin-top:8px"><span class="badge b-red">⛔ NO-GO — Opérations interdites</span></div>
+          <div class="wind-gauge" style="margin-top:8px"><div class="wind-fill" style="width:90%"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-3);margin-top:2px"><span>Calme</span><span>Limite STS</span><span>Stop</span></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Prévisions 5 jours — Sion</div>
+          <div class="row"><div style="display:flex;align-items:center;gap:10px"><span>🌤️</span><div><div style="font-weight:500;font-size:13px">Vendredi 18 sept.</div><div class="row-label">Partiellement nuageux · 14 kt</div></div></div><span class="badge b-green">GO</span></div>
+          <div class="row"><div style="display:flex;align-items:center;gap:10px"><span>🌧️</span><div><div style="font-weight:500;font-size:13px">Samedi 19 sept.</div><div class="row-label">Pluie · 20 kt · Mauvaise vis.</div></div></div><span class="badge b-red">NO-GO</span></div>
+          <div class="row"><div style="display:flex;align-items:center;gap:10px"><span>⛅</span><div><div style="font-weight:500;font-size:13px">Dimanche 20 sept.</div><div class="row-label">Nuageux · 12 kt · Amélioration</div></div></div><span class="badge b-yellow">⚠ Limite</span></div>
+          <div class="row"><div style="display:flex;align-items:center;gap:10px"><span>☀️</span><div><div style="font-weight:500;font-size:13px">Lundi 21 sept.</div><div class="row-label">Ensoleillé · 8 kt · Excellent</div></div></div><span class="badge b-green">GO</span></div>
+          <div class="row"><div style="display:flex;align-items:center;gap:10px"><span>☀️</span><div><div style="font-weight:500;font-size:13px">Mardi 22 sept.</div><div class="row-label">Ensoleillé · 10 kt · Bon</div></div></div><span class="badge b-green">GO</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Limites opérationnelles STS</div>
+          <div class="row"><span class="row-label">Vent max VLOS (vent moyen)</span><span class="row-val">25 kt</span></div>
+          <div class="row"><span class="row-label">Vent max BVLOS (vent moyen)</span><span class="row-val">20 kt</span></div>
+          <div class="row"><span class="row-label">Rafales maximales</span><span class="row-val">35 kt</span></div>
+          <div class="row"><span class="row-label">Visibilité minimale</span><span class="row-val">1 500 m</span></div>
+          <div class="row"><span class="row-label">Plafond nuages min. (STS-01)</span><span class="row-val">300 ft AGL</span></div>
+          <div class="row"><span class="row-label">Température minimale DJI FlyCart</span><span class="row-val">-10°C</span></div>
+          <div class="row"><span class="row-label">Givre — opérations interdites</span><span class="row-val">Modéré+</span></div>
+          <div style="font-size:11px;color:var(--text-3);margin-top:10px">Limites selon MON v2.1 · Référence MétéoSuisse LSGS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CARNET DE VOL ═══════════════════════════ -->
+    <div class="view" id="v-carnet">
+      <div class="page-head"><div class="page-title">Carnet de vol numérique</div><div class="page-sub">Registre réglementaire OFAC (art. 24 OACS) · 341 vols enregistrés · Export PDF officiel</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">341</div><div class="stat-label">Vols totaux</div></div>
+        <div class="stat"><div class="stat-val">284<span style="font-size:14px"> h</span></div><div class="stat-label">Heures de vol</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Appareils</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">100%</div><div class="stat-label">Conformité registre</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          Journal de vol — Septembre 2026
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-ghost btn-sm" onclick="alert('Simulation : Export PDF registre OFAC généré.')">Export PDF OFAC</button>
+            <button class="btn btn-primary btn-sm" onclick="alert('Simulation : Formulaire d\'ajout de vol.')">+ Ajouter vol</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Date</th><th>Appareil</th><th>Zone / Mission</th><th>Type</th><th>Durée</th><th>Alt. max</th><th>Conditions</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>341</td><td>15.09.2026</td><td>Agras T50 #01</td><td>Vignoble Farinet, Saillon</td><td>Pulvérisation</td><td>1h 45min</td><td>520m AGL</td><td>Vent 10 kt, Vis. 25km</td><td><span class="badge b-green">Complété</span></td></tr>
+              <tr><td>340</td><td>14.09.2026</td><td>Agras T50 #02</td><td>Valais Fruits, Fully</td><td>NDVI / Cartographie</td><td>2h 10min</td><td>150m AGL</td><td>Vent 8 kt, Ciel dégagé</td><td><span class="badge b-green">Complété</span></td></tr>
+              <tr><td>339</td><td>12.09.2026</td><td>FlyCart 30 #01</td><td>Cabane Mont-Fort, Verbier</td><td>Cargo — ravitaillement</td><td>0h 55min</td><td>2 457m MSL</td><td>Vent 18 kt, Bon</td><td><span class="badge b-green">Complété</span></td></tr>
+              <tr><td>338</td><td>10.09.2026</td><td>FlyCart 30 #01</td><td>Cabane Mont-Fort, Verbier</td><td>Cargo — ravitaillement</td><td>1h 05min</td><td>2 457m MSL</td><td>Vent 14 kt, Ciel dégagé</td><td><span class="badge b-green">Complété</span></td></tr>
+              <tr><td>337</td><td>08.09.2026</td><td>Agras T50 #01</td><td>Vignoble Farinet, Saillon</td><td>Pulvérisation</td><td>1h 30min</td><td>520m AGL</td><td>Vent 12 kt, Bon</td><td><span class="badge b-green">Complété</span></td></tr>
+              <tr><td>336</td><td>05.09.2026</td><td>FlyCart 30 #02</td><td>Alpiq — Grande Dixence</td><td>Inspection thermique</td><td>2h 20min</td><td>2 200m MSL</td><td>Vent 20 kt, Bon</td><td><span class="badge b-orange">Rapport en attente</span></td></tr>
+              <tr><td>335</td><td>02.09.2026</td><td>Agras T50 #02</td><td>Arboriculture Fully</td><td>NDVI / Stress hydrique</td><td>1h 50min</td><td>120m AGL</td><td>Vent 6 kt, Ciel dégagé</td><td><span class="badge b-green">Complété</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CALCULATEUR ════════════════════════════ -->
+    <div class="view" id="v-calc">
+      <div class="page-head"><div class="page-title">Calculateur de mission</div><div class="page-sub">Estimation coûts, durée, niveau de risque SORA et tarif recommandé</div></div>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Paramètres de la mission</div>
+          <div class="form-group"><label class="form-label">Type de mission</label>
+            <select class="form-select" onchange="calcUpdate()">
+              <option value="cargo">Cargo — livraison altitude</option>
+              <option value="agri">Agricole — pulvérisation</option>
+              <option value="insp">Inspection thermique</option>
+              <option value="carto">Cartographie / NDVI</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Distance aller (km) : <span id="dist-val">8</span> km</label><input type="range" min="1" max="50" value="8" oninput="document.getElementById('dist-val').textContent=this.value;calcUpdate()"></div>
+          <div class="form-group"><label class="form-label">Charge utile (kg) : <span id="charge-val">4</span> kg</label><input type="range" min="0" max="30" value="4" oninput="document.getElementById('charge-val').textContent=this.value;calcUpdate()"></div>
+          <div class="form-group"><label class="form-label">Altitude opération (m MSL) : <span id="alt-val">1800</span> m</label><input type="range" min="400" max="4000" step="100" value="1800" oninput="document.getElementById('alt-val').textContent=this.value;calcUpdate()"></div>
+          <div class="form-group"><label class="form-label">Surface (ha, si agricole) : <span id="surface-val">5</span> ha</label><input type="range" min="1" max="50" value="5" oninput="document.getElementById('surface-val').textContent=this.value;calcUpdate()"></div>
+          <div class="form-group"><label class="form-label">Environnement</label>
+            <select class="form-select" onchange="calcUpdate()">
+              <option value="rural">Rural / Montagne</option>
+              <option value="periurb">Péri-urbain</option>
+              <option value="urbain">Urbain</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="calc-result" id="calc-result">
+            <div class="calc-result-title">Estimation mission</div>
+            <div class="calc-grid">
+              <div class="calc-stat"><div class="calc-stat-val" id="c-duree" style="color:var(--blue-2)">28</div><div class="calc-stat-label">Durée (min)</div></div>
+              <div class="calc-stat"><div class="calc-stat-val" id="c-batteries" style="color:var(--orange-2)">2</div><div class="calc-stat-label">Batteries</div></div>
+              <div class="calc-stat"><div class="calc-stat-val" id="c-tarif" style="color:var(--green-2)">1 800</div><div class="calc-stat-label">Tarif CHF</div></div>
+              <div class="calc-stat"><div class="calc-stat-val" id="c-sail" style="color:var(--yellow-2)">II</div><div class="calc-stat-label">SAIL SORA</div></div>
+            </div>
+            <div style="margin-top:12px">
+              <div style="font-size:11px;color:var(--text-3);margin-bottom:6px">Niveau de risque</div>
+              <div class="risk-bar">
+                <div class="risk-seg rs-1 active" id="rs1"></div>
+                <div class="risk-seg rs-2 active" id="rs2"></div>
+                <div class="risk-seg rs-3" id="rs3"></div>
+                <div class="risk-seg rs-4" id="rs4"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-3);margin-top:3px"><span>Faible</span><span>Modéré</span><span>Élevé</span><span>Critique</span></div>
+            </div>
+          </div>
+          <div class="card" style="margin-top:14px">
+            <div class="card-title">Décomposition du tarif</div>
+            <div class="row"><span class="row-label">Mobilisation + trajet</span><span class="row-val" id="c-mob">CHF 350</span></div>
+            <div class="row"><span class="row-label">Vol (durée × taux horaire)</span><span class="row-val" id="c-vol">CHF 840</span></div>
+            <div class="row"><span class="row-label">Usure appareil / batteries</span><span class="row-val" id="c-usure">CHF 180</span></div>
+            <div class="row"><span class="row-label">Risque SORA + assurance</span><span class="row-val" id="c-risque">CHF 220</span></div>
+            <div class="row" style="font-weight:600"><span>Total recommandé HT</span><span style="font-family:var(--f-head);font-size:15px;color:var(--green-2)" id="c-total">CHF 1 590</span></div>
+            <div style="margin-top:10px"><button class="btn btn-primary" onclick="alert('Simulation : Génération du devis PDF...')">Générer le devis →</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ VEILLE ════════════════════════════════ -->
     <div class="view" id="v-veille">
-      <div class="page-head">
-        <div class="page-title">Veille réglementaire</div>
-        <div class="page-sub">Actualités OFAC, marché drone suisse et nouvelles technologies — mis à jour en continu</div>
-      </div>
-      <div id="plat-news-grid" style="display:grid;gap:12px">
-        <div style="color:var(--text-3);font-size:13px;padding:20px 0">Chargement…</div>
-      </div>
-    </div>
-
-    <!-- ── LOGS ─────────────────────────────────────────── -->
-    <div class="view" id="v-logs">
-      <div class="page-head">
-        <div class="page-title">Logs de vol</div>
-        <div class="page-sub">Registre réglementaire (art. 24 OACS) — 341 vols enregistrés</div>
-      </div>
-      <div class="alert alert-blue">
-        <div class="alert-icon">ℹ️</div>
-        <div class="alert-text"><span class="alert-title">Section en développement</span>Import automatique DJI FlightHub, saisie manuelle, export PDF pour OFAC. Disponible bêta T1 2027.</div>
+      <div class="page-head"><div class="page-title">Veille réglementaire</div><div class="page-sub">Actualités OFAC, marché drone, nouvelles technologies · Sources suisses de référence</div></div>
+      <div id="veille-grid" style="display:grid;gap:12px">
+        <!-- Inline news data -->
       </div>
     </div>
 
@@ -611,42 +783,87 @@
 </div>
 
 <script>
-function switchView(name, el) {
+/* ── Section switch ─────────────────────────────────────── */
+function sv(name, el) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.s-item,.tnav').forEach(b => b.classList.remove('active'));
   const v = document.getElementById('v-' + name);
   if (v) v.classList.add('active');
   document.querySelectorAll('.s-item,.tnav').forEach(b => {
-    const oc = b.getAttribute('onclick') || '';
-    if (oc.includes("'" + name + "'")) b.classList.add('active');
+    if ((b.getAttribute('onclick')||'').includes("'"+name+"'")) b.classList.add('active');
   });
-  if (name === 'veille') loadPlatNews();
+  if (name === 'veille') renderVeille();
 }
 
-async function loadPlatNews() {
-  const grid = document.getElementById('plat-news-grid');
-  if (!grid || grid.dataset.loaded) return;
-  try {
-    const res  = await fetch('data/news.json');
-    const news = await res.json();
-    news.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const CAT = {reglementation:'Réglementation',marche:'Marché',technologie:'Technologie',formation:'Formation'};
-    const COL = {reglementation:'b-blue',marche:'b-green',technologie:'b-orange',formation:'b-gray'};
-    grid.innerHTML = news.map(n => `
-      <div class="card">
-        <div style="display:flex;align-items:flex-start;gap:12px">
-          <div style="flex:1">
-            <span class="badge ${COL[n.categorie]||'b-gray'}" style="margin-bottom:8px;display:inline-block">${CAT[n.categorie]||n.categorie}</span>
-            <div style="font-size:13px;font-weight:600;margin-bottom:3px">${n.titre}</div>
-            <div style="font-size:11px;color:var(--text-3);margin-bottom:8px">${n.source} · ${new Date(n.date+'T00:00:00').toLocaleDateString('fr-CH',{day:'numeric',month:'short',year:'numeric'})}</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.6">${n.resume}</div>
-          </div>
-          ${n.url ? `<a href="${n.url}" target="_blank" rel="noopener" style="font-size:11px;color:var(--orange-2);text-decoration:none;white-space:nowrap;flex-shrink:0">Source →</a>` : ''}
-        </div>
-      </div>`).join('');
-    grid.dataset.loaded = '1';
-  } catch { grid.innerHTML = '<div style="color:var(--text-3)">Erreur de chargement.</div>'; }
+/* ── Calculateur ────────────────────────────────────────── */
+function calcUpdate() {
+  const dist    = +document.querySelector('input[oninput*="dist"]').value;
+  const charge  = +document.querySelector('input[oninput*="charge"]').value;
+  const alt     = +document.querySelector('input[oninput*="alt"]').value;
+  const surface = +document.querySelector('input[oninput*="surface"]').value;
+  const env     = document.querySelectorAll('.form-select')[1].value;
+
+  const duree    = Math.round(dist * 3.5 + charge * 0.8 + (alt > 2000 ? 15 : 0) + surface * 1.2);
+  const batteries= Math.max(1, Math.ceil(duree / 22));
+  const riskScore= (env === 'urbain' ? 3 : env === 'periurb' ? 2 : 1) + (alt > 2500 ? 1 : 0) + (charge > 10 ? 1 : 0);
+  const sail     = ['I','I','II','III','IV'][Math.min(riskScore, 4)];
+  const mob      = 350;
+  const volCost  = Math.round(duree * 28);
+  const usure    = Math.round(batteries * 90);
+  const risque   = riskScore > 2 ? 320 : 180;
+  const total    = mob + volCost + usure + risque;
+  const tarif    = Math.round(total * 1.12);
+
+  document.getElementById('c-duree').textContent     = duree;
+  document.getElementById('c-batteries').textContent = batteries;
+  document.getElementById('c-tarif').textContent     = tarif.toLocaleString('fr-CH');
+  document.getElementById('c-sail').textContent      = sail;
+  document.getElementById('c-mob').textContent       = 'CHF ' + mob;
+  document.getElementById('c-vol').textContent       = 'CHF ' + volCost;
+  document.getElementById('c-usure').textContent     = 'CHF ' + usure;
+  document.getElementById('c-risque').textContent    = 'CHF ' + risque;
+  document.getElementById('c-total').textContent     = 'CHF ' + total.toLocaleString('fr-CH');
+
+  ['rs1','rs2','rs3','rs4'].forEach((id, i) => {
+    document.getElementById(id).classList.toggle('active', i < riskScore);
+  });
 }
+
+/* ── Veille inline data ─────────────────────────────────── */
+const NEWS = [
+  {id:1,date:"2026-09-12",titre:"OFAC publie la feuille de route U-Space Suisse pour 2027",source:"BAZL / OFAC",categorie:"reglementation",url:"https://www.bazl.admin.ch",resume:"L'Office fédéral de l'aviation civile détaille le calendrier de déploiement de l'espace aérien U-Space en Suisse, avec une intégration progressive des corridors BVLOS dès janvier 2027. Les opérateurs STS devront s'enregistrer sur le nouveau portail."},
+  {id:2,date:"2026-09-05",titre:"La Poste Suisse et Matternet étendent le réseau de livraison médicale à Bâle",source:"La Poste Suisse",categorie:"marche",url:"https://www.post.ch",resume:"Après les corridors de Lugano et Berne, le service de livraison de prélèvements de laboratoire par drone s'étend à la région bâloise, couvrant désormais 4 hôpitaux. La flotte passe à 18 appareils opérationnels."},
+  {id:3,date:"2026-08-28",titre:"DJI présente le FlyCart 200 : 200 kg de payload, autonomie 45 min",source:"DJI Enterprise",categorie:"technologie",url:"https://enterprise.dji.com",resume:"DJI annonce son drone cargo lourd FlyCart 200 avec une charge utile de 200 kg et une autonomie de 45 minutes. L'appareil est conçu pour les opérations de logistique lourde en montagne, avec des capteurs de dégivrage actifs."},
+  {id:4,date:"2026-08-20",titre:"Canton du Valais : appel d'offres pour services drone dans 12 communes isolées",source:"État du Valais / DGT",categorie:"marche",url:"https://www.vs.ch",resume:"Le Service des routes du canton du Valais publie un appel d'offres pour des prestations de drone cargo (livraison de matériaux, inspection d'infrastructures) dans 12 communes de montagne. Délai de dépôt : 31 octobre 2026. Certifications STS requises."},
+  {id:5,date:"2026-08-10",titre:"Nouvelle directive OFAG sur les traitements phytosanitaires par drone",source:"OFAG / BLW",categorie:"reglementation",url:"https://www.blw.admin.ch",resume:"L'Office fédéral de l'agriculture publie les nouvelles modalités d'autorisation pour les traitements phytosanitaires par drone. Une certification spécifique de l'appareil est désormais requise en plus de la certification pilote."},
+  {id:6,date:"2026-07-28",titre:"SDIA : le secteur drone suisse atteint 580 millions CHF — rapport annuel 2026",source:"SDIA",categorie:"marche",url:"https://sdia.ch",resume:"La Swiss Drone Industries Association publie son rapport annuel : le marché drone commercial suisse atteint CHF 580M en 2026 (+14% vs 2025). Le segment cargo représente désormais 22% du total."},
+  {id:7,date:"2026-07-15",titre:"Skyguide intègre les opérations BVLOS dans son système ATM national",source:"Skyguide",categorie:"technologie",url:"https://www.skyguide.ch",resume:"Skyguide annonce l'intégration des vols de drones BVLOS dans son système de gestion du trafic aérien. Un nouveau portail de déconfliction automatique sera disponible pour les opérateurs certifiés STS dès mars 2027."},
+  {id:8,date:"2026-07-03",titre:"Formation STS-01/02 : nouvelle session certifiante en Suisse romande — automne 2026",source:"Aeroclub de Suisse",categorie:"formation",url:"https://www.aeroclub.ch",resume:"L'Aéroclub de Suisse organise une session de formation STS-01 et STS-02 en novembre 2026 à Sion (VS). Prérequis : certifications A2/A3 validées. Places limitées à 12 candidats."}
+];
+const CAT_LABEL = {reglementation:'Réglementation',marche:'Marché',technologie:'Technologie',formation:'Formation'};
+const CAT_COL   = {reglementation:'b-blue',marche:'b-green',technologie:'b-orange',formation:'b-gray'};
+
+function renderVeille() {
+  const grid = document.getElementById('veille-grid');
+  if (grid.dataset.done) return;
+  const sorted = [...NEWS].sort((a,b) => new Date(b.date)-new Date(a.date));
+  grid.innerHTML = sorted.map(n => `
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;gap:12px">
+        <div style="flex:1">
+          <span class="badge ${CAT_COL[n.categorie]||'b-gray'}" style="margin-bottom:8px;display:inline-block">${CAT_LABEL[n.categorie]||n.categorie}</span>
+          <div style="font-size:13px;font-weight:600;margin-bottom:3px">${n.titre}</div>
+          <div style="font-size:11px;color:var(--text-3);margin-bottom:8px">${n.source} · ${new Date(n.date+'T00:00:00').toLocaleDateString('fr-CH',{day:'numeric',month:'short',year:'numeric'})}</div>
+          <div style="font-size:13px;color:var(--text-2);line-height:1.6">${n.resume}</div>
+        </div>
+        ${n.url?`<a href="${n.url}" target="_blank" rel="noopener" style="font-size:11px;color:var(--orange-2);text-decoration:none;white-space:nowrap;flex-shrink:0">Source →</a>`:''}
+      </div>
+    </div>`).join('');
+  grid.dataset.done = '1';
+}
+
+/* ── Init ───────────────────────────────────────────────── */
+calcUpdate();
 </script>
 </body>
 </html>
