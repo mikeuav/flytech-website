@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Flytech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23E85C0A'/><text y='24' x='4' font-size='22' font-family='sans-serif' font-weight='900' fill='white'>F</text></svg>">
+  <style>
+    :root {
+      --bg:      #09111A;
+      --bg-2:    #0E1B28;
+      --bg-3:    #152030;
+      --bg-4:    #1C2A3C;
+      --border:  #1E3048;
+      --border-2:#283F56;
+      --text:    #E4EBF3;
+      --text-2:  #A0B4C4;
+      --text-3:  #5A7085;
+      --orange:  #E85C0A;
+      --orange-2:#FF7020;
+      --blue:    #1E64F0;
+      --green:   #1A9A5A;
+      --red:     #D02020;
+      --yellow:  #C8900A;
+      --f-head:  'Syne', sans-serif;
+      --f-body:  'Inter', sans-serif;
+      --f-mono:  'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--f-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Topbar ─────────────────────────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(9,17,26,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .topbar-logo {
+      font-family: var(--f-head);
+      font-size: 20px;
+      color: var(--text);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .topbar-logo .dot { color: var(--orange); }
+    .topbar-badge {
+      background: var(--bg-3);
+      border: 1px solid var(--border-2);
+      color: var(--text-3);
+      font-size: 11px;
+      font-family: var(--f-mono);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .04em;
+    }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .topbar-date {
+      font-size: 12px; font-family: var(--f-mono);
+      color: var(--text-3);
+    }
+    .topbar-link {
+      font-size: 13px; color: var(--text-2);
+      text-decoration: none; padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color .2s, color .2s;
+    }
+    .topbar-link:hover { border-color: var(--border-2); color: var(--text); }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .dash-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: calc(100vh - 56px);
+    }
+    .sidebar {
+      background: var(--bg-2);
+      border-right: 1px solid var(--border);
+      padding: 24px 0;
+      position: sticky; top: 56px;
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+    }
+    .sidebar-section {
+      padding: 0 12px;
+      margin-bottom: 8px;
+    }
+    .sidebar-label {
+      font-size: 10px;
+      font-family: var(--f-mono);
+      color: var(--text-3);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 0 8px 8px;
+    }
+    .sidebar-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      color: var(--text-2);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+      text-decoration: none;
+      border: none; background: transparent; width: 100%; text-align: left;
+    }
+    .sidebar-item:hover { background: var(--bg-3); color: var(--text); }
+    .sidebar-item.active { background: var(--bg-3); color: var(--text); }
+    .sidebar-item .icon { font-size: 16px; }
+    .sidebar-divider { height: 1px; background: var(--border); margin: 10px 12px; }
+
+    /* ── Main ───────────────────────────────────────────────── */
+    .dash-main { padding: 32px; overflow-y: auto; }
+    .dash-section { display: none; }
+    .dash-section.active { display: block; }
+
+    .section-title {
+      font-family: var(--f-head);
+      font-size: 22px;
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    /* ── Cards ──────────────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .card-title { font-size: 15px; font-weight: 600; line-height: 1.4; }
+    .card-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+    .badge {
+      font-size: 11px; font-family: var(--f-mono);
+      padding: 3px 8px; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-green  { background: rgba(26,154,90,.15); color: #4CC88A; border: 1px solid rgba(26,154,90,.3); }
+    .badge-orange { background: rgba(232,92,10,.15);  color: var(--orange-2); border: 1px solid rgba(232,92,10,.3); }
+    .badge-blue   { background: rgba(30,100,240,.15); color: #5A8FFF; border: 1px solid rgba(30,100,240,.3); }
+    .badge-red    { background: rgba(208,32,32,.15);  color: #F07070; border: 1px solid rgba(208,32,32,.3); }
+    .badge-yellow { background: rgba(200,144,10,.15); color: #F0B84A; border: 1px solid rgba(200,144,10,.3); }
+    .badge-gray   { background: var(--bg-3); color: var(--text-3); border: 1px solid var(--border); }
+
+    .card-row {
+      display: flex; justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-row:last-child { border-bottom: none; }
+    .card-row-label { color: var(--text-3); }
+    .card-row-val { color: var(--text); font-family: var(--f-mono); font-size: 12px; text-align: right; }
+
+    .card-notes {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-2);
+      background: var(--bg-3);
+      border-left: 2px solid var(--border-2);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      line-height: 1.5;
+    }
+
+    /* ── Stats row ──────────────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .stat-box {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .stat-val {
+      font-family: var(--f-head);
+      font-size: 28px;
+      color: var(--text);
+    }
+    .stat-label { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    /* ── Maintenance table ──────────────────────────────────── */
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      text-align: left;
+      font-size: 11px;
+      font-family: var(--f-mono);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-2);
+      vertical-align: middle;
+    }
+    td:first-child { color: var(--text); font-weight: 500; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+
+    /* ── Qualifications ─────────────────────────────────────── */
+    .qual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .qual-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .qual-badge-wrap { margin-bottom: 12px; }
+    .qual-name { font-family: var(--f-head); font-size: 18px; margin-bottom: 4px; }
+    .qual-full { font-size: 12px; color: var(--text-3); margin-bottom: 12px; }
+    .qual-row {
+      display: flex; justify-content: space-between;
+      font-size: 12px; padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .qual-row:last-child { border-bottom: none; }
+    .qual-row-label { color: var(--text-3); }
+    .qual-row-val { font-family: var(--f-mono); color: var(--text); }
+
+    /* ── Pulse ──────────────────────────────────────────────── */
+    .pulse {
+      display: inline-block; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+      margin-right: 6px;
+    }
+    .pulse.orange { background: var(--orange); }
+    .pulse.blue   { background: var(--blue); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(1.3); }
+    }
+
+    /* ── Loading ─────────────────────────────────────────────── */
+    .loading { color: var(--text-3); font-size: 13px; padding: 20px 0; }
+
+    /* ── Empty state ─────────────────────────────────────────── */
+    .empty-state {
+      text-align: center; padding: 60px 20px;
+      color: var(--text-3); font-size: 14px;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .dash-layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static; height: auto;
+        display: flex; flex-wrap: wrap; gap: 4px;
+        padding: 12px;
+      }
+      .sidebar-section { padding: 0; }
+      .sidebar-label { display: none; }
+      .sidebar-divider { display: none; }
+      .sidebar-item { padding: 7px 10px; font-size: 13px; }
+      .dash-main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ TOPBAR ══════════════════════════════════════════════════════════ -->
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="index.html" class="topbar-logo">Fly<span class="dot">.</span>tech</a>
+    <span class="topbar-badge">DASHBOARD</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-date" id="today-date"></span>
+    <a href="index.html" class="topbar-link">← Site public</a>
+  </div>
+</header>
+
+<!-- ══ LAYOUT ══════════════════════════════════════════════════════════ -->
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Opérations</div>
+      <button class="sidebar-item active" onclick="showSection('chantiers')">
+        <span class="icon">📋</span> Chantiers
+      </button>
+      <button class="sidebar-item" onclick="showSection('maintenance')">
+        <span class="icon">🔧</span> Maintenance
+      </button>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Pilote</div>
+      <button class="sidebar-item" onclick="showSection('qualifications')">
+        <span class="icon">🏅</span> Qualifications
+      </button>
+      <button class="sidebar-item" onclick="showSection('administratif')">
+        <span class="icon">📁</span> Administratif
+      </button>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Bêta</div>
+      <button class="sidebar-item" onclick="showSection('veille')">
+        <span class="icon">📡</span> Veille
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="dash-main">
+
+    <!-- ─── Chantiers ──────────────────────────────────────── -->
+    <section id="sec-chantiers" class="dash-section active">
+      <div class="section-title">
+        📋 Chantiers
+        <span id="chantiers-count" class="badge badge-gray" style="font-family:var(--f-mono);font-size:12px"></span>
+      </div>
+
+      <div class="stats-row" id="chantiers-stats">
+        <div class="loading">Chargement…</div>
+      </div>
+
+      <h3 style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em">
+        <span class="pulse"></span>Actifs
+      </h3>
+      <div class="cards-grid" id="chantiers-actifs">
+        <div class="loading">Chargement…</div>
+      </div>
+
+      <h3 style="font-size:14px;color:var(--text-2);margin:24px 0 12px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em">
+        <span class="pulse orange"></span>En attente
+      </h3>
+      <div class="cards-grid" id="chantiers-attente">
+        <div class="loading">Chargement…</div>
+      </div>
+    </section>
+
+    <!-- ─── Maintenance ────────────────────────────────────── -->
+    <section id="sec-maintenance" class="dash-section">
+      <div class="section-title">🔧 Maintenance flotte</div>
+
+      <div class="stats-row" id="maintenance-stats">
+        <div class="loading">Chargement…</div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table id="maintenance-table">
+            <thead>
+              <tr>
+                <th>Appareil</th>
+                <th>Type</th>
+                <th>Heures vol</th>
+                <th>Dernière révision</th>
+                <th>Prochaine échéance</th>
+                <th>Batteries</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody id="maintenance-body">
+              <tr><td colspan="7" class="loading">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Qualifications ────────────────────────────────── -->
+    <section id="sec-qualifications" class="dash-section">
+      <div class="section-title">🏅 Qualifications & Certifications</div>
+      <div class="qual-grid">
+
+        <div class="qual-card">
+          <div class="qual-badge-wrap"><span class="badge badge-green">✓ Valide</span></div>
+          <div class="qual-name">A1 / A2 / A3</div>
+          <div class="qual-full">Catégorie ouverte EASA — Sous-catégories A1, A2, A3</div>
+          <div class="qual-row"><span class="qual-row-label">Émetteur</span><span class="qual-row-val">OFAC / BAZL</span></div>
+          <div class="qual-row"><span class="qual-row-label">Niveau</span><span class="qual-row-val">Catégorie Ouverte</span></div>
+          <div class="qual-row"><span class="qual-row-label">Opérations autorisées</span><span class="qual-row-val">VLOS, zones résidentielles</span></div>
+          <div class="qual-row"><span class="qual-row-label">Renouvellement</span><span class="qual-row-val">Tous les 5 ans</span></div>
+        </div>
+
+        <div class="qual-card">
+          <div class="qual-badge-wrap"><span class="badge badge-orange">★ STS-01</span></div>
+          <div class="qual-name">STS-01</div>
+          <div class="qual-full">Specific Transaction Scenario 01 — BVLOS en espace aérien contrôlé</div>
+          <div class="qual-row"><span class="qual-row-label">Émetteur</span><span class="qual-row-val">OFAC / BAZL</span></div>
+          <div class="qual-row"><span class="qual-row-label">Niveau</span><span class="qual-row-val">Catégorie Spécifique</span></div>
+          <div class="qual-row"><span class="qual-row-label">Opérations autorisées</span><span class="qual-row-val">BVLOS zones contrôlées</span></div>
+          <div class="qual-row"><span class="qual-row-label">Pilotes STS en Suisse</span><span class="qual-row-val">&lt; 50</span></div>
+          <div class="qual-row"><span class="qual-row-label">Statut Flytech</span><span class="qual-row-val">Certifié</span></div>
+        </div>
+
+        <div class="qual-card">
+          <div class="qual-badge-wrap"><span class="badge badge-orange">★ STS-02</span></div>
+          <div class="qual-name">STS-02</div>
+          <div class="qual-full">Specific Transaction Scenario 02 — BVLOS en zones peuplées</div>
+          <div class="qual-row"><span class="qual-row-label">Émetteur</span><span class="qual-row-val">OFAC / BAZL</span></div>
+          <div class="qual-row"><span class="qual-row-label">Niveau</span><span class="qual-row-val">Catégorie Spécifique</span></div>
+          <div class="qual-row"><span class="qual-row-label">Opérations autorisées</span><span class="qual-row-val">BVLOS zones peuplées</span></div>
+          <div class="qual-row"><span class="qual-row-label">Expérience terrain</span><span class="qual-row-val">Bubo SARL, Valais</span></div>
+          <div class="qual-row"><span class="qual-row-label">Statut Flytech</span><span class="qual-row-val">Certifié</span></div>
+        </div>
+
+        <div class="qual-card">
+          <div class="qual-badge-wrap"><span class="badge badge-blue">⬡ SORA</span></div>
+          <div class="qual-name">SORA</div>
+          <div class="qual-full">Specific Operations Risk Assessment — Méthodologie JARUS</div>
+          <div class="qual-row"><span class="qual-row-label">Application</span><span class="qual-row-val">Dossiers autorisation OFAC</span></div>
+          <div class="qual-row"><span class="qual-row-label">Scope</span><span class="qual-row-val">Opérations STS & hors scénario</span></div>
+          <div class="qual-row"><span class="qual-row-label">Maîtrise</span><span class="qual-row-val">GRC + ARC + SAIL</span></div>
+        </div>
+
+        <div class="qual-card">
+          <div class="qual-badge-wrap"><span class="badge badge-green">✓ Expérience</span></div>
+          <div class="qual-name">Bubo SARL</div>
+          <div class="qual-full">Opérateur drone professionnel — Valais, Suisse</div>
+          <div class="qual-row"><span class="qual-row-label">Rôle</span><span class="qual-row-val">Prestataire / Pilote</span></div>
+          <div class="qual-row"><span class="qual-row-label">Période</span><span class="qual-row-val">Saison 2025</span></div>
+          <div class="qual-row"><span class="qual-row-label">Missions</span><span class="qual-row-val">Cargo & Agricole</span></div>
+          <div class="qual-row"><span class="qual-row-label">Zone</span><span class="qual-row-val">Canton du Valais</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Administratif ─────────────────────────────────── -->
+    <section id="sec-administratif" class="dash-section">
+      <div class="section-title">📁 Administratif</div>
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Flytech Sàrl</div>
+              <div class="card-sub">Entité opérationnelle</div>
+            </div>
+            <span class="badge badge-orange">En création</span>
+          </div>
+          <div class="card-row"><span class="card-row-label">Forme juridique</span><span class="card-row-val">Sàrl</span></div>
+          <div class="card-row"><span class="card-row-label">Domiciliation</span><span class="card-row-val">Canton du Valais</span></div>
+          <div class="card-row"><span class="card-row-label">Capital minimum</span><span class="card-row-val">CHF 20 000</span></div>
+          <div class="card-row"><span class="card-row-label">Lancement prévu</span><span class="card-row-val">Avril 2026</span></div>
+          <div class="card-row"><span class="card-row-label">RC Professionnelle</span><span class="card-row-val">À souscrire</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Autorisation opérateur OFAC</div>
+              <div class="card-sub">Enregistrement OFAC</div>
+            </div>
+            <span class="badge badge-orange">À compléter</span>
+          </div>
+          <div class="card-row"><span class="card-row-label">Portail</span><span class="card-row-val">bazl.admin.ch</span></div>
+          <div class="card-row"><span class="card-row-label">Déclaration opérateur</span><span class="card-row-val">Requise</span></div>
+          <div class="card-row"><span class="card-row-label">Numéro opérateur</span><span class="card-row-val">—</span></div>
+          <div class="card-row"><span class="card-row-label">Autorisation STS</span><span class="card-row-val">Dossier SORA requis</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Assurances</div>
+              <div class="card-sub">Couverture professionnelle</div>
+            </div>
+            <span class="badge badge-orange">À souscrire</span>
+          </div>
+          <div class="card-row"><span class="card-row-label">RC opérateur drone</span><span class="card-row-val">Obligatoire EASA</span></div>
+          <div class="card-row"><span class="card-row-label">Couverture min.</span><span class="card-row-val">CHF 750 000</span></div>
+          <div class="card-row"><span class="card-row-label">Hull (casco appareil)</span><span class="card-row-val">Recommandé</span></div>
+          <div class="card-row"><span class="card-row-label">Assureur</span><span class="card-row-val">—</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">U-Space / BVLOS 2027</div>
+              <div class="card-sub">Préparation déploiement</div>
+            </div>
+            <span class="badge badge-blue">À surveiller</span>
+          </div>
+          <div class="card-row"><span class="card-row-label">Portail Skyguide</span><span class="card-row-val">Mars 2027</span></div>
+          <div class="card-row"><span class="card-row-label">Enregistrement STS</span><span class="card-row-val">Nouveau portail OFAC</span></div>
+          <div class="card-row"><span class="card-row-label">Corridors BVLOS</span><span class="card-row-val">Intégration jan. 2027</span></div>
+          <div class="card-row"><span class="card-row-label">Action requise</span><span class="card-row-val">Surveiller OFAC T4 2026</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Veille ────────────────────────────────────────── -->
+    <section id="sec-veille" class="dash-section">
+      <div class="section-title">📡 Veille réglementaire</div>
+      <div class="stats-row" id="veille-stats">
+        <div class="loading">Chargement…</div>
+      </div>
+      <div class="cards-grid" id="veille-grid">
+        <div class="loading">Chargement des actualités…</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ── Helpers ─────────────────────────────────────────────────────────── */
+function fmt(iso) {
+  return new Date(iso + 'T00:00:00').toLocaleDateString('fr-CH', {
+    day: 'numeric', month: 'short', year: 'numeric'
+  });
+}
+function statutBadge(s) {
+  if (!s) return '';
+  const lc = s.toLowerCase();
+  if (lc.includes('cours'))    return `<span class="badge badge-green">${s}</span>`;
+  if (lc.includes('attente'))  return `<span class="badge badge-orange">${s}</span>`;
+  if (lc.includes('accepté'))  return `<span class="badge badge-blue">${s}</span>`;
+  if (lc.includes('alert'))    return `<span class="badge badge-red">${s}</span>`;
+  if (lc.includes('warning'))  return `<span class="badge badge-yellow">${s}</span>`;
+  return `<span class="badge badge-gray">${s}</span>`;
+}
+const CAT = {
+  reglementation:'Réglementation', marche:'Marché',
+  technologie:'Technologie', formation:'Formation'
+};
+const CAT_COL = {
+  reglementation:'badge-blue', marche:'badge-green',
+  technologie:'badge-orange', formation:'badge-gray'
+};
+
+/* ── Date ─────────────────────────────────────────────────────────────── */
+const d = document.getElementById('today-date');
+if (d) d.textContent = new Date().toLocaleDateString('fr-CH', {
+  weekday:'short', day:'numeric', month:'short', year:'numeric'
+});
+
+/* ── Section switch ───────────────────────────────────────────────────── */
+function showSection(name) {
+  document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById('sec-' + name);
+  if (sec) sec.classList.add('active');
+  document.querySelectorAll('.sidebar-item').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(name))
+      b.classList.add('active');
+  });
+}
+
+/* ── Chantiers ────────────────────────────────────────────────────────── */
+async function loadChantiers() {
+  try {
+    const res = await fetch('data/chantiers.json');
+    const data = await res.json();
+    const actifs  = data.actifs  || [];
+    const attente = data.attente || [];
+
+    /* Stats */
+    document.getElementById('chantiers-count').textContent =
+      (actifs.length + attente.length) + ' chantiers';
+    document.getElementById('chantiers-stats').innerHTML = `
+      <div class="stat-box">
+        <div class="stat-val">${actifs.length}</div>
+        <div class="stat-label">Chantiers actifs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">${attente.length}</div>
+        <div class="stat-label">En attente</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">${actifs.length + attente.length}</div>
+        <div class="stat-label">Total portefeuille</div>
+      </div>`;
+
+    /* Active */
+    document.getElementById('chantiers-actifs').innerHTML = actifs.length
+      ? actifs.map(c => `
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">${c.titre}</div>
+              <div class="card-sub">${c.client} · ${c.secteur}</div>
+            </div>
+            ${statutBadge(c.statut)}
+          </div>
+          <div class="card-row"><span class="card-row-label">Appareil</span><span class="card-row-val">${c.appareil}</span></div>
+          <div class="card-row"><span class="card-row-label">Surface</span><span class="card-row-val">${c.surface || '—'}</span></div>
+          <div class="card-row"><span class="card-row-label">Début</span><span class="card-row-val">${fmt(c.debut)}</span></div>
+          <div class="card-row"><span class="card-row-label">Fin prévue</span><span class="card-row-val">${fmt(c.fin_prevue)}</span></div>
+          ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
+        </div>`).join('')
+      : '<div class="empty-state">Aucun chantier actif</div>';
+
+    /* Attente */
+    document.getElementById('chantiers-attente').innerHTML = attente.length
+      ? attente.map(c => `
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">${c.titre}</div>
+              <div class="card-sub">${c.client} · ${c.secteur}</div>
+            </div>
+            ${statutBadge(c.statut)}
+          </div>
+          <div class="card-row"><span class="card-row-label">Appareil</span><span class="card-row-val">${c.appareil}</span></div>
+          <div class="card-row"><span class="card-row-label">Charge</span><span class="card-row-val">${c.charge || '—'}</span></div>
+          <div class="card-row"><span class="card-row-label">Début prévu</span><span class="card-row-val">${fmt(c.debut_prevu)}</span></div>
+          ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
+        </div>`).join('')
+      : '<div class="empty-state">Aucun chantier en attente</div>';
+
+  } catch { document.getElementById('chantiers-actifs').innerHTML = '<div class="empty-state">Erreur de chargement</div>'; }
+}
+
+/* ── Maintenance ──────────────────────────────────────────────────────── */
+async function loadMaintenance() {
+  try {
+    const res  = await fetch('data/maintenance.json');
+    const data = await res.json();
+    const flotte = data.flotte || [];
+
+    const ok   = flotte.filter(f => f.statut === 'OK').length;
+    const warn = flotte.filter(f => f.statut === 'Warning').length;
+    const alert= flotte.filter(f => f.statut === 'Alert').length;
+
+    document.getElementById('maintenance-stats').innerHTML = `
+      <div class="stat-box">
+        <div class="stat-val">${flotte.length}</div>
+        <div class="stat-label">Appareils / accessoires</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color:#4CC88A">${ok}</div>
+        <div class="stat-label">Statut OK</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color:#F0B84A">${warn}</div>
+        <div class="stat-label">Warning</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color:#F07070">${alert}</div>
+        <div class="stat-label">Alerte</div>
+      </div>`;
+
+    document.getElementById('maintenance-body').innerHTML = flotte.map(f => `
+      <tr>
+        <td>${f.nom}</td>
+        <td>${f.type}</td>
+        <td style="font-family:var(--f-mono)">${f.heuresVol}${typeof f.heuresVol === 'number' ? ' h' : ''}</td>
+        <td style="font-family:var(--f-mono)">${fmt(f.derniereRevision)}</td>
+        <td style="font-family:var(--f-mono)">${fmt(f.prochaineEcheance)}</td>
+        <td>${f.batteries}</td>
+        <td>${statutBadge(f.statut)}</td>
+      </tr>`).join('');
+
+  } catch { document.getElementById('maintenance-body').innerHTML = '<tr><td colspan="7">Erreur de chargement</td></tr>'; }
+}
+
+/* ── Veille ───────────────────────────────────────────────────────────── */
+async function loadVeille() {
+  try {
+    const res  = await fetch('data/news.json');
+    const news = await res.json();
+    news.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const bycat = news.reduce((acc, n) => {
+      acc[n.categorie] = (acc[n.categorie] || 0) + 1; return acc;
+    }, {});
+    document.getElementById('veille-stats').innerHTML =
+      `<div class="stat-box"><div class="stat-val">${news.length}</div><div class="stat-label">Actualités</div></div>`
+      + Object.entries(bycat).map(([k,v]) => `
+        <div class="stat-box">
+          <div class="stat-val">${v}</div>
+          <div class="stat-label">${CAT[k] || k}</div>
+        </div>`).join('');
+
+    document.getElementById('veille-grid').innerHTML = news.map(n => `
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <span class="badge ${CAT_COL[n.categorie] || 'badge-gray'}" style="margin-bottom:8px;display:inline-block">${CAT[n.categorie] || n.categorie}</span>
+            <div class="card-title">${n.titre}</div>
+            <div class="card-sub">${n.source} · ${fmt(n.date)}</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:12px">${n.resume}</p>
+        ${n.url ? `<a href="${n.url}" target="_blank" rel="noopener" style="font-size:12px;color:var(--orange-2);text-decoration:none">Source →</a>` : ''}
+      </div>`).join('');
+
+  } catch { document.getElementById('veille-grid').innerHTML = '<div class="empty-state">Erreur de chargement</div>'; }
+}
+
+/* ── Init ─────────────────────────────────────────────────────────────── */
+loadChantiers();
+loadMaintenance();
+loadVeille();
+</script>
+</body>
+</html>

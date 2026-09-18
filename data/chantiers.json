@@ -1,0 +1,52 @@
+{
+  "actifs": [
+    {
+      "id": 1,
+      "titre": "Traitement phytosanitaire — Vignoble Farinet, Saillon",
+      "client": "Domaine Farinet",
+      "secteur": "Agricole",
+      "appareil": "DJI Agras T50",
+      "debut": "2026-09-10",
+      "fin_prevue": "2026-09-25",
+      "surface": "4.2 ha",
+      "statut": "En cours",
+      "notes": "Terrasses en pente forte, accès hélico uniquement. 3 passages prévus."
+    },
+    {
+      "id": 2,
+      "titre": "Cartographie NDVI — Arboriculture Valais Fruits, Fully",
+      "client": "Valais Fruits SA",
+      "secteur": "Agricole",
+      "appareil": "DJI Agras T50 + Capteur MS",
+      "debut": "2026-09-08",
+      "fin_prevue": "2026-09-20",
+      "surface": "12 ha",
+      "statut": "En cours",
+      "notes": "Analyse stress hydrique post-été. Rapport NDVI demandé sous 48h après vol."
+    }
+  ],
+  "attente": [
+    {
+      "id": 3,
+      "titre": "Ravitaillement Cabane du Mont-Fort — préparation saison ski",
+      "client": "CAS Valais / Refuge du Mont-Fort",
+      "secteur": "Cargo",
+      "appareil": "DJI FlyCart 30",
+      "debut_prevu": "2026-10-15",
+      "charge": "8 x 4 kg",
+      "statut": "Autorisation OFAC en cours",
+      "notes": "Corridor 1850m → 2457m. Dossier SORA soumis le 01/09. Fenêtre météo requise."
+    },
+    {
+      "id": 4,
+      "titre": "Inspection lignes électriques — Alpiq, barrage de la Grande Dixence",
+      "client": "Alpiq SA",
+      "secteur": "Inspection",
+      "appareil": "DJI FlyCart 30 + caméra thermique",
+      "debut_prevu": "2026-10-28",
+      "charge": "N/A",
+      "statut": "Devis accepté — attente signature",
+      "notes": "Zone militaire adjacente — coordination Armasuisse requise."
+    }
+  ]
+}

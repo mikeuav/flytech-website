@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "date": "2026-09-12",
+    "titre": "OFAC publie la feuille de route U-Space Suisse pour 2027",
+    "source": "BAZL / OFAC",
+    "categorie": "reglementation",
+    "url": "https://www.bazl.admin.ch",
+    "resume": "L'Office fédéral de l'aviation civile détaille le calendrier de déploiement de l'espace aérien U-Space en Suisse, avec une intégration progressive des corridors BVLOS dès janvier 2027. Les opérateurs STS devront s'enregistrer sur le nouveau portail."
+  },
+  {
+    "id": 2,
+    "date": "2026-09-05",
+    "titre": "La Poste Suisse et Matternet étendent le réseau de livraison médicale à Bâle",
+    "source": "La Poste Suisse",
+    "categorie": "marche",
+    "url": "https://www.post.ch",
+    "resume": "Après les corridors de Lugano et Berne, le service de livraison de prélèvements de laboratoire par drone s'étend à la région bâloise, couvrant désormais 4 hôpitaux. La flotte passe à 18 appareils opérationnels."
+  },
+  {
+    "id": 3,
+    "date": "2026-08-28",
+    "titre": "DJI présente le FlyCart 200 : 200 kg de payload, autonomie 45 min",
+    "source": "DJI Enterprise",
+    "categorie": "technologie",
+    "url": "https://enterprise.dji.com",
+    "resume": "DJI annonce son drone cargo lourd FlyCart 200 avec une charge utile de 200 kg et une autonomie de 45 minutes. L'appareil est conçu pour les opérations de logistique lourde en montagne, avec des capteurs de dégivrage actifs."
+  },
+  {
+    "id": 4,
+    "date": "2026-08-20",
+    "titre": "Canton du Valais : appel d'offres pour services drone dans 12 communes isolées",
+    "source": "État du Valais / DGT",
+    "categorie": "marche",
+    "url": "https://www.vs.ch",
+    "resume": "Le Service des routes du canton du Valais publie un appel d'offres pour des prestations de drone cargo (livraison de matériaux, inspection d'infrastructures) dans 12 communes de montagne. Délai de dépôt : 31 octobre 2026. Certifications STS requises."
+  },
+  {
+    "id": 5,
+    "date": "2026-08-10",
+    "titre": "Nouvelle directive OFAG sur les traitements phytosanitaires par drone",
+    "source": "OFAG / BLW",
+    "categorie": "reglementation",
+    "url": "https://www.blw.admin.ch",
+    "resume": "L'Office fédéral de l'agriculture publie les nouvelles modalités d'autorisation pour les traitements phytosanitaires par drone. Une certification spécifique de l'appareil est désormais requise en plus de la certification pilote. Liste des produits autorisés mise à jour."
+  },
+  {
+    "id": 6,
+    "date": "2026-07-28",
+    "titre": "SDIA : le secteur drone suisse atteint 580 millions CHF — rapport annuel 2026",
+    "source": "SDIA",
+    "categorie": "marche",
+    "url": "https://sdia.ch",
+    "resume": "La Swiss Drone Industries Association publie son rapport annuel : le marché drone commercial suisse atteint CHF 580M en 2026 (+14% vs 2025). Le segment cargo représente désormais 22% du total, en forte progression. Les secteurs agricole et inspection restent dominants."
+  },
+  {
+    "id": 7,
+    "date": "2026-07-15",
+    "titre": "Skyguide intègre les opérations BVLOS dans son système ATM national",
+    "source": "Skyguide",
+    "categorie": "technologie",
+    "url": "https://www.skyguide.ch",
+    "resume": "Skyguide annonce l'intégration des vols de drones BVLOS dans son système de gestion du trafic aérien. Un nouveau portail de déconfliction automatique sera disponible pour les opérateurs certifiés STS dès mars 2027, en préparation du déploiement U-Space."
+  },
+  {
+    "id": 8,
+    "date": "2026-07-03",
+    "titre": "Formation STS-01/02 : nouvelle session certifiante en Suisse romande — automne 2026",
+    "source": "Aeroclub de Suisse",
+    "categorie": "formation",
+    "url": "https://www.aeroclub.ch",
+    "resume": "L'Aéroclub de Suisse organise une session de formation STS-01 et STS-02 en novembre 2026 à Sion (VS). Prérequis : certifications A2/A3 validées. Places limitées à 12 candidats. Certification reconnue OFAC dès validation."
+  }
+]
