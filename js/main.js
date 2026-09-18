@@ -121,7 +121,7 @@ if (betaForm) {
   try {
     if (localStorage.getItem('flytech_beta')) {
       betaForm.style.display = 'none';
-      if (betaSuccess) betaSuccess.style.display = 'flex';
+      if (betaSuccess) betaSuccess.classList.add('show');
     }
   } catch {}
 
@@ -144,7 +144,7 @@ if (betaForm) {
       if (res.ok) {
         try { localStorage.setItem('flytech_beta', '1'); } catch {}
         betaForm.style.display = 'none';
-        if (betaSuccess) betaSuccess.style.display = 'flex';
+        if (betaSuccess) betaSuccess.classList.add('show');
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Rejoindre la bêta →';
