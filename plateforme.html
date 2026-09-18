@@ -312,6 +312,48 @@
     .client-bar-fill{height:100%;border-radius:3px;background:var(--green-2)}
     .client-bar-val{font-family:var(--f-mono);font-size:11px;color:var(--green-2);white-space:nowrap;min-width:70px;text-align:right}
 
+    /* ── Notifications panel ────────────────────────────── */
+    .notif-panel{position:absolute;top:46px;right:0;width:340px;background:var(--bg-2);border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:300;overflow:hidden;display:none}
+    .notif-panel.open{display:block}
+    .notif-panel-head{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .notif-panel-title{font-size:13px;font-weight:600}
+    .notif-item{padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+    .notif-item:last-child{border-bottom:none}
+    .notif-item:hover{background:var(--bg-3)}
+    .notif-item.unread{border-left:3px solid var(--orange)}
+    .notif-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+    .notif-body{flex:1}
+    .notif-title{font-size:12px;font-weight:600;margin-bottom:2px}
+    .notif-sub{font-size:11px;color:var(--text-3);line-height:1.4}
+    .notif-time{font-size:10px;font-family:var(--f-mono);color:var(--text-3);margin-top:3px}
+
+    /* ── Partenaires ────────────────────────────────────── */
+    .partner-card{background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:18px;transition:border-color .2s}
+    .partner-card:hover{border-color:var(--border-2)}
+    .partner-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+    .partner-logo{width:48px;height:48px;border-radius:10px;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:1px solid var(--border)}
+    .partner-name{font-family:var(--f-head);font-size:16px;margin-bottom:2px}
+    .partner-sub{font-size:12px;color:var(--text-3)}
+    .partner-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;padding:12px;background:var(--bg-3);border-radius:8px}
+    .pkpi{text-align:center}
+    .pkpi-val{font-family:var(--f-head);font-size:18px;margin-bottom:2px}
+    .pkpi-label{font-size:10px;color:var(--text-3)}
+    .synergy-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+    .synergy-row:last-child{border-bottom:none}
+    .synergy-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+
+    /* ── Formation ──────────────────────────────────────── */
+    .cert-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;transition:border-color .2s}
+    .cert-card:hover{border-color:var(--border-2)}
+    .cert-icon{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .ci-valid{background:var(--green-bg)}
+    .ci-expiring{background:var(--orange-bg)}
+    .ci-pending{background:var(--blue-bg)}
+    .cert-body{flex:1}
+    .cert-name{font-size:13px;font-weight:600;margin-bottom:3px}
+    .cert-meta{font-size:11px;color:var(--text-3);line-height:1.5}
+    .cert-exp{font-size:11px;font-family:var(--f-mono);margin-top:4px}
+
     /* ── Responsive ─────────────────────────────────────── */
     @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
     @media(max-width:768px){
@@ -343,7 +385,16 @@
     </nav>
   </div>
   <div class="topbar-right">
-    <div class="notif-btn" title="3 notifications">🔔<div class="notif-dot"></div></div>
+    <div class="notif-btn" title="3 notifications" onclick="toggleNotif()" id="notif-btn" style="position:relative">🔔<div class="notif-dot" id="notif-dot"></div>
+      <div class="notif-panel" id="notif-panel">
+        <div class="notif-panel-head"><span class="notif-panel-title">Notifications <span class="badge b-orange" style="font-size:9px">3</span></span><span style="font-size:11px;color:var(--orange-2);cursor:pointer" onclick="markAllRead(event)">Tout lire</span></div>
+        <div class="notif-item unread" style="display:flex;gap:10px"><div class="notif-icon">⚠️</div><div class="notif-body"><div class="notif-title">Armasuisse — réponse requise</div><div class="notif-sub">Dossier Grande Dixence · Zone LS-T08 · Délai 25 sept. (7 jours)</div><div class="notif-time">Il y a 2h</div></div></div>
+        <div class="notif-item unread" style="display:flex;gap:10px"><div class="notif-icon">📢</div><div class="notif-body"><div class="notif-title">Nouvel appel d'offres — Canton Valais</div><div class="notif-sub">12 communes de montagne · Budget CHF 180 000 · Délai 31 oct.</div><div class="notif-time">Il y a 6h</div></div></div>
+        <div class="notif-item unread" style="display:flex;gap:10px"><div class="notif-icon">💰</div><div class="notif-body"><div class="notif-title">Facture en retard — Alpiq SA</div><div class="notif-sub">FA-2026-022 · CHF 6 800 · 15 jours de retard · Relance envoyée</div><div class="notif-time">Il y a 1j</div></div></div>
+        <div class="notif-item" style="display:flex;gap:10px"><div class="notif-icon">✅</div><div class="notif-body"><div class="notif-title">Mission complétée — Romande Énergie</div><div class="notif-sub">Inspection pylônes Entremont · Rapport PDF généré · CHF 6 800</div><div class="notif-time">Il y a 2j</div></div></div>
+        <div class="notif-item" style="display:flex;gap:10px"><div class="notif-icon">🌤️</div><div class="notif-body"><div class="notif-title">Alerte météo — Demain 19 sept.</div><div class="notif-sub">Vent 38 kt prévu sur Sion à 14h · Opérations BVLOS déconseillées</div><div class="notif-time">Il y a 3h</div></div></div>
+      </div>
+    </div>
     <div class="user-pill">
       <div style="width:22px;height:22px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white">M</div>
       Flytech Sàrl
@@ -377,6 +428,10 @@
     <button class="s-item" onclick="sv('meteo',this)"><span>🌤️</span> Météo opérationnelle</button>
     <button class="s-item" onclick="sv('carnet',this)"><span>📊</span> Carnet de vol</button>
     <button class="s-item" onclick="sv('rapport',this)"><span>📝</span> Rapport de mission</button>
+    <div class="s-divider"></div>
+    <div class="s-label">Partenariats</div>
+    <button class="s-item" onclick="sv('partenaires',this)"><span>🤝</span> Partenaires <span class="s-new">Bubo</span></button>
+    <button class="s-item" onclick="sv('formation',this)"><span>🎓</span> Formation & Certifs</button>
     <div class="s-divider"></div>
     <div class="s-label">Intelligence</div>
     <button class="s-item" onclick="sv('veille',this)"><span>📡</span> Veille réglementaire</button>
@@ -1407,6 +1462,185 @@
       </div>
     </div>
 
+    <!-- ═══════════ PARTENAIRES ══════════════════════════════ -->
+    <div class="view" id="v-partenaires">
+      <div class="page-head"><div class="page-title">Partenaires & Alliances</div><div class="page-sub">Accords commerciaux · Capacité mutualisée · Missions conjointes</div></div>
+
+      <div class="alert alert-green">
+        <div class="alert-icon">🤝</div>
+        <div class="alert-text"><span class="alert-title">Accord-cadre Bubo Sàrl — En négociation</span>Proposition envoyée le 16.09.2026 · Réponse attendue avant le 30.09 · Appel d'offres IVVV comme premier projet conjoint (CHF 18 500).</div>
+        <button class="btn btn-green btn-sm" style="flex-shrink:0" onclick="alert('Simulation : Ouverture du dossier de partenariat Bubo Sàrl.')">Dossier →</button>
+      </div>
+
+      <!-- Fiche Bubo Sàrl -->
+      <div class="partner-card" style="margin-bottom:14px">
+        <div class="partner-header">
+          <div class="partner-logo">🌿</div>
+          <div style="flex:1">
+            <div class="partner-name">Bubo Sàrl</div>
+            <div class="partner-sub">Fondée 2010 · Michel Duc · Leytron, Valais · 6 DJI Agras T50</div>
+          </div>
+          <span class="badge b-orange">Négociation</span>
+        </div>
+
+        <div class="partner-kpi">
+          <div class="pkpi"><div class="pkpi-val" style="color:var(--green-2)">6</div><div class="pkpi-label">Agras T50</div></div>
+          <div class="pkpi"><div class="pkpi-val">~320</div><div class="pkpi-label">ha traités / an</div></div>
+          <div class="pkpi"><div class="pkpi-val" style="color:var(--blue-2)">12</div><div class="pkpi-label">Ans d'expérience</div></div>
+        </div>
+
+        <div class="grid2" style="margin-bottom:0;gap:14px">
+          <div>
+            <div style="font-size:11px;font-family:var(--f-mono);color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Synergies proposées</div>
+            <div class="synergy-row"><div class="synergy-icon">🏔️</div><div><strong>Missions cargo haute altitude</strong> — Bubo dispose d'autorisations de vol dans les vignobles en terrasses inaccessibles de Leytron, Saillon et Saxon. Flytech apporte le FlyCart 30 pour livraisons concomitantes.</div></div>
+            <div class="synergy-row"><div class="synergy-icon">📋</div><div><strong>SORA mutualisé</strong> — Partage des dossiers OFAC pour les mêmes zones géographiques. Réduction de ~40% du temps de préparation réglementaire.</div></div>
+            <div class="synergy-row"><div class="synergy-icon">🧾</div><div><strong>Appels d'offres conjoints</strong> — IVVV, Canton du Valais, Alpiq. Capacité combinée : 10 appareils, STS-01/02 couverts. Première offre déposée : CHF 18 500.</div></div>
+            <div class="synergy-row"><div class="synergy-icon">📊</div><div><strong>Plateforme partagée</strong> — Bubo Sàrl accède à la plateforme Flytech (Calendrier, Rapport, Conformité) en marque blanche. Tarif partenaire : CHF 99/mois.</div></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-family:var(--f-mono);color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Modèle d'accord proposé</div>
+            <div class="row"><span class="row-label">Type</span><span class="row-val">Accord commercial (pas de prise de participation)</span></div>
+            <div class="row"><span class="row-label">Partage revenu missions conjointes</span><span class="row-val">60% Flytech / 40% Bubo</span></div>
+            <div class="row"><span class="row-label">Sous-traitance Bubo → Flytech</span><span class="row-val">Tarif pilote CHF 850/j</span></div>
+            <div class="row"><span class="row-label">Sous-traitance Flytech → Bubo</span><span class="row-val">Tarif pilote CHF 850/j</span></div>
+            <div class="row"><span class="row-label">Accès plateforme Bubo</span><span class="row-val">CHF 99/mois (partenaire)</span></div>
+            <div class="row"><span class="row-label">Durée initiale</span><span class="row-val">12 mois renouvelable</span></div>
+            <div class="row" style="border-bottom:none"><span class="row-label">Résiliation</span><span class="row-val">3 mois préavis</span></div>
+
+            <div style="margin-top:14px">
+              <div style="font-size:11px;font-family:var(--f-mono);color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">CA conjoint estimé 2027</div>
+              <div class="row"><span class="row-label">Appels d'offres remportés (×2)</span><span class="row-val" style="color:var(--green-2)">CHF 36 000</span></div>
+              <div class="row"><span class="row-label">Sous-traitances croisées (×8j)</span><span class="row-val" style="color:var(--green-2)">CHF 13 600</span></div>
+              <div class="row" style="border-bottom:none"><span style="font-weight:600">Total partenariat Bubo</span><span class="row-val" style="font-family:var(--f-head);font-size:14px;color:var(--green-2)">CHF 49 600</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="btn btn-primary" onclick="alert('Simulation : Ouverture du contrat d\'accord-cadre au format PDF pour signature.')">Générer contrat PDF →</button>
+          <button class="btn btn-ghost" onclick="sv('facturation',null)">Voir devis DV-2026-041 →</button>
+          <button class="btn btn-ghost" onclick="alert('Simulation : Email envoyé à michel.duc@bubo-sarl.ch avec la proposition détaillée.')">Envoyer proposition →</button>
+        </div>
+      </div>
+
+      <!-- Autres partenaires potentiels -->
+      <div class="card">
+        <div class="card-title">Pipeline partenariats 2026–2027</div>
+        <div class="row">
+          <div><div style="font-weight:600;font-size:13px">La Poste Suisse / Matternet</div><div class="row-label">Sous-traitance corridors médicaux · Extension réseau Valais</div></div>
+          <span class="badge b-blue">Prospection</span>
+        </div>
+        <div class="row">
+          <div><div style="font-weight:600;font-size:13px">Romande Énergie SA</div><div class="row-label">Contrat-cadre inspection infrastr. · CHF 45 000 estimé/an</div></div>
+          <span class="badge b-orange">En discussion</span>
+        </div>
+        <div class="row">
+          <div><div style="font-weight:600;font-size:13px">Aeroclub de Suisse — Sion</div><div class="row-label">Partenariat formation STS · Mutualisation terrain</div></div>
+          <span class="badge b-gray">Intérêt initial</span>
+        </div>
+        <div class="row" style="border-bottom:none">
+          <div><div style="font-weight:600;font-size:13px">Opérateurs SaaS (plateforme)</div><div class="row-label">Abonnement marque blanche · Cible 20 opérateurs Suisse romande d'ici 2027</div></div>
+          <span class="badge b-purple">Stratégique</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ FORMATION ══════════════════════════════ -->
+    <div class="view" id="v-formation">
+      <div class="page-head"><div class="page-title">Formation & Certifications</div><div class="page-sub">Certifications OFAC · Formations continues · Conformité pilote</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">5/5</div><div class="stat-label">Certifications actives</div><div class="stat-delta up">Tout valide</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">1</div><div class="stat-label">Renouvellement prochain</div><div class="stat-delta neutral">RC Pro · 30j</div></div>
+        <div class="stat"><div class="stat-val">2028</div><div class="stat-label">Prochaine expiration pilote</div><div class="stat-delta neutral">STS-01/02 · mars</div></div>
+        <div class="stat"><div class="stat-val">34h</div><div class="stat-label">Formation continue 2026</div><div class="stat-delta up">OFAC req. : 20h/2 ans</div></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <div class="cert-card">
+            <div class="cert-icon ci-valid">🏅</div>
+            <div class="cert-body">
+              <div class="cert-name">Certification STS-01 — BVLOS espace contrôlé</div>
+              <div class="cert-meta">Émise par OFAC · Théorie + pratique validées · Examen écrit 94/100</div>
+              <div class="cert-exp"><span class="badge b-green">Valide jusqu'au 01.03.2028</span></div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon ci-valid">🏅</div>
+            <div class="cert-body">
+              <div class="cert-name">Certification STS-02 — BVLOS zones peuplées</div>
+              <div class="cert-meta">Émise par OFAC · Scénarios urbains et péri-urbains · Compétence avancée obstacles</div>
+              <div class="cert-exp"><span class="badge b-green">Valide jusqu'au 01.03.2028</span></div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon ci-valid">🌿</div>
+            <div class="cert-body">
+              <div class="cert-name">Certification OFAG — Traitements phytosanitaires</div>
+              <div class="cert-meta">Office fédéral de l'agriculture · DJI Agras T50 homologué · Produits autorisés liste 2026</div>
+              <div class="cert-exp"><span class="badge b-green">Valide jusqu'au 31.12.2027</span></div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon ci-valid">🗺️</div>
+            <div class="cert-body">
+              <div class="cert-name">Compte Skyguide Swiss U-Space (app.swissuspace.ch)</div>
+              <div class="cert-meta">Autorisations numériques VLOS/BVLOS · CTR Sion · Notifications NOTAM automatiques</div>
+              <div class="cert-exp"><span class="badge b-green">Actif · Mise à jour automatique</span></div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon ci-expiring">⚠️</div>
+            <div class="cert-body">
+              <div class="cert-name">RC Professionnelle — Zurich Insurance (CHF 1 000 000)</div>
+              <div class="cert-meta">Police ZI-2026-88432 · Couverture opérations STS · Min. légal OFAC respecté</div>
+              <div class="cert-exp"><span class="badge b-orange">Expire 18.10.2026 — 30 jours</span>&nbsp;<button class="btn btn-ghost btn-sm" onclick="alert('Simulation : Portail Zurich Insurance ouvert pour renouvellement.')">Renouveler →</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Formations complétées 2026 <span class="badge b-green">34h</span></div>
+            <div class="timeline">
+              <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">Formation U-Space — Skyguide (8h)</div><div class="tl-meta">Janvier 2026 · Portail numérique · Autorisations en ligne</div></div>
+              <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">Mise à jour réglementaire EASA — OFAC (4h)</div><div class="tl-meta">Mars 2026 · Transposition STS dans le droit suisse 2024</div></div>
+              <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">Formation DJI FlyCart 30 — opérateur avancé (12h)</div><div class="tl-meta">Avril 2026 · DJI Enterprise · Certification constructeur obtenue</div></div>
+              <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">Sécurité des opérations agricoles (OFAG) (6h)</div><div class="tl-meta">Juin 2026 · Produits phytosanitaires · Distances de sécurité</div></div>
+              <div class="tl-item"><div class="tl-dot green"></div><div class="tl-title">Méthodologie SORA avancée — JARUS (4h)</div><div class="tl-meta">Août 2026 · GRC/ARC/SAIL · Atténuations OSO niveaux 1-3</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Prochaines formations prévues</div>
+            <div class="cert-card" style="margin-bottom:8px;border:none;padding:8px 0">
+              <div class="cert-icon ci-pending" style="width:32px;height:32px;font-size:14px">📅</div>
+              <div class="cert-body">
+                <div class="cert-name" style="font-size:12px">Session STS — Aéroclub Suisse, Sion</div>
+                <div class="cert-meta">Novembre 2026 · Places limitées · Inscrit</div>
+                <div class="cert-exp"><span class="badge b-blue">Inscrit</span></div>
+              </div>
+            </div>
+            <div class="cert-card" style="margin-bottom:8px;border:none;padding:8px 0">
+              <div class="cert-icon ci-pending" style="width:32px;height:32px;font-size:14px">🗺️</div>
+              <div class="cert-body">
+                <div class="cert-name" style="font-size:12px">U-Space BVLOS corridors — Skyguide 2027</div>
+                <div class="cert-meta">T1 2027 · Extension accès automatique corridors montagne</div>
+                <div class="cert-exp"><span class="badge b-gray">Planifié</span></div>
+              </div>
+            </div>
+            <div class="cert-card" style="border:none;padding:8px 0">
+              <div class="cert-icon ci-pending" style="width:32px;height:32px;font-size:14px">🚁</div>
+              <div class="cert-body">
+                <div class="cert-name" style="font-size:12px">DJI Agras T50 — certification avancée cargo lourd</div>
+                <div class="cert-meta">Printemps 2027 · DJI FlyCart 200 (si disponible CH)</div>
+                <div class="cert-exp"><span class="badge b-gray">En veille</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══════════ VEILLE ════════════════════════════════ -->
     <div class="view" id="v-veille">
       <div class="page-head"><div class="page-title">Veille réglementaire</div><div class="page-sub">Actualités OFAC, marché drone, nouvelles technologies · Sources suisses de référence</div></div>
@@ -1497,6 +1731,23 @@ function renderVeille() {
     </div>`).join('');
   grid.dataset.done = '1';
 }
+
+/* ── Notifications ──────────────────────────────────────── */
+function toggleNotif() {
+  const panel = document.getElementById('notif-panel');
+  panel.classList.toggle('open');
+}
+function markAllRead(e) {
+  e.stopPropagation();
+  document.querySelectorAll('.notif-item.unread').forEach(el => el.classList.remove('unread'));
+  document.getElementById('notif-dot').style.display = 'none';
+  document.querySelector('.notif-panel-head .badge').textContent = '0';
+}
+document.addEventListener('click', e => {
+  if (!document.getElementById('notif-btn').contains(e.target)) {
+    document.getElementById('notif-panel').classList.remove('open');
+  }
+});
 
 /* ── Rapport checklist ──────────────────────────────────── */
 function toggleCheck(el) {
