@@ -1,247 +1,415 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flytech - Drones Cargo & Agricoles | Valais</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Flytech — Drone Cargo & Plateforme Opérateurs Suisse</title>
+  <meta name="description" content="Flytech opère des drones cargo et agricoles en Valais (STS-01/02) et développe la première plateforme de conformité OFAC pour opérateurs drone en Suisse.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23E85C0A'/><text y='24' x='4' font-size='22' font-family='sans-serif' font-weight='900' fill='white'>F</text></svg>">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <!-- [PLACEHOLDER] Logo tête d'aigle stylisée, lignes géométriques anguleuses -->
-                <svg width="40" height="40" viewBox="0 0 100 100" class="eagle-icon">
-                    <text y="80" font-size="90" font-weight="bold">𝗙</text>
-                </svg>
-                <span class="logo-text">Flytech</span>
-            </div>
-            <nav class="main-nav">
-                <button class="nav-btn active" data-section="accueil">Accueil</button>
-                <button class="nav-btn" data-section="secteurs">Secteurs</button>
-                <button class="nav-btn" data-section="chantiers-actifs">Chantiers Actifs</button>
-                <button class="nav-btn" data-section="chantiers-attente">Chantiers en Attente</button>
-                <button class="nav-btn" data-section="maintenance">Maintenance</button>
-                <button class="nav-btn" data-section="administratif">Administratif</button>
-                <button class="nav-btn" data-section="qualifications">Qualifications</button>
-                <button class="nav-btn" data-section="contact">Contact</button>
-            </nav>
+
+<!-- ================================================== NAV -->
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="#accueil" class="nav-logo">Fly<span class="logo-dot">.</span>tech</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#services">Services</a>
+      <a href="#plateforme">Plateforme</a>
+      <a href="#veille">Veille</a>
+      <a href="#contact">Contact</a>
+      <a href="dashboard.html">Dashboard ↗</a>
+    </div>
+    <a href="#plateforme" class="nav-cta">Rejoindre la bêta</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ================================================== HERO -->
+<section id="accueil" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <svg class="hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,200 160,80 280,130 440,20 600,90 760,30 920,100 1080,50 1220,110 1440,60 1440,200" fill="rgba(30,100,240,0.08)"/>
+    <polygon points="0,200 200,110 360,155 520,50 680,120 880,45 1060,115 1240,70 1440,95 1440,200" fill="rgba(232,92,10,0.05)"/>
+    <polygon points="0,200 100,150 260,175 420,100 580,160 740,90 900,145 1080,115 1260,140 1440,120 1440,200" fill="rgba(255,255,255,0.03)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag tag">Valais · Suisse · Depuis 2026</div>
+      <h1 class="hero-title">
+        L'infrastructure<br>drone de la<br><span class="accent">Suisse alpine</span>
+      </h1>
+      <p class="hero-desc">
+        Flytech opère des drones cargo et agricoles certifiés STS en Valais, et construit la première plateforme de conformité OFAC pour les opérateurs drone suisses.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5L15 6.5l-3.5 3.5.8 5L8 12.5 3.7 15l.8-5L1 6.5l5-.5L8 1z" fill="white"/></svg>
+          Demander une mission
+        </a>
+        <a href="#plateforme" class="btn-secondary">
+          Rejoindre la bêta plateforme →
+        </a>
+      </div>
+      <div class="hero-badges">
+        <span class="cert-badge">✓ A1 / A2 / A3</span>
+        <span class="cert-badge sts">★ STS-01</span>
+        <span class="cert-badge sts">★ STS-02</span>
+        <span class="cert-badge">✓ OFAC Certifié</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="drone-glow"></div>
+      <!-- Drone SVG géométrique -->
+      <svg class="drone-svg-wrap" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arms -->
+        <line x1="200" y1="160" x2="80" y2="80" stroke="#1E3048" stroke-width="8" stroke-linecap="round"/>
+        <line x1="200" y1="160" x2="320" y2="80" stroke="#1E3048" stroke-width="8" stroke-linecap="round"/>
+        <line x1="200" y1="160" x2="80" y2="240" stroke="#1E3048" stroke-width="8" stroke-linecap="round"/>
+        <line x1="200" y1="160" x2="320" y2="240" stroke="#1E3048" stroke-width="8" stroke-linecap="round"/>
+        <!-- Propellers -->
+        <ellipse cx="80" cy="80" rx="42" ry="10" fill="#1A2836" stroke="#1E3048" stroke-width="1.5"/>
+        <ellipse cx="80" cy="80" rx="42" ry="10" fill="none" stroke="#E85C0A" stroke-width="1.5" opacity=".6"/>
+        <ellipse cx="320" cy="80" rx="42" ry="10" fill="#1A2836" stroke="#1E3048" stroke-width="1.5"/>
+        <ellipse cx="320" cy="80" rx="42" ry="10" fill="none" stroke="#E85C0A" stroke-width="1.5" opacity=".6"/>
+        <ellipse cx="80" cy="240" rx="42" ry="10" fill="#1A2836" stroke="#1E3048" stroke-width="1.5"/>
+        <ellipse cx="80" cy="240" rx="42" ry="10" fill="none" stroke="#1E64F0" stroke-width="1.5" opacity=".6"/>
+        <ellipse cx="320" cy="240" rx="42" ry="10" fill="#1A2836" stroke="#1E3048" stroke-width="1.5"/>
+        <ellipse cx="320" cy="240" rx="42" ry="10" fill="none" stroke="#1E64F0" stroke-width="1.5" opacity=".6"/>
+        <!-- Motors -->
+        <circle cx="80" cy="80" r="14" fill="#152030" stroke="#E85C0A" stroke-width="2"/>
+        <circle cx="80" cy="80" r="5" fill="#E85C0A"/>
+        <circle cx="320" cy="80" r="14" fill="#152030" stroke="#E85C0A" stroke-width="2"/>
+        <circle cx="320" cy="80" r="5" fill="#E85C0A"/>
+        <circle cx="80" cy="240" r="14" fill="#152030" stroke="#1E64F0" stroke-width="2"/>
+        <circle cx="80" cy="240" r="5" fill="#1E64F0"/>
+        <circle cx="320" cy="240" r="14" fill="#152030" stroke="#1E64F0" stroke-width="2"/>
+        <circle cx="320" cy="240" r="5" fill="#1E64F0"/>
+        <!-- Body -->
+        <rect x="168" y="128" width="64" height="64" rx="10" fill="#152030" stroke="#1E3048" stroke-width="2"/>
+        <rect x="178" y="138" width="44" height="44" rx="6" fill="#0E1B28" stroke="#E85C0A" stroke-width="1" opacity=".8"/>
+        <!-- Cargo box -->
+        <rect x="176" y="188" width="48" height="28" rx="5" fill="#1A2836" stroke="#1E3048" stroke-width="1.5"/>
+        <line x1="200" y1="188" x2="200" y2="216" stroke="#1E3048" stroke-width="1"/>
+        <!-- Status light -->
+        <circle cx="200" cy="154" r="4" fill="#E85C0A" opacity=".9"/>
+        <!-- Signal rings -->
+        <circle cx="200" cy="154" r="12" stroke="#E85C0A" stroke-width="1" opacity=".3"/>
+        <circle cx="200" cy="154" r="22" stroke="#E85C0A" stroke-width="1" opacity=".15"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-n">STS-01<span> & 02</span></div>
+        <div class="hstat-l">BVLOS certifié</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">&lt;50<span> pilotes</span></div>
+        <div class="hstat-l">STS en Suisse</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">5 200<span>ha</span></div>
+        <div class="hstat-l">Vignes en Valais</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="tag">Ce que nous faisons</div>
+      <h2>Trois axes. Un seul acteur.</h2>
+      <p>Operations certifiées, agriculture de précision, et la plateforme qui rendra Flytech incontournable pour tous les opérateurs drone en Suisse.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon cargo">📦</div>
+        <div class="service-title">Drone Cargo</div>
+        <div class="service-desc">Livraisons en zones alpines inaccessibles. Réfuges SAC, chantiers en altitude, livraisons médicales urgentes.</div>
+        <div class="service-items">
+          <div class="service-item">Refuges &amp; hameaux isolés</div>
+          <div class="service-item">Livraison médicale urgente</div>
+          <div class="service-item">Chantiers hydroélectriques</div>
+          <div class="service-item">Stations de ski — last mile</div>
         </div>
-    </header>
+        <div class="service-pill">
+          <span class="pulse"></span>Opérationnel
+        </div>
+      </div>
 
-    <main id="app">
-        <!-- SECTION: ACCUEIL -->
-        <section id="accueil" class="section active">
-            <div class="hero">
-                <!-- [PLACEHOLDER] Image hero : drone en vol, survol de parcelles, montagne suisse en arrière-plan -->
-                <div class="hero-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
-                    [HERO IMAGE - Drone FlyCart en vol, Valais]
-                </div>
-                <div class="hero-content">
-                    <h1>Flytech</h1>
-                    <p class="hero-subtitle">Solutions de transport par drone cargo et agriculture de précision</p>
-                    <p class="hero-description">Basée en Valais, Flytech exploite les dernières technologies de drones autonomes pour des opérations de logistique de montagne et d'épandage agricole.</p>
-                </div>
+      <div class="service-card fade-up">
+        <div class="service-icon agri">🌿</div>
+        <div class="service-title">Agriculture de Précision</div>
+        <div class="service-desc">Traitements phytosanitaires, cartographie NDVI et pulvérisation sur vignes en terrasses — là où le tracteur ne passe pas.</div>
+        <div class="service-items">
+          <div class="service-item">Vignobles AOC en pente forte</div>
+          <div class="service-item">Pulvérisation de précision</div>
+          <div class="service-item">Cartographie &amp; analyse NDVI</div>
+          <div class="service-item">Arboriculture alpine</div>
+        </div>
+        <div class="service-pill">
+          <span class="pulse"></span>Opérationnel
+        </div>
+      </div>
+
+      <div class="service-card platform fade-up">
+        <div class="service-icon plat">⚡</div>
+        <div class="service-title">Plateforme Opérateurs</div>
+        <div class="service-desc">L'outil de conformité OFAC que tous les opérateurs drone suisses attendaient. Gérez vos autorisations STS en 10 minutes.</div>
+        <div class="service-items">
+          <div class="service-item">Conformité OFAC automatisée</div>
+          <div class="service-item">Générateur SORA &amp; MON</div>
+          <div class="service-item">Marketplace cargo alpine</div>
+          <div class="service-item">Veille réglementaire intégrée</div>
+        </div>
+        <div class="service-pill soon">
+          <span class="pulse off"></span>Bêta en cours — Rejoindre →
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== CERTIFICATIONS -->
+<div class="certs-section">
+  <div class="container">
+    <div class="certs-inner">
+      <span class="certs-label">Certifications EASA / OFAC</span>
+      <div class="certs-badges">
+        <span class="big-badge"><span class="check">✓</span> A1</span>
+        <span class="big-badge"><span class="check">✓</span> A2</span>
+        <span class="big-badge"><span class="check">✓</span> A3</span>
+        <span class="big-badge sts-badge">★ STS-01 — BVLOS zones contrôlées</span>
+        <span class="big-badge sts-badge">★ STS-02 — BVLOS zones peuplées</span>
+      </div>
+      <span class="certs-trust">Parmi les <strong>&lt;50 pilotes STS</strong> en Suisse</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================== PLATEFORME BETA -->
+<section id="plateforme" class="beta-section section-pad">
+  <div class="container">
+    <div class="beta-inner">
+      <div class="beta-content fade-up">
+        <div class="beta-tag tag">Plateforme · Bêta privée</div>
+        <h2 class="beta-title">Conformité OFAC<br><span class="accent">en 10 minutes</span></h2>
+        <p class="beta-desc">
+          La gestion des autorisations OFAC prend aujourd'hui des heures à chaque opérateur. Flytech construit le premier outil suisse qui automatise la conformité STS, génère vos dossiers SORA et vous connecte aux clients cargo. Rejoignez les premiers opérateurs.
+        </p>
+        <div class="beta-features">
+          <div class="beta-feat"><div class="feat-dot">✓</div><span><strong>Vérification airspace automatique</strong> — zones OFAC en temps réel, cartes swisstopo intégrées</span></div>
+          <div class="beta-feat"><div class="feat-dot">✓</div><span><strong>Générateur SORA &amp; MON</strong> — dossier OFAC complet en quelques clics</span></div>
+          <div class="beta-feat"><div class="feat-dot">✓</div><span><strong>Marketplace cargo alpine</strong> — recevez des demandes clients qualifiées</span></div>
+          <div class="beta-feat"><div class="feat-dot">✓</div><span><strong>Veille réglementaire</strong> — alertes OFAC, SDIA, nouvelles zones en temps réel</span></div>
+        </div>
+      </div>
+
+      <div class="beta-form-wrap fade-up">
+        <div class="beta-form-title">Rejoindre la bêta</div>
+        <div class="beta-form-sub">Accès gratuit pour les 50 premiers opérateurs. Lancement prévu T1 2027.</div>
+
+        <div id="beta-success" class="form-success">
+          <h3>✓ Vous êtes inscrit !</h3>
+          <p>Nous vous contacterons dès l'ouverture de la bêta. Bienvenue dans la communauté Flytech.</p>
+        </div>
+
+        <form id="beta-form" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+          <div class="form-group">
+            <label class="form-label">Prénom &amp; Nom</label>
+            <input class="form-input" type="text" name="nom" placeholder="Jean Dupont" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email professionnel</label>
+            <input class="form-input" type="email" name="email" placeholder="vous@votreentreprise.ch" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre certification drone</label>
+            <select class="form-select" name="certification">
+              <option value="">Sélectionner…</option>
+              <option value="A1A2A3">A1 / A2 / A3</option>
+              <option value="STS01">STS-01</option>
+              <option value="STS02">STS-02</option>
+              <option value="STS01_02">STS-01 &amp; STS-02</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Canton</label>
+            <input class="form-input" type="text" name="canton" placeholder="Valais, Vaud, Berne…">
+          </div>
+          <button type="submit" class="form-submit">Rejoindre la bêta gratuite →</button>
+          <p class="form-note">Aucun engagement. Accès gratuit en phase bêta. 0 spam.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== VEILLE RÉGLEMENTAIRE -->
+<section id="veille" class="section-pad">
+  <div class="container">
+    <div class="news-header fade-up">
+      <div>
+        <div class="tag" style="margin-bottom:10px">Veille réglementaire</div>
+        <h2>Toujours à la pointe en Suisse</h2>
+        <p>Actualités drone, réglementation OFAC et marché — mis à jour en continu.</p>
+      </div>
+    </div>
+
+    <div class="news-filters" id="news-filters">
+      <button class="news-filter active" data-cat="all">Tout</button>
+      <button class="news-filter" data-cat="reglementation">Réglementation</button>
+      <button class="news-filter" data-cat="marche">Marché</button>
+      <button class="news-filter" data-cat="technologie">Technologie</button>
+      <button class="news-filter" data-cat="formation">Formation</button>
+    </div>
+
+    <div class="news-grid" id="news-grid">
+      <!-- Rempli par main.js depuis data/news.json -->
+      <div style="color:var(--text-3);font-size:14px;padding:20px">Chargement des actualités…</div>
+    </div>
+
+    <div class="sources-bar fade-up">
+      <span class="sources-label">Sources de référence</span>
+      <div class="sources-links">
+        <a class="source-link" href="https://www.bazl.admin.ch/drone" target="_blank" rel="noopener">OFAC / BAZL</a>
+        <a class="source-link" href="https://sdia.ch" target="_blank" rel="noopener">SDIA</a>
+        <a class="source-link" href="https://www.skyguide.ch" target="_blank" rel="noopener">Skyguide</a>
+        <a class="source-link" href="https://www.blw.admin.ch" target="_blank" rel="noopener">OFAG / BLW</a>
+        <a class="source-link" href="https://www.swisstopo.admin.ch" target="_blank" rel="noopener">swisstopo</a>
+        <a class="source-link" href="https://dronexl.co" target="_blank" rel="noopener">DroneXL</a>
+        <a class="source-link" href="https://www.nouvelles-du-drone.fr" target="_blank" rel="noopener">Nouvelles du Drone</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== À PROPOS -->
+<section id="apropos" class="section-pad-sm" style="background:var(--bg-2);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="tag" style="margin-bottom:14px">À propos de Flytech</div>
+        <h2>Née en Valais.<br>Pensée pour toute la Suisse.</h2>
+        <p>Flytech est fondée par un opérateur drone certifié STS-01 et STS-02, avec une expérience directe de terrain acquise en Valais. Notre connaissance du terrain alpin, de la viticulture et de la réglementation suisse est notre avantage fondamental.</p>
+        <p>Nous ne sommes pas seulement des pilotes — nous construisons l'infrastructure que le secteur drone suisse n'a pas encore. La plateforme Flytech sera ce que chaque opérateur utilise pour travailler, se conformer et trouver des clients.</p>
+      </div>
+      <div class="about-stats fade-up">
+        <div class="about-stat">
+          <span class="about-stat-label">Certifications détenues</span>
+          <span class="about-stat-val">A1 · A2 · A3 · STS-01 · STS-02</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Expérience terrain</span>
+          <span class="about-stat-val">Bubo SARL — Valais</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Domiciliation</span>
+          <span class="about-stat-val">Canton du Valais, Suisse</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Spécialisation</span>
+          <span class="about-stat-val">Cargo · Agricole · Plateforme SaaS</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-label">Zone opérationnelle</span>
+          <span class="about-stat-val">Valais → Suisse romande</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================== CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="tag" style="margin-bottom:14px">Nous contacter</div>
+        <h2>Une mission en tête ?</h2>
+        <p>Cargo, traitement agricole, inspection, ou simplement une question sur la plateforme — écrivez-nous. Réponse sous 24h.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <span>Valais, Suisse</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <span>info@flytech.ch</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📱</div>
+            <span>+41 XX XXX XX XX</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-box fade-up">
+        <h3>Écrire à Flytech</h3>
+        <form id="contact-form" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Prénom</label>
+              <input class="form-input" type="text" name="prenom" placeholder="Jean" required>
             </div>
-
-            <section class="two-column">
-                <div class="column fade-in">
-                    <div class="icon-box">📦</div>
-                    <h2>Drone Cargo</h2>
-                    <p>Transport de charges en zone montagne, ravitaillement de sites isolés, logistique dernière ligne.</p>
-                </div>
-                <div class="column fade-in">
-                    <div class="icon-box">🌾</div>
-                    <h2>Drone Agricole</h2>
-                    <p>Pulvérisation de précision, épandage, cartographie de parcelles pour une agriculture connectée.</p>
-                </div>
-            </section>
-        </section>
-
-        <!-- SECTION: SECTEURS D'ACTIVITÉ -->
-        <section id="secteurs" class="section">
-            <div class="container">
-                <h1>Secteurs d'Activité</h1>
-
-                <div class="sector-card fade-in">
-                    <div class="sector-hero" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
-                        [IMAGE] DJI FlyCart - Transport cargo
-                    </div>
-                    <div class="sector-content">
-                        <h2>Drone Cargo</h2>
-                        <p><strong>Matériel utilisé :</strong> DJI FlyCart, FlyCart 200 (en projet)</p>
-                        <h3>Cas d'usage</h3>
-                        <ul>
-                            <li>Transport de charges vers sites isolés (refuges, chalets, zones de montagne)</li>
-                            <li>Logistique dernière ligne en zone urbaine/périurbaine</li>
-                            <li>Ravitaillement d'opérations de chantier en altitude</li>
-                            <li>Évacuation sanitaire légère</li>
-                        </ul>
-                        <h3>Avantages</h3>
-                        <ul>
-                            <li>Accès rapide aux zones difficiles d'accès</li>
-                            <li>Réduction des émissions carbone vs hélicoptère</li>
-                            <li>Autonomie jusqu'à 55 min (FlyCart)</li>
-                            <li>Charge utile jusqu'à 55 kg (FlyCart)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="sector-card fade-in">
-                    <div class="sector-hero" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; color: #999;">
-                        [IMAGE] DJI Agras T50 - Agriculture de précision
-                    </div>
-                    <div class="sector-content">
-                        <h2>Drone Agricole</h2>
-                        <p><strong>Matériel utilisé :</strong> DJI Agras T50</p>
-                        <h3>Cas d'usage</h3>
-                        <ul>
-                            <li>Pulvérisation de précision (engrais, phytosanitaires)</li>
-                            <li>Épandage de produits biologiques</li>
-                            <li>Cartographie et imagerie multispectrale de parcelles</li>
-                            <li>Analyse d'index de végétation (NDVI)</li>
-                        </ul>
-                        <h3>Avantages</h3>
-                        <ul>
-                            <li>Réduction de 90% de la consommation d'eau vs pulvérisation traditionnelle</li>
-                            <li>Couverture homogène sans compactage du sol</li>
-                            <li>Réduction des coûts d'exploitation</li>
-                            <li>Capacité de réservoir : 55 L</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label class="form-label">Nom</label>
+              <input class="form-input" type="text" name="nom" placeholder="Dupont" required>
             </div>
-        </section>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" name="email" placeholder="jean@example.ch" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Sujet</label>
+            <select class="form-select" name="sujet">
+              <option value="">Type de demande…</option>
+              <option>Mission cargo</option>
+              <option>Traitement agricole</option>
+              <option>Inspection / cartographie</option>
+              <option>Plateforme opérateurs</option>
+              <option>Partenariat</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" name="message" rows="4" placeholder="Décrivez votre projet…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Envoyer le message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- SECTION: CHANTIERS EN COURS -->
-        <section id="chantiers-actifs" class="section">
-            <div class="container">
-                <h1>Chantiers en Cours</h1>
-                <div id="chantiers-actifs-list" class="chantiers-list">
-                    <!-- Chargé dynamiquement depuis data/chantiers.json -->
-                </div>
-            </div>
-        </section>
+<!-- ================================================== FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Fly<span class="dot">.</span>tech</div>
+    <div class="footer-text">© 2026 Flytech Sàrl · Valais, Suisse · Certifié OFAC STS-01/02</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#plateforme">Plateforme</a>
+      <a href="#veille">Veille</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </div>
+</footer>
 
-        <!-- SECTION: CHANTIERS EN ATTENTE -->
-        <section id="chantiers-attente" class="section">
-            <div class="container">
-                <h1>Chantiers en Attente</h1>
-                <div id="chantiers-attente-list" class="chantiers-list">
-                    <!-- Chargé dynamiquement depuis data/chantiers.json -->
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: MAINTENANCE -->
-        <section id="maintenance" class="section">
-            <div class="container">
-                <h1>Maintenance de la Flotte</h1>
-                <div id="maintenance-list" class="maintenance-dashboard">
-                    <!-- Chargé dynamiquement depuis data/maintenance.json -->
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: ADMINISTRATIF -->
-        <section id="administratif" class="section">
-            <div class="container">
-                <h1>Dossier Administratif</h1>
-                <div class="admin-box fade-in">
-                    <h2>Autorisations Fédérales (OFAC)</h2>
-                    <div id="admin-ofac" class="admin-list">
-                        <!-- Chargé dynamiquement -->
-                    </div>
-                </div>
-                <div class="admin-box fade-in">
-                    <h2>Manuel d'Exploitation (MANEX)</h2>
-                    <div id="admin-manex" class="admin-list">
-                        <!-- Chargé dynamiquement -->
-                    </div>
-                </div>
-                <div class="admin-box fade-in">
-                    <h2>Autres Démarches Administratives</h2>
-                    <div id="admin-autres" class="admin-list">
-                        <!-- Chargé dynamiquement -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: QUALIFICATIONS PILOTES -->
-        <section id="qualifications" class="section">
-            <div class="container">
-                <h1>Qualifications de l'Équipe</h1>
-                <p class="section-intro">
-                    <em>⚠️ Les intitulés exacts des certifications doivent être vérifiés auprès de l'OFAC. Les espaces réservés ci-dessous doivent être complétés avec les vraies données.</em>
-                </p>
-                
-                <div class="qualifications-grid">
-                    <div class="qual-card fade-in">
-                        <h3>Catégories Scénario Spécifique (S)</h3>
-                        <ul>
-                            <li><strong>[S1]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>[S2]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>[S3]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>Module Théorie</strong> — <em>[À confirmer]</em></li>
-                        </ul>
-                    </div>
-
-                    <div class="qual-card fade-in">
-                        <h3>Catégories Ouvertes (A)</h3>
-                        <ul>
-                            <li><strong>[A1]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>[A2]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>[A3]</strong> — <em>[À confirmer]</em></li>
-                        </ul>
-                    </div>
-
-                    <div class="qual-card fade-in">
-                        <h3>Certifications Spécialisées</h3>
-                        <ul>
-                            <li><strong>[STS-01]</strong> — <em>[À confirmer]</em></li>
-                            <li><strong>[STS-02]</strong> — <em>[À confirmer]</em></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="note-box">
-                    <p><strong>Note :</strong> Veuillez vérifier les intitulés exacts auprès de l'OFAC et remplacer les espaces réservés par les vraies qualifications de votre équipe.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: CONTACT -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h1>Nous Contacter</h1>
-                <div class="contact-grid">
-                    <div class="contact-info fade-in">
-                        <h3>Coordonnées</h3>
-                        <p><strong>Flytech Sion</strong></p>
-                        <p>Valais, Suisse</p>
-                        <p>📧 <a href="mailto:info@flytech.ch">info@flytech.ch</a></p>
-                        <p>📱 <a href="tel:+41...">+41 ... ... .. ..</a></p>
-                    </div>
-                    <div class="contact-form fade-in">
-                        <h3>Nous Écrire</h3>
-                        <form id="contact-form">
-                            <input type="text" placeholder="Votre nom" required>
-                            <input type="email" placeholder="Votre email" required>
-                            <textarea placeholder="Votre message" rows="5" required></textarea>
-                            <button type="submit" class="btn-primary">Envoyer</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Flytech. Tous droits réservés. | Valais, Suisse</p>
-    </footer>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
