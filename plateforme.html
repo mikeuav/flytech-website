@@ -221,6 +221,53 @@
     .zone-map{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;height:220px;position:relative;overflow:hidden}
     .zone-map svg{width:100%;height:100%}
 
+    /* ── Fleet / Batteries ──────────────────────────────── */
+    .drone-card{background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .2s}
+    .drone-card:hover{border-color:var(--border-2)}
+    .drone-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .drone-name{font-weight:600;font-size:13px}
+    .drone-serial{font-size:10px;font-family:var(--f-mono);color:var(--text-3)}
+    .batt-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+    .batt-cell{background:var(--bg-3);border:1px solid var(--border);border-radius:6px;padding:7px 9px}
+    .batt-id{font-size:10px;font-family:var(--f-mono);color:var(--text-3);margin-bottom:4px}
+    .batt-bar{height:4px;background:var(--bg-4);border-radius:2px;overflow:hidden;margin:3px 0}
+    .batt-fill{height:100%;border-radius:2px}
+    .batt-stat{font-size:10px;color:var(--text-3)}
+    .batt-ok{color:var(--green-2)}.batt-warn{color:var(--yellow-2)}.batt-bad{color:var(--red-2)}
+
+    /* ── CRM ────────────────────────────────────────────── */
+    .crm-row{display:grid;grid-template-columns:2fr 1fr 80px 90px 80px 100px;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px}
+    .crm-row:last-child{border-bottom:none}
+    .crm-head{background:var(--bg-3);border-radius:6px 6px 0 0;font-size:10px;font-family:var(--f-mono);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+    .crm-name{font-weight:600;font-size:13px;color:var(--text)}
+    .crm-sub{font-size:10px;color:var(--text-3)}
+    .crm-ca{font-family:var(--f-mono);color:var(--green-2)}
+    .crm-type-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--bg-3)}
+
+    /* ── Mission pipeline ───────────────────────────────── */
+    .pipeline{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .pipe-col{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:12px}
+    .pipe-title{font-size:11px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+    .pipe-count{background:var(--bg-3);color:var(--text-2);border-radius:10px;font-size:10px;padding:1px 7px}
+    .mission-card{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px;cursor:default;transition:border-color .2s}
+    .mission-card:hover{border-color:var(--border-2)}
+    .mission-card:last-child{margin-bottom:0}
+    .mc-title{font-size:12px;font-weight:600;margin-bottom:3px}
+    .mc-client{font-size:10px;color:var(--text-3);margin-bottom:6px}
+    .mc-footer{display:flex;align-items:center;justify-content:space-between}
+    .mc-date{font-size:10px;font-family:var(--f-mono);color:var(--text-3)}
+
+    /* ── Rapport de mission ─────────────────────────────── */
+    .rapport-section{margin-bottom:16px}
+    .rapport-section-title{font-size:11px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+    .r-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .r-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .check-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px}
+    .check-row:last-child{border-bottom:none}
+    .check-box{width:16px;height:16px;border-radius:3px;border:1px solid var(--border-2);background:var(--bg-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;cursor:pointer}
+    .check-box.checked{background:var(--green-bg);border-color:rgba(26,154,90,.4);color:var(--green-2)}
+    textarea.form-input{resize:vertical;min-height:60px;font-family:var(--f-body)}
+
     /* ── Responsive ─────────────────────────────────────── */
     @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
     @media(max-width:768px){
@@ -272,13 +319,17 @@
     <button class="s-item" onclick="sv('airspace',this)"><span>🗺️</span> Espace aérien</button>
     <div class="s-divider"></div>
     <div class="s-label">Marché & Missions</div>
+    <button class="s-item" onclick="sv('missions',this)"><span>🚀</span> Mes missions</button>
+    <button class="s-item" onclick="sv('clients',this)"><span>🤝</span> Clients / CRM</button>
     <button class="s-item" onclick="sv('marketplace',this)"><span>📦</span> Marketplace cargo <div class="s-dot"></div></button>
     <button class="s-item" onclick="sv('ao',this)"><span>📢</span> Appels d'offres <span class="s-new">3</span></button>
     <button class="s-item" onclick="sv('calc',this)"><span>🧮</span> Calculateur mission</button>
     <div class="s-divider"></div>
     <div class="s-label">Opérations</div>
+    <button class="s-item" onclick="sv('flotte',this)"><span>🛸</span> Gestion de flotte</button>
     <button class="s-item" onclick="sv('meteo',this)"><span>🌤️</span> Météo opérationnelle</button>
     <button class="s-item" onclick="sv('carnet',this)"><span>📊</span> Carnet de vol</button>
+    <button class="s-item" onclick="sv('rapport',this)"><span>📝</span> Rapport de mission</button>
     <div class="s-divider"></div>
     <div class="s-label">Intelligence</div>
     <button class="s-item" onclick="sv('veille',this)"><span>📡</span> Veille réglementaire</button>
@@ -782,6 +833,302 @@
       </div>
     </div>
 
+    <!-- ═══════════ MISSIONS ════════════════════════════════ -->
+    <div class="view" id="v-missions">
+      <div class="page-head"><div class="page-title">Mes missions</div><div class="page-sub">Pipeline opérationnel · Septembre 2026</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">2</div><div class="stat-label">En cours</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">3</div><div class="stat-label">À planifier</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">8</div><div class="stat-label">Complétées ce mois</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 18 400</div><div class="stat-label">CA septembre</div><div class="stat-delta up">↑ +22% vs août</div></div>
+      </div>
+      <div class="pipeline">
+        <div class="pipe-col">
+          <div class="pipe-title">À planifier <span class="pipe-count">3</span></div>
+          <div class="mission-card">
+            <div class="mc-title">Pulvérisation — Vignoble Gillioz</div>
+            <div class="mc-client">Domaine Gillioz · Leytron · 3.8 ha</div>
+            <div class="mc-footer"><span class="badge b-orange">Urgent</span><span class="mc-date">avant 25 sept.</span></div>
+          </div>
+          <div class="mission-card">
+            <div class="mc-title">Cargo Cabane Prafleuri</div>
+            <div class="mc-client">CAS Valais · Les Collons → 2 624m</div>
+            <div class="mc-footer"><span class="badge b-blue">STS-02</span><span class="mc-date">avant 20 oct.</span></div>
+          </div>
+          <div class="mission-card">
+            <div class="mc-title">Inspection pylônes MT</div>
+            <div class="mc-client">Romande Énergie · Entremont</div>
+            <div class="mc-footer"><span class="badge b-purple">Thermique</span><span class="mc-date">à définir</span></div>
+          </div>
+        </div>
+        <div class="pipe-col">
+          <div class="pipe-title">En cours <span class="pipe-count">2</span></div>
+          <div class="mission-card" style="border-color:var(--orange-2)">
+            <div class="mc-title">NDVI Valais Fruits — Fully</div>
+            <div class="mc-client">Valais Fruits SA · Arboriculture · 12 ha</div>
+            <div class="mc-footer"><span class="badge b-green">Actif</span><span class="mc-date">15–20 sept.</span></div>
+            <div class="prog-wrap" style="margin-top:8px"><div class="prog-label"><span>Avancement</span><span>65%</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:65%"></div></div></div>
+          </div>
+          <div class="mission-card" style="border-color:var(--orange-2)">
+            <div class="mc-title">Inspection Grande Dixence — Alpiq</div>
+            <div class="mc-client">Alpiq SA · Barrage · STS-02 BVLOS</div>
+            <div class="mc-footer"><span class="badge b-orange">Armasuisse ⏳</span><span class="mc-date">dossier J-7</span></div>
+            <div class="prog-wrap" style="margin-top:8px"><div class="prog-label"><span>Avancement</span><span>40%</span></div><div class="prog-bar"><div class="prog-fill pf-orange" style="width:40%"></div></div></div>
+          </div>
+        </div>
+        <div class="pipe-col">
+          <div class="pipe-title">Complétées — sept. <span class="pipe-count">8</span></div>
+          <div class="mission-card">
+            <div class="mc-title">Pulvérisation Farinet — Saillon</div>
+            <div class="mc-client">Domaine Farinet · 4.2 ha</div>
+            <div class="mc-footer"><span class="badge b-green">Facturé</span><span class="mc-date" style="color:var(--green-2)">CHF 3 200</span></div>
+          </div>
+          <div class="mission-card">
+            <div class="mc-title">Cargo Mont-Fort × 2</div>
+            <div class="mc-client">CAS Valais · Verbier</div>
+            <div class="mc-footer"><span class="badge b-green">Facturé</span><span class="mc-date" style="color:var(--green-2)">CHF 5 600</span></div>
+          </div>
+          <div class="mission-card">
+            <div class="mc-title">NDVI Arboriculture Fully</div>
+            <div class="mc-client">Valais Fruits SA</div>
+            <div class="mc-footer"><span class="badge b-green">Facturé</span><span class="mc-date" style="color:var(--green-2)">CHF 2 400</span></div>
+          </div>
+          <div style="text-align:center;margin-top:8px"><button class="btn btn-ghost btn-sm">Voir toutes →</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ FLOTTE ════════════════════════════════ -->
+    <div class="view" id="v-flotte">
+      <div class="page-head"><div class="page-title">Gestion de flotte</div><div class="page-sub">Suivi batteries, maintenance et calibrations · 4 appareils · 16 batteries</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">4</div><div class="stat-label">Appareils</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">2</div><div class="stat-label">Opérationnels</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--yellow-2)">1</div><div class="stat-label">Attention</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--red-2)">1</div><div class="stat-label">Révision requise</div></div>
+        <div class="stat"><div class="stat-val">16</div><div class="stat-label">Batteries totales</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--orange-2)">3</div><div class="stat-label">Batteries ≤30% santé</div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="drone-card">
+          <div class="drone-header"><div><div class="drone-name">DJI FlyCart 30 #01</div><div class="drone-serial">SN: FC30-2025-001 · 185h vol</div></div><span class="badge b-green">Opérationnel</span></div>
+          <div class="prog-wrap"><div class="prog-label"><span>Santé générale</span><span class="go">82%</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:82%"></div></div></div>
+          <div class="row"><span class="row-label">Prochaine révision</span><span class="row-val">200h · dans 15h</span></div>
+          <div class="row"><span class="row-label">Dernière calibration IMU</span><span class="row-val">02.09.2026</span></div>
+          <div class="row"><span class="row-label">Firmware</span><span class="row-val go">v10.01.0500 ✓</span></div>
+          <div class="batt-grid">
+            <div class="batt-cell"><div class="batt-id">BAT-FC01-A</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:88%"></div></div><div class="batt-stat"><span class="batt-ok">88%</span> · 142 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC01-B</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:91%"></div></div><div class="batt-stat"><span class="batt-ok">91%</span> · 118 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC01-C</div><div class="batt-bar"><div class="batt-fill pf-orange" style="width:72%"></div></div><div class="batt-stat"><span class="batt-warn">72%</span> · 198 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC01-D</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:85%"></div></div><div class="batt-stat"><span class="batt-ok">85%</span> · 156 cycles</div></div>
+          </div>
+        </div>
+
+        <div class="drone-card">
+          <div class="drone-header"><div><div class="drone-name">DJI FlyCart 30 #02</div><div class="drone-serial">SN: FC30-2025-002 · 156h vol</div></div><span class="badge b-green">Opérationnel</span></div>
+          <div class="prog-wrap"><div class="prog-label"><span>Santé générale</span><span class="go">68%</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:68%"></div></div></div>
+          <div class="row"><span class="row-label">Prochaine révision</span><span class="row-val">200h · dans 44h</span></div>
+          <div class="row"><span class="row-label">Dernière calibration IMU</span><span class="row-val">10.08.2026</span></div>
+          <div class="row"><span class="row-label">Firmware</span><span class="row-val go">v10.01.0500 ✓</span></div>
+          <div class="batt-grid">
+            <div class="batt-cell"><div class="batt-id">BAT-FC02-A</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:79%"></div></div><div class="batt-stat"><span class="batt-ok">79%</span> · 165 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC02-B</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:82%"></div></div><div class="batt-stat"><span class="batt-ok">82%</span> · 148 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC02-C</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:76%"></div></div><div class="batt-stat"><span class="batt-ok">76%</span> · 172 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-FC02-D</div><div class="batt-bar"><div class="batt-fill pf-orange" style="width:61%"></div></div><div class="batt-stat"><span class="batt-warn">61%</span> · 204 cycles</div></div>
+          </div>
+        </div>
+
+        <div class="drone-card" style="border-color:rgba(200,144,10,.3)">
+          <div class="drone-header"><div><div class="drone-name">DJI Agras T50 #01</div><div class="drone-serial">SN: T50-2024-001 · 72h vol</div></div><span class="badge b-yellow">⚠ Attention</span></div>
+          <div class="prog-wrap"><div class="prog-label"><span>Santé générale</span><span class="warn">45%</span></div><div class="prog-bar"><div class="prog-fill pf-orange" style="width:45%"></div></div></div>
+          <div class="row"><span class="row-label">Prochaine révision</span><span class="row-val warn">100h · dans 28h</span></div>
+          <div class="row"><span class="row-label">Réservoir/buses</span><span class="row-val warn">Inspection recommandée</span></div>
+          <div class="row"><span class="row-label">Firmware</span><span class="row-val warn">v08.01.0212 — MàJ dispo</span></div>
+          <div class="batt-grid">
+            <div class="batt-cell"><div class="batt-id">BAT-T1-A</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:77%"></div></div><div class="batt-stat"><span class="batt-ok">77%</span> · 88 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T1-B</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:80%"></div></div><div class="batt-stat"><span class="batt-ok">80%</span> · 76 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T1-C</div><div class="batt-bar"><div class="batt-fill pf-orange" style="width:55%"></div></div><div class="batt-stat"><span class="batt-warn">55%</span> · 210 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T1-D</div><div class="batt-bar"><div class="batt-fill pf-orange" style="width:48%"></div></div><div class="batt-stat"><span class="batt-warn">48%</span> · 235 cycles</div></div>
+          </div>
+        </div>
+
+        <div class="drone-card" style="border-color:rgba(208,32,32,.3)">
+          <div class="drone-header"><div><div class="drone-name">DJI Agras T50 #02</div><div class="drone-serial">SN: T50-2024-002 · 104h vol</div></div><span class="badge b-red">Révision requise</span></div>
+          <div class="prog-wrap"><div class="prog-label"><span>Santé générale</span><span class="nogo">22%</span></div><div class="prog-bar"><div class="prog-fill pf-red" style="width:22%"></div></div></div>
+          <div class="row"><span class="row-label">Révision 100h</span><span class="row-val" style="color:var(--red-2)">Dépassée de 4h ⛔</span></div>
+          <div class="row"><span class="row-label">Moteur AR-gauche</span><span class="row-val" style="color:var(--red-2)">Vibrations anormales</span></div>
+          <div class="row"><span class="row-label">Statut opérations</span><span class="row-val" style="color:var(--red-2)">SUSPENDU jusqu'à révision</span></div>
+          <div class="batt-grid">
+            <div class="batt-cell"><div class="batt-id">BAT-T2-A</div><div class="batt-bar"><div class="batt-fill" style="width:28%;background:var(--red-2)"></div></div><div class="batt-stat"><span class="batt-bad">28%</span> · 312 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T2-B</div><div class="batt-bar"><div class="batt-fill pf-green" style="width:74%"></div></div><div class="batt-stat"><span class="batt-ok">74%</span> · 142 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T2-C</div><div class="batt-bar"><div class="batt-fill" style="width:22%;background:var(--red-2)"></div></div><div class="batt-stat"><span class="batt-bad">22%</span> · 344 cycles</div></div>
+            <div class="batt-cell"><div class="batt-id">BAT-T2-D</div><div class="batt-bar"><div class="batt-fill pf-orange" style="width:58%"></div></div><div class="batt-stat"><span class="batt-warn">58%</span> · 198 cycles</div></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px" onclick="alert('Simulation : Création ticket révision DJI Service Center Zurich...')">Planifier révision DJI →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CLIENTS / CRM ════════════════════════ -->
+    <div class="view" id="v-clients">
+      <div class="page-head"><div class="page-title">Clients & Partenaires</div><div class="page-sub">Carnet de contacts · Relations commerciales · Historique missions</div></div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">11</div><div class="stat-label">Clients actifs</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--green-2)">CHF 68 400</div><div class="stat-label">CA cumulé 2026</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Contrats cadre</div></div>
+        <div class="stat"><div class="stat-val" style="color:var(--purple-2)">1</div><div class="stat-label">Partenaire stratégique</div></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div class="card-title" style="margin:0">Répertoire clients</div>
+          <button class="btn btn-primary btn-sm" onclick="alert('Simulation : Formulaire ajout nouveau client.')">+ Ajouter client</button>
+        </div>
+        <div class="crm-row crm-head">
+          <div>Client</div><div>Type</div><div>Missions</div><div>CA 2026</div><div>Dernier contact</div><div>Statut</div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Domaine Farinet</div><div class="crm-sub">Saillon · Viticulture AOC Valais</div></div>
+          <div><span class="badge b-green">Agri</span></div><div style="font-family:var(--f-mono)">12</div>
+          <div class="crm-ca">CHF 14 800</div><div style="font-size:11px;color:var(--text-3)">15.09.2026</div>
+          <div><span class="badge b-green">Contrat cadre</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">CAS Valais — Section Monte Rosa</div><div class="crm-sub">Sion · Cargo haute altitude</div></div>
+          <div><span class="badge b-blue">Cargo</span></div><div style="font-family:var(--f-mono)">8</div>
+          <div class="crm-ca">CHF 22 400</div><div style="font-size:11px;color:var(--text-3)">12.09.2026</div>
+          <div><span class="badge b-green">Contrat cadre</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Alpiq SA</div><div class="crm-sub">Lausanne · Inspection barrages</div></div>
+          <div><span class="badge b-orange">Inspection</span></div><div style="font-family:var(--f-mono)">4</div>
+          <div class="crm-ca">CHF 11 200</div><div style="font-size:11px;color:var(--text-3)">05.09.2026</div>
+          <div><span class="badge b-orange">En cours</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Valais Fruits SA</div><div class="crm-sub">Fully · NDVI arboriculture</div></div>
+          <div><span class="badge b-green">Agri</span></div><div style="font-family:var(--f-mono)">5</div>
+          <div class="crm-ca">CHF 7 500</div><div style="font-size:11px;color:var(--text-3)">14.09.2026</div>
+          <div><span class="badge b-green">Actif</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Romande Énergie SA</div><div class="crm-sub">Morges · Inspection lignes MT</div></div>
+          <div><span class="badge b-orange">Inspection</span></div><div style="font-family:var(--f-mono)">2</div>
+          <div class="crm-ca">CHF 6 800</div><div style="font-size:11px;color:var(--text-3)">08.09.2026</div>
+          <div><span class="badge b-blue">Devis envoyé</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Domaine Gillioz</div><div class="crm-sub">Leytron · Pulvérisation vignoble</div></div>
+          <div><span class="badge b-green">Agri</span></div><div style="font-family:var(--f-mono)">3</div>
+          <div class="crm-ca">CHF 5 700</div><div style="font-size:11px;color:var(--text-3)">18.09.2026</div>
+          <div><span class="badge b-orange">À planifier</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Hôpital du Valais — HVS</div><div class="crm-sub">Sion · Corridor médical (pilote)</div></div>
+          <div><span class="badge b-purple">Médical</span></div><div style="font-family:var(--f-mono)">0</div>
+          <div class="crm-ca" style="color:var(--text-3)">—</div>
+          <div style="font-size:11px;color:var(--text-3)">12.09.2026</div>
+          <div><span class="badge b-blue">Négociation</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">Commune d'Anniviers</div><div class="crm-sub">Anniviers · Topographie LIDAR</div></div>
+          <div><span class="badge b-gray">Carto</span></div><div style="font-family:var(--f-mono)">1</div>
+          <div class="crm-ca">CHF 900</div><div style="font-size:11px;color:var(--text-3)">01.08.2026</div>
+          <div><span class="badge b-gray">Ponctuel</span></div>
+        </div>
+        <div class="crm-row" style="background:rgba(124,58,237,.04)">
+          <div><div class="crm-name">Bubo Sàrl <span style="font-size:10px;color:var(--purple-2)">(Partenaire)</span></div><div class="crm-sub">Valais · Viticulture drone · Partenariat commercial</div></div>
+          <div><span class="badge b-purple">Partenaire</span></div><div style="font-family:var(--f-mono)">—</div>
+          <div class="crm-ca" style="color:var(--purple-2)">Accord</div>
+          <div style="font-size:11px;color:var(--text-3)">18.09.2026</div>
+          <div><span class="badge b-purple">Actif</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">BKW Energie AG</div><div class="crm-sub">Berne · Inspection pylônes 225 kV</div></div>
+          <div><span class="badge b-orange">Inspection</span></div><div style="font-family:var(--f-mono)">0</div>
+          <div class="crm-ca" style="color:var(--text-3)">—</div>
+          <div style="font-size:11px;color:var(--text-3)">—</div>
+          <div><span class="badge b-gray">Prospect</span></div>
+        </div>
+        <div class="crm-row">
+          <div><div class="crm-name">IVVV — Interprofession Vigne Valais</div><div class="crm-sub">Sion · Contrat cadre viticulture AOC</div></div>
+          <div><span class="badge b-green">Agri</span></div><div style="font-family:var(--f-mono)">0</div>
+          <div class="crm-ca" style="color:var(--text-3)">—</div>
+          <div style="font-size:11px;color:var(--text-3)">—</div>
+          <div><span class="badge b-gray">Appel d'offres</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ RAPPORT DE MISSION ══════════════════════ -->
+    <div class="view" id="v-rapport">
+      <div class="page-head"><div class="page-title">Rapport de mission</div><div class="page-sub">Compte-rendu post-vol conforme OFAC · MON art. 8.3 · Archivage automatique</div></div>
+      <div class="grid2">
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Informations de la mission</div>
+            <div class="rapport-section">
+              <div class="rapport-section-title">Identification</div>
+              <div class="r-grid2">
+                <div class="form-group"><label class="form-label">N° de vol (carnet)</label><input class="form-input" type="text" value="342"></div>
+                <div class="form-group"><label class="form-label">Date</label><input class="form-input" type="date" value="2026-09-18"></div>
+                <div class="form-group"><label class="form-label">Pilote commandant de bord</label><input class="form-input" type="text" value="Flytech Sàrl — Pilote STS-02"></div>
+                <div class="form-group"><label class="form-label">Appareil</label><select class="form-select"><option selected>DJI FlyCart 30 #01 (FC30-2025-001)</option><option>DJI FlyCart 30 #02</option><option>DJI Agras T50 #01</option></select></div>
+              </div>
+              <div class="form-group"><label class="form-label">Zone d'opération</label><input class="form-input" type="text" placeholder="Ex: Vignoble Farinet, Saillon VS — Parcelle A3"></div>
+              <div class="r-grid3">
+                <div class="form-group"><label class="form-label">Heure décollage</label><input class="form-input" type="time" value="08:45"></div>
+                <div class="form-group"><label class="form-label">Heure atterrissage</label><input class="form-input" type="time" value="10:30"></div>
+                <div class="form-group"><label class="form-label">Altitude max (m MSL)</label><input class="form-input" type="number" value="520"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Conditions météorologiques</div>
+            <div class="rapport-section">
+              <div class="r-grid3">
+                <div class="form-group"><label class="form-label">Vent (kt)</label><input class="form-input" type="number" value="12"></div>
+                <div class="form-group"><label class="form-label">Visibilité (km)</label><input class="form-input" type="number" value="25"></div>
+                <div class="form-group"><label class="form-label">Plafond (ft)</label><input class="form-input" type="number" value="8000"></div>
+              </div>
+              <div class="r-grid2">
+                <div class="form-group"><label class="form-label">Température (°C)</label><input class="form-input" type="number" value="14"></div>
+                <div class="form-group"><label class="form-label">Précipitations</label><select class="form-select"><option selected>Aucune</option><option>Légère pluie</option><option>Brouillard</option><option>Neige</option></select></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Checklist de conformité OFAC</div>
+            <div class="rapport-section">
+              <div id="checklist">
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Autorisation de vol Swiss U-Space obtenue</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Vérification NOTAMs zone d'opération</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Inspection pré-vol appareil complétée</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Batteries vérifiées (charge, température)</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Zone sécurisée — périmètre de sécurité établi</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Communication Skyguide CTR (si applicable)</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Conditions météo dans les limites MON v2.1</span></div>
+                <div class="check-row"><div class="check-box" onclick="toggleCheck(this)"></div><span>Rapport d'incidents (néant si aucun)</span></div>
+                <div class="check-row"><div class="check-box checked" onclick="toggleCheck(this)">✓</div><span>Données vol sauvegardées (DJI FlightHub)</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Observations & Incidents</div>
+            <div class="form-group"><label class="form-label">Observations générales</label><textarea class="form-input" style="min-height:70px" placeholder="Conditions particulières, remarques pilote...">Vol nominal. Conditions optimales. Pas d'incident.</textarea></div>
+            <div class="form-group"><label class="form-label">Incidents / anomalies (aucun si néant)</label><textarea class="form-input" style="min-height:50px" placeholder="Décrire tout incident ou comportement anormal...">Néant.</textarea></div>
+            <div class="form-group"><label class="form-label">Type de mission</label><select class="form-select"><option>Cargo — livraison altitude</option><option selected>Agricole — pulvérisation</option><option>Inspection thermique</option><option>Cartographie / NDVI</option></select></div>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="alert('Simulation : Rapport de mission PDF généré — Vol #342 — conforme OFAC art. 24 OACS. Archivé automatiquement.')">📄 Générer rapport PDF</button>
+              <button class="btn btn-ghost" onclick="alert('Simulation : Rapport enregistré dans le carnet de vol.')">Sauvegarder</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══════════ VEILLE ════════════════════════════════ -->
     <div class="view" id="v-veille">
       <div class="page-head"><div class="page-title">Veille réglementaire</div><div class="page-sub">Actualités OFAC, marché drone, nouvelles technologies · Sources suisses de référence</div></div>
@@ -871,6 +1218,12 @@ function renderVeille() {
       </div>
     </div>`).join('');
   grid.dataset.done = '1';
+}
+
+/* ── Rapport checklist ──────────────────────────────────── */
+function toggleCheck(el) {
+  const checked = el.classList.toggle('checked');
+  el.textContent = checked ? '✓' : '';
 }
 
 /* ── Init ───────────────────────────────────────────────── */
